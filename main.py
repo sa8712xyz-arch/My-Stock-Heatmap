@@ -6,6 +6,7 @@ import requests
 import io
 
 try:
+    # 取得台灣時間
     tw_time = datetime.utcnow() + timedelta(hours=8)
     tw_time_str = tw_time.strftime('%Y-%m-%d %H:%M')
 
@@ -45,12 +46,11 @@ try:
 
     final_df = sp500.merge(performance_df, on='Symbol')
     final_df['Weight'] = 1 
+    final_df['Root'] = "S&P 500 (點擊可放大)" 
     final_df = final_df.dropna()
 
     # --- 折線圖時間序列數據 ---
     cum_returns = ((close_data / close_data.iloc[0]) - 1) * 100
-    
-    # 【年份 Bug 終極修復】加上 %Y (完整年份)，防止 Plotly 將 05-XX 誤判為 2005 年！
     cum_returns.index = pd.to_datetime(cum_returns.index).tz_localize(None).strftime('%Y-%m-%d')
     
     cum_returns_reset = cum_returns.reset_index()
@@ -62,21 +62,22 @@ try:
     print("4. 繪製圖表與產生網頁...")
     fig_treemap = px.treemap(
         final_df,
-        path=[px.Constant("S&P 500 (點擊可放大)"), 'GICS Sector', 'GICS Sub-Industry', 'Symbol'],
+        path=['Root', 'GICS Sector', 'GICS Sub-Industry', 'Symbol'],
         values='Weight',
         color='Daily_Change_%',
         hover_data=['Daily_Change_%', 'Period_Change_%'],
         color_continuous_scale='RdYlGn',
         color_continuous_midpoint=0,
         range_color=[-3, 3],
-        title="1. 美股今日產業熱力圖快照"
+        title="1. 美股今日產業熱力圖快照",
+        height=750  
     )
     fig_treemap.update_layout(margin=dict(t=40, l=10, r=10, b=10))
 
     sector_trend = trend_df.groupby(['Date', 'GICS Sector'])['Return_%'].mean().reset_index()
     fig_sector = px.line(sector_trend, x='Date', y='Return_%', color='GICS Sector', markers=True, title='2. 十大產業 (Sector) 近 10 日資金動能趨勢')
     
-    treemap_html = fig_treemap.to_html(full_html=False, include_plotlyjs='cdn')
+    treemap_html = fig_treemap.to_html(full_html=False, include_plotlyjs=False)
     sector_html = fig_sector.to_html(full_html=False, include_plotlyjs=False) 
 
     sectors = trend_df['GICS Sector'].unique()
@@ -92,18 +93,37 @@ try:
         stock_charts_html += "</div>"
         dropdown_options += f"<option value='chart-{i}'>{sector}</option>"
 
+    # ================== 新增：個股 10 日漲跌幅數據表格 ==================
+    table_df = final_df[['Symbol', 'GICS Sector', 'GICS Sub-Industry', 'Daily_Change_%', 'Period_Change_%']].copy()
+    table_df.columns = ['個股代號', '所屬產業', '子產業', '今日漲幅 (%)', '近10日總漲幅 (%)']
+    # 依照 10 日漲幅由高到低排序
+    table_df = table_df.sort_values(by='近10日總漲幅 (%)', ascending=False)
+    
+    # 轉換成 HTML 表格並套用 CSS 樣式
+    stock_table_html = table_df.to_html(index=False, classes='table table-striped table-hover', float_format="%.2f")
+    # ====================================================================
+
     html_template = f"""
     <!DOCTYPE html>
     <html>
     <head>
         <meta charset="UTF-8">
         <title>美股進階資金輪動儀表板</title>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
         <style>
             body {{ font-family: Arial, sans-serif; margin: 20px; background-color: #f8f9fa; }}
             .container {{ max-width: 1200px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }}
             h1 {{ text-align: center; color: #333; }}
             .dropdown-container {{ margin: 20px 0; padding: 15px; background: #e9ecef; border-radius: 5px; text-align: center; }}
             select {{ padding: 10px; font-size: 16px; border-radius: 5px; cursor: pointer; }}
+            
+            /* 新增表格的專屬 CSS 美化 */
+            .table-container {{ max-height: 500px; overflow-y: auto; margin-top: 20px; border: 1px solid #ddd; border-radius: 5px; }}
+            table {{ width: 100%; border-collapse: collapse; }}
+            th, td {{ padding: 12px; text-align: center; border-bottom: 1px solid #ddd; }}
+            th {{ background-color: #343a40; color: white; position: sticky; top: 0; z-index: 1; }} /* 固定標題列 */
+            tr:nth-child(even) {{ background-color: #f2f2f2; }}
+            tr:hover {{ background-color: #e9ecef; }}
         </style>
         <script>
             function changeSector(chartId) {{
@@ -129,6 +149,13 @@ try:
                 </select>
             </div>
             {stock_charts_html}
+            
+            <hr style="margin: 40px 0;">
+            <h2 style="text-align: center; color: #333;">4. S&P 500 個股排行榜 (近10日漲跌幅)</h2>
+            <p style="text-align: center; color: #666;">※ 表格可上下滑動，已依照「近10日總漲幅」由高至低排序</p>
+            <div class="table-container">
+                {stock_table_html}
+            </div>
         </div>
     </body>
     </html>
