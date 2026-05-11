@@ -1,11 +1,15 @@
 import pandas as pd
 import yfinance as yf
 import plotly.express as px
-from datetime import datetime
+from datetime import datetime, timedelta
 import requests
 import io
 
 try:
+    # 【時區修正】將 GitHub 伺服器時間強制校正為台灣時間 (UTC+8)
+    tw_time = datetime.utcnow() + timedelta(hours=8)
+    tw_time_str = tw_time.strftime('%Y-%m-%d %H:%M')
+
     print("1. 正在從維基百科獲取 S&P 500 最新成分股...")
     url = 'https://en.wikipedia.org/wiki/List_of_S%26P_500_companies'
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
@@ -24,7 +28,6 @@ try:
         close_data = data
         
     print("3. 數據運算與處理中...")
-    # --- 給熱力圖用的單日數據 ---
     if len(close_data) >= 2:
         daily_return = ((close_data.iloc[-1] / close_data.iloc[-2]) - 1) * 100
     else:
@@ -45,11 +48,12 @@ try:
     final_df['Weight'] = 1 
     final_df = final_df.dropna()
 
-    # --- 給折線圖用的 10 日時間序列數據 ---
+    # --- 折線圖時間序列數據 ---
     cum_returns = ((close_data / close_data.iloc[0]) - 1) * 100
-    cum_returns.index = pd.to_datetime(cum_returns.index).strftime('%m-%d')
     
-    # 【關鍵修復】重設索引並強制將第一欄命名為 'Date'，防止 KeyError
+    # 【時間軸修正】消除時區干擾，確保日期完美排序為最新
+    cum_returns.index = pd.to_datetime(cum_returns.index).tz_localize(None).strftime('%m-%d')
+    
     cum_returns_reset = cum_returns.reset_index()
     cum_returns_reset.rename(columns={cum_returns_reset.columns[0]: 'Date'}, inplace=True)
     
@@ -74,7 +78,10 @@ try:
     # 圖表 2：板塊 10 日動能折線圖
     sector_trend = trend_df.groupby(['Date', 'GICS Sector'])['Return_%'].mean().reset_index()
     fig_sector = px.line(sector_trend, x='Date', y='Return_%', color='GICS Sector', markers=True, title='2. 十大產業 (Sector) 近 10 日資金動能趨勢')
-    sector_html = fig_sector.to_html(full_html=False, include_plotlyjs='cdn') 
+    
+    # 【關鍵修復】將 JS 引擎綁定在「第一張圖(Treemap)」，確保所有圖表都能順利讀取顯示
+    treemap_html = fig_treemap.to_html(full_html=False, include_plotlyjs='cdn')
+    sector_html = fig_sector.to_html(full_html=False, include_plotlyjs=False) 
 
     # 圖表 3：個股 10 日動能透視鏡
     sectors = trend_df['GICS Sector'].unique()
@@ -116,8 +123,8 @@ try:
     </head>
     <body>
         <div class="container">
-            <h1>美股資金輪動儀表板 (更新時間: {datetime.now().strftime('%Y-%m-%d')})</h1>
-            {fig_treemap.to_html(full_html=False, include_plotlyjs=False)}
+            <h1>美股資金輪動儀表板 (更新時間: {tw_time_str} 台灣時間)</h1>
+            {treemap_html}
             <hr style="margin: 40px 0;">
             {sector_html}
             <hr style="margin: 40px 0;">
@@ -136,7 +143,7 @@ try:
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(html_template)
 
-    print("✅ 執行完畢！已生成升級版 index.html")
+    print("✅ 執行完畢！已生成完美版 index.html")
 except Exception as e:
     print(f"❌ 發生致命錯誤: {e}")
     raise e
