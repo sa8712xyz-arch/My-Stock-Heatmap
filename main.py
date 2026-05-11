@@ -60,16 +60,32 @@ try:
     trend_df = pd.merge(melted_df, sp500, on='Symbol').dropna()
 
     print("4. 繪製圖表與產生網頁...")
+    
+    # ================== 新增：動態色階計算引擎 ==================
+    # 計算當日漲跌幅的絕對值，並取 95% 的分位數作為顏色的極限值，排除極端暴漲暴跌干擾
+    color_limit = final_df['Daily_Change_%'].abs().quantile(0.95)
+    # 防呆：如果當天波動真的太小，設定一個最低門檻 1.5%，避免些微雜訊被過度放大
+    if pd.isna(color_limit) or color_limit < 1.5:
+        color_limit = 1.5
+    # ==========================================================
+
     fig_treemap = px.treemap(
         final_df,
         path=['Root', 'GICS Sector', 'GICS Sub-Industry', 'Symbol'],
         values='Weight',
         color='Daily_Change_%',
         hover_data=['Daily_Change_%', 'Period_Change_%'],
-        color_continuous_scale='RdYlGn',
+        # 使用高對比五段式色階
+        color_continuous_scale=[
+            (0.00, "#8B0000"), # 深紅 (極弱)
+            (0.25, "#FF4500"), # 亮紅 (偏弱)
+            (0.50, "#FFFFFF"), # 純白 (平盤)
+            (0.75, "#32CD32"), # 亮綠 (偏強)
+            (1.00, "#006400")  # 深綠 (極強)
+        ],
         color_continuous_midpoint=0,
-        range_color=[-3, 3],
-        title="1. 美股今日產業熱力圖快照",
+        range_color=[-color_limit, color_limit],
+        title=f"1. 美股今日產業熱力圖快照 (已啟用動態對比, 視覺極限值: ±{color_limit:.1f}%)",
         height=750  
     )
     fig_treemap.update_layout(margin=dict(t=40, l=10, r=10, b=10))
@@ -93,15 +109,10 @@ try:
         stock_charts_html += "</div>"
         dropdown_options += f"<option value='chart-{i}'>{sector}</option>"
 
-    # ================== 新增：個股 10 日漲跌幅數據表格 ==================
     table_df = final_df[['Symbol', 'GICS Sector', 'GICS Sub-Industry', 'Daily_Change_%', 'Period_Change_%']].copy()
     table_df.columns = ['個股代號', '所屬產業', '子產業', '今日漲幅 (%)', '近10日總漲幅 (%)']
-    # 依照 10 日漲幅由高到低排序
     table_df = table_df.sort_values(by='近10日總漲幅 (%)', ascending=False)
-    
-    # 轉換成 HTML 表格並套用 CSS 樣式
     stock_table_html = table_df.to_html(index=False, classes='table table-striped table-hover', float_format="%.2f")
-    # ====================================================================
 
     html_template = f"""
     <!DOCTYPE html>
@@ -116,12 +127,10 @@ try:
             h1 {{ text-align: center; color: #333; }}
             .dropdown-container {{ margin: 20px 0; padding: 15px; background: #e9ecef; border-radius: 5px; text-align: center; }}
             select {{ padding: 10px; font-size: 16px; border-radius: 5px; cursor: pointer; }}
-            
-            /* 新增表格的專屬 CSS 美化 */
             .table-container {{ max-height: 500px; overflow-y: auto; margin-top: 20px; border: 1px solid #ddd; border-radius: 5px; }}
             table {{ width: 100%; border-collapse: collapse; }}
             th, td {{ padding: 12px; text-align: center; border-bottom: 1px solid #ddd; }}
-            th {{ background-color: #343a40; color: white; position: sticky; top: 0; z-index: 1; }} /* 固定標題列 */
+            th {{ background-color: #343a40; color: white; position: sticky; top: 0; z-index: 1; }}
             tr:nth-child(even) {{ background-color: #f2f2f2; }}
             tr:hover {{ background-color: #e9ecef; }}
         </style>
@@ -149,7 +158,6 @@ try:
                 </select>
             </div>
             {stock_charts_html}
-            
             <hr style="margin: 40px 0;">
             <h2 style="text-align: center; color: #333;">4. S&P 500 個股排行榜 (近10日漲跌幅)</h2>
             <p style="text-align: center; color: #666;">※ 表格可上下滑動，已依照「近10日總漲幅」由高至低排序</p>
@@ -164,7 +172,7 @@ try:
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(html_template)
 
-    print("✅ 執行完畢！已生成完美版 index.html")
+    print("✅ 執行完畢！已生成高對比完美版 index.html")
 except Exception as e:
     print(f"❌ 發生致命錯誤: {e}")
     raise e
