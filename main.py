@@ -49,7 +49,7 @@ try:
     final_df['Root'] = "S&P 500 (點擊可放大)" 
     final_df = final_df.dropna()
 
-    # --- 折線圖時間序列數據 (只保留給板塊使用) ---
+    # --- 折線圖時間序列數據 ---
     cum_returns = ((close_data / close_data.iloc[0]) - 1) * 100
     cum_returns.index = pd.to_datetime(cum_returns.index).tz_localize(None).strftime('%Y-%m-%d')
     
@@ -60,58 +60,34 @@ try:
     trend_df = pd.merge(melted_df, sp500, on='Symbol').dropna()
 
     print("4. 繪製圖表與產生網頁...")
-    color_limit = final_df['Daily_Change_%'].abs().quantile(0.95)
-    if pd.isna(color_limit) or color_limit < 1.5:
-        color_limit = 1.5
-
+    
+    # 【還原 1】你最喜歡的原味熱力圖 (經典 RdYlGn 配色, 範圍 -3 到 3)
     fig_treemap = px.treemap(
         final_df,
         path=['Root', 'GICS Sector', 'GICS Sub-Industry', 'Symbol'],
         values='Weight',
         color='Daily_Change_%',
         hover_data=['Daily_Change_%', 'Period_Change_%'],
-        color_continuous_scale=[
-            (0.00, "#8B0000"),
-            (0.25, "#FF4500"),
-            (0.50, "#FFFFFF"),
-            (0.75, "#32CD32"),
-            (1.00, "#006400")
-        ],
+        color_continuous_scale='RdYlGn',
         color_continuous_midpoint=0,
-        range_color=[-color_limit, color_limit],
-        title=f"1. 美股今日產業熱力圖快照 (動態對比極限值: ±{color_limit:.1f}%)",
+        range_color=[-3, 3],
+        title="1. 美股今日產業熱力圖快照",
         height=750  
     )
     fig_treemap.update_layout(margin=dict(t=40, l=10, r=10, b=10))
 
-    # 第二部分：板塊折線圖 (這只有 11 條線，保留用來看大趨勢)
+    # 【還原 2】原汁原味的十大產業動能折線圖
     sector_trend = trend_df.groupby(['Date', 'GICS Sector'])['Return_%'].mean().reset_index()
     fig_sector = px.line(sector_trend, x='Date', y='Return_%', color='GICS Sector', markers=True, title='2. 十大產業 (Sector) 近 10 日資金動能趨勢')
     
     treemap_html = fig_treemap.to_html(full_html=False, include_plotlyjs=False)
     sector_html = fig_sector.to_html(full_html=False, include_plotlyjs=False) 
 
-    # ================== 核心修改：徹底消滅個股曲線，改為下拉式表格 ==================
-    sectors = final_df['GICS Sector'].unique()
-    dropdown_options = ""
-    stock_tables_html = ""
-
-    for i, sector in enumerate(sectors):
-        # 篩選該板塊的股票
-        sector_df = final_df[final_df['GICS Sector'] == sector][['Symbol', 'GICS Sub-Industry', 'Daily_Change_%', 'Period_Change_%']].copy()
-        sector_df.columns = ['個股代號', '子產業', '今日漲幅 (%)', '近10日總漲幅 (%)']
-        # 依照近10日漲幅由高至低排序
-        sector_df = sector_df.sort_values(by='近10日總漲幅 (%)', ascending=False)
-        
-        # 轉換為 HTML 表格
-        table_html = sector_df.to_html(index=False, classes='table table-striped table-hover', float_format="%.2f")
-        
-        display_style = "block" if i == 0 else "none"
-        stock_tables_html += f"<div id='table-{i}' class='stock-table' style='display:{display_style}; width:100%;'>"
-        stock_tables_html += table_html
-        stock_tables_html += "</div>"
-        dropdown_options += f"<option value='table-{i}'>{sector}</option>"
-    # ==============================================================================
+    # 【保留 3】你截圖裡指定要的「S&P 500 個股總表」
+    table_df = final_df[['Symbol', 'GICS Sector', 'GICS Sub-Industry', 'Daily_Change_%', 'Period_Change_%']].copy()
+    table_df.columns = ['個股代號', '所屬產業', '子產業', '今日漲幅 (%)', '近10日總漲幅 (%)']
+    table_df = table_df.sort_values(by='近10日總漲幅 (%)', ascending=False)
+    stock_table_html = table_df.to_html(index=False, classes='table table-striped table-hover', float_format="%.2f")
 
     html_template = f"""
     <!DOCTYPE html>
@@ -124,26 +100,14 @@ try:
             body {{ font-family: Arial, sans-serif; margin: 20px; background-color: #f8f9fa; }}
             .container {{ max-width: 1200px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }}
             h1 {{ text-align: center; color: #333; }}
-            .dropdown-container {{ margin: 20px 0; padding: 15px; background: #e9ecef; border-radius: 5px; text-align: center; }}
-            select {{ padding: 10px; font-size: 16px; border-radius: 5px; cursor: pointer; }}
-            
             /* 表格的專屬 CSS 美化 */
-            .table-container {{ max-height: 500px; overflow-y: auto; margin-top: 20px; border: 1px solid #ddd; border-radius: 5px; }}
+            .table-container {{ max-height: 800px; overflow-y: auto; margin-top: 20px; border: 1px solid #ddd; border-radius: 5px; }}
             table {{ width: 100%; border-collapse: collapse; }}
             th, td {{ padding: 12px; text-align: center; border-bottom: 1px solid #ddd; }}
             th {{ background-color: #343a40; color: white; position: sticky; top: 0; z-index: 1; }}
             tr:nth-child(even) {{ background-color: #f2f2f2; }}
             tr:hover {{ background-color: #e9ecef; }}
         </style>
-        <script>
-            function changeSector(tableId) {{
-                var tables = document.getElementsByClassName('stock-table');
-                for (var i = 0; i < tables.length; i++) {{
-                    tables[i].style.display = 'none';
-                }}
-                document.getElementById(tableId).style.display = 'block';
-            }}
-        </script>
     </head>
     <body>
         <div class="container">
@@ -152,16 +116,10 @@ try:
             <hr style="margin: 40px 0;">
             {sector_html}
             <hr style="margin: 40px 0;">
-            
-            <h2 style="text-align: center; color: #333;">3. 各板塊內部個股明細表 (近10日漲跌幅)</h2>
-            <div class="dropdown-container">
-                <label for="sector-select" style="font-size: 18px; font-weight: bold;">🔍 選擇板塊以檢視個股：</label>
-                <select id="sector-select" onchange="changeSector(this.value)">
-                    {dropdown_options}
-                </select>
-            </div>
+            <h2 style="text-align: center; color: #333;">3. S&P 500 個股排行榜 (近10日漲跌幅)</h2>
+            <p style="text-align: center; color: #666;">※ 表格可上下滑動，已依照「近10日總漲幅」由高至低排序</p>
             <div class="table-container">
-                {stock_tables_html}
+                {stock_table_html}
             </div>
         </div>
     </body>
@@ -171,7 +129,7 @@ try:
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(html_template)
 
-    print("✅ 執行完畢！已生成無曲線、全表格版 index.html")
+    print("✅ 執行完畢！已生成終極原味版 index.html")
 except Exception as e:
     print(f"❌ 發生致命錯誤: {e}")
     raise e
