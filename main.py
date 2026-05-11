@@ -16,7 +16,6 @@ try:
     tickers = sp500['Symbol'].tolist()
 
     print("2. 正在從 Yahoo Finance 下載近 10 天的歷史價格...")
-    # 將抓取時間拉長為 10 天
     data = yf.download(tickers, period="10d")
     
     if isinstance(data.columns, pd.MultiIndex):
@@ -47,10 +46,14 @@ try:
     final_df = final_df.dropna()
 
     # --- 給折線圖用的 10 日時間序列數據 ---
-    # 計算以第一天為基準的累積漲跌幅
     cum_returns = ((close_data / close_data.iloc[0]) - 1) * 100
     cum_returns.index = pd.to_datetime(cum_returns.index).strftime('%m-%d')
-    melted_df = cum_returns.reset_index().melt(id_vars=['Date'], var_name='Symbol', value_name='Return_%')
+    
+    # 【關鍵修復】重設索引並強制將第一欄命名為 'Date'，防止 KeyError
+    cum_returns_reset = cum_returns.reset_index()
+    cum_returns_reset.rename(columns={cum_returns_reset.columns[0]: 'Date'}, inplace=True)
+    
+    melted_df = cum_returns_reset.melt(id_vars=['Date'], var_name='Symbol', value_name='Return_%')
     trend_df = pd.merge(melted_df, sp500, on='Symbol').dropna()
 
     print("4. 繪製圖表與產生網頁...")
@@ -71,9 +74,9 @@ try:
     # 圖表 2：板塊 10 日動能折線圖
     sector_trend = trend_df.groupby(['Date', 'GICS Sector'])['Return_%'].mean().reset_index()
     fig_sector = px.line(sector_trend, x='Date', y='Return_%', color='GICS Sector', markers=True, title='2. 十大產業 (Sector) 近 10 日資金動能趨勢')
-    sector_html = fig_sector.to_html(full_html=False, include_plotlyjs='cdn') # 第一個圖表載入 js 庫
+    sector_html = fig_sector.to_html(full_html=False, include_plotlyjs='cdn') 
 
-    # 圖表 3：個股 10 日動能透視鏡 (依照板塊分類)
+    # 圖表 3：個股 10 日動能透視鏡
     sectors = trend_df['GICS Sector'].unique()
     dropdown_options = ""
     stock_charts_html = ""
@@ -83,7 +86,6 @@ try:
         fig_stock = px.line(sector_data, x='Date', y='Return_%', color='Symbol', hover_data=['GICS Sub-Industry'], markers=True, title=f'3. 個股動能透視：{sector}')
         display_style = "block" if i == 0 else "none"
         stock_charts_html += f"<div id='chart-{i}' class='stock-chart' style='display:{display_style}; width:100%;'>"
-        # 後續的圖表不需要重複載入 js 庫以加快網頁速度
         stock_charts_html += fig_stock.to_html(full_html=False, include_plotlyjs=False)
         stock_charts_html += "</div>"
         dropdown_options += f"<option value='chart-{i}'>{sector}</option>"
@@ -97,7 +99,7 @@ try:
         <title>美股進階資金輪動儀表板</title>
         <style>
             body {{ font-family: Arial, sans-serif; margin: 20px; background-color: #f8f9fa; }}
-            .container {{ max-width: 1200px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0个0,0.1); }}
+            .container {{ max-width: 1200px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }}
             h1 {{ text-align: center; color: #333; }}
             .dropdown-container {{ margin: 20px 0; padding: 15px; background: #e9ecef; border-radius: 5px; text-align: center; }}
             select {{ padding: 10px; font-size: 16px; border-radius: 5px; cursor: pointer; }}
@@ -115,15 +117,10 @@ try:
     <body>
         <div class="container">
             <h1>美股資金輪動儀表板 (更新時間: {datetime.now().strftime('%Y-%m-%d')})</h1>
-            
             {fig_treemap.to_html(full_html=False, include_plotlyjs=False)}
-            
             <hr style="margin: 40px 0;">
-            
             {sector_html}
-
             <hr style="margin: 40px 0;">
-
             <div class="dropdown-container">
                 <label for="sector-select" style="font-size: 18px; font-weight: bold;">🔍 選擇板塊以檢視內部個股輪動：</label>
                 <select id="sector-select" onchange="changeSector(this.value)">
@@ -131,7 +128,6 @@ try:
                 </select>
             </div>
             {stock_charts_html}
-
         </div>
     </body>
     </html>
