@@ -6,7 +6,6 @@ import requests
 import io
 
 try:
-    # 【時區修正】將 GitHub 伺服器時間強制校正為台灣時間 (UTC+8)
     tw_time = datetime.utcnow() + timedelta(hours=8)
     tw_time_str = tw_time.strftime('%Y-%m-%d %H:%M')
 
@@ -51,8 +50,8 @@ try:
     # --- 折線圖時間序列數據 ---
     cum_returns = ((close_data / close_data.iloc[0]) - 1) * 100
     
-    # 【時間軸修正】消除時區干擾，確保日期完美排序為最新
-    cum_returns.index = pd.to_datetime(cum_returns.index).tz_localize(None).strftime('%m-%d')
+    # 【年份 Bug 終極修復】加上 %Y (完整年份)，防止 Plotly 將 05-XX 誤判為 2005 年！
+    cum_returns.index = pd.to_datetime(cum_returns.index).tz_localize(None).strftime('%Y-%m-%d')
     
     cum_returns_reset = cum_returns.reset_index()
     cum_returns_reset.rename(columns={cum_returns_reset.columns[0]: 'Date'}, inplace=True)
@@ -61,7 +60,6 @@ try:
     trend_df = pd.merge(melted_df, sp500, on='Symbol').dropna()
 
     print("4. 繪製圖表與產生網頁...")
-    # 圖表 1：原版熱力圖
     fig_treemap = px.treemap(
         final_df,
         path=[px.Constant("S&P 500 (點擊可放大)"), 'GICS Sector', 'GICS Sub-Industry', 'Symbol'],
@@ -75,15 +73,12 @@ try:
     )
     fig_treemap.update_layout(margin=dict(t=40, l=10, r=10, b=10))
 
-    # 圖表 2：板塊 10 日動能折線圖
     sector_trend = trend_df.groupby(['Date', 'GICS Sector'])['Return_%'].mean().reset_index()
     fig_sector = px.line(sector_trend, x='Date', y='Return_%', color='GICS Sector', markers=True, title='2. 十大產業 (Sector) 近 10 日資金動能趨勢')
     
-    # 【關鍵修復】將 JS 引擎綁定在「第一張圖(Treemap)」，確保所有圖表都能順利讀取顯示
     treemap_html = fig_treemap.to_html(full_html=False, include_plotlyjs='cdn')
     sector_html = fig_sector.to_html(full_html=False, include_plotlyjs=False) 
 
-    # 圖表 3：個股 10 日動能透視鏡
     sectors = trend_df['GICS Sector'].unique()
     dropdown_options = ""
     stock_charts_html = ""
@@ -97,7 +92,6 @@ try:
         stock_charts_html += "</div>"
         dropdown_options += f"<option value='chart-{i}'>{sector}</option>"
 
-    # 組合最終網頁
     html_template = f"""
     <!DOCTYPE html>
     <html>
