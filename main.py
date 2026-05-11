@@ -8,7 +8,6 @@ import io
 try:
     print("1. 正在從維基百科獲取 S&P 500 最新成分股...")
     url = 'https://en.wikipedia.org/wiki/List_of_S%26P_500_companies'
-    # 加入 User-Agent 偽裝成正常瀏覽器，避免被 GitHub Actions 的 IP 觸發阻擋
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
     response = requests.get(url, headers=headers)
     tables = pd.read_html(io.StringIO(response.text))
@@ -16,76 +15,124 @@ try:
     sp500['Symbol'] = sp500['Symbol'].str.replace('.', '-', regex=False)
     tickers = sp500['Symbol'].tolist()
 
-    print("2. 正在從 Yahoo Finance 下載歷史價格...")
-    data = yf.download(tickers, period="5d")
+    print("2. 正在從 Yahoo Finance 下載近 10 天的歷史價格...")
+    # 將抓取時間拉長為 10 天
+    data = yf.download(tickers, period="10d")
     
-    # 兼容 yfinance 輸出的格式
     if isinstance(data.columns, pd.MultiIndex):
         close_data = data['Close']
     else:
         close_data = data
         
-    print("3. 計算漲跌幅...")
-    # 防呆機制：如果遇到連續休市，確保資料長度足夠計算
+    print("3. 數據運算與處理中...")
+    # --- 給熱力圖用的單日數據 ---
     if len(close_data) >= 2:
         daily_return = ((close_data.iloc[-1] / close_data.iloc[-2]) - 1) * 100
     else:
         daily_return = close_data.iloc[-1] * 0
-        
+
     if len(close_data) >= 1:
-        weekly_return = ((close_data.iloc[-1] / close_data.iloc[0]) - 1) * 100
+        period_return = ((close_data.iloc[-1] / close_data.iloc[0]) - 1) * 100
     else:
-        weekly_return = daily_return
+        period_return = daily_return
 
     performance_df = pd.DataFrame({
         'Symbol': daily_return.index,
         'Daily_Change_%': daily_return.values,
-        'Weekly_Change_%': weekly_return.values
+        'Period_Change_%': period_return.values
     })
 
     final_df = sp500.merge(performance_df, on='Symbol')
     final_df['Weight'] = 1 
     final_df = final_df.dropna()
 
-    print("4. 繪製互動式熱力圖並產出網頁...")
-    fig = px.treemap(
+    # --- 給折線圖用的 10 日時間序列數據 ---
+    # 計算以第一天為基準的累積漲跌幅
+    cum_returns = ((close_data / close_data.iloc[0]) - 1) * 100
+    cum_returns.index = pd.to_datetime(cum_returns.index).strftime('%m-%d')
+    melted_df = cum_returns.reset_index().melt(id_vars=['Date'], var_name='Symbol', value_name='Return_%')
+    trend_df = pd.merge(melted_df, sp500, on='Symbol').dropna()
+
+    print("4. 繪製圖表與產生網頁...")
+    # 圖表 1：原版熱力圖
+    fig_treemap = px.treemap(
         final_df,
-        path=[px.Constant("S&P 500 (美股資金輪動)"), 'GICS Sector', 'GICS Sub-Industry', 'Symbol'],
+        path=[px.Constant("S&P 500 (點擊可放大)"), 'GICS Sector', 'GICS Sub-Industry', 'Symbol'],
         values='Weight',
         color='Daily_Change_%',
-        hover_data=['Daily_Change_%', 'Weekly_Change_%'],
+        hover_data=['Daily_Change_%', 'Period_Change_%'],
         color_continuous_scale='RdYlGn',
         color_continuous_midpoint=0,
         range_color=[-3, 3],
-        title=f"美股產業熱力圖 (更新時間: {datetime.now().strftime('%Y-%m-%d')})"
+        title="1. 美股今日產業熱力圖快照"
     )
-    fig.update_layout(margin=dict(t=50, l=10, r=10, b=10))
+    fig_treemap.update_layout(margin=dict(t=40, l=10, r=10, b=10))
 
-    rotation = final_df.groupby('GICS Sector')['Weekly_Change_%'].mean().sort_values(ascending=False).reset_index()
-    rotation.columns = ['產業 (Sector)', '近5日資金動能 (%)']
-    rotation_html = rotation.to_html(index=False, classes='table table-striped', float_format="%.2f")
+    # 圖表 2：板塊 10 日動能折線圖
+    sector_trend = trend_df.groupby(['Date', 'GICS Sector'])['Return_%'].mean().reset_index()
+    fig_sector = px.line(sector_trend, x='Date', y='Return_%', color='GICS Sector', markers=True, title='2. 十大產業 (Sector) 近 10 日資金動能趨勢')
+    sector_html = fig_sector.to_html(full_html=False, include_plotlyjs='cdn') # 第一個圖表載入 js 庫
 
+    # 圖表 3：個股 10 日動能透視鏡 (依照板塊分類)
+    sectors = trend_df['GICS Sector'].unique()
+    dropdown_options = ""
+    stock_charts_html = ""
+
+    for i, sector in enumerate(sectors):
+        sector_data = trend_df[trend_df['GICS Sector'] == sector]
+        fig_stock = px.line(sector_data, x='Date', y='Return_%', color='Symbol', hover_data=['GICS Sub-Industry'], markers=True, title=f'3. 個股動能透視：{sector}')
+        display_style = "block" if i == 0 else "none"
+        stock_charts_html += f"<div id='chart-{i}' class='stock-chart' style='display:{display_style}; width:100%;'>"
+        # 後續的圖表不需要重複載入 js 庫以加快網頁速度
+        stock_charts_html += fig_stock.to_html(full_html=False, include_plotlyjs=False)
+        stock_charts_html += "</div>"
+        dropdown_options += f"<option value='chart-{i}'>{sector}</option>"
+
+    # 組合最終網頁
     html_template = f"""
     <!DOCTYPE html>
     <html>
     <head>
         <meta charset="UTF-8">
-        <title>美股每日熱力圖與資金輪動</title>
+        <title>美股進階資金輪動儀表板</title>
         <style>
-            body {{ font-family: Arial, sans-serif; margin: 20px; }}
-            .container {{ display: flex; flex-direction: column; align-items: center; }}
-            table {{ border-collapse: collapse; width: 50%; margin-top: 20px; }}
-            th, td {{ border: 1px solid #ddd; padding: 8px; text-align: center; }}
-            th {{ background-color: #f2f2f2; }}
+            body {{ font-family: Arial, sans-serif; margin: 20px; background-color: #f8f9fa; }}
+            .container {{ max-width: 1200px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0个0,0.1); }}
+            h1 {{ text-align: center; color: #333; }}
+            .dropdown-container {{ margin: 20px 0; padding: 15px; background: #e9ecef; border-radius: 5px; text-align: center; }}
+            select {{ padding: 10px; font-size: 16px; border-radius: 5px; cursor: pointer; }}
         </style>
+        <script>
+            function changeSector(chartId) {{
+                var charts = document.getElementsByClassName('stock-chart');
+                for (var i = 0; i < charts.length; i++) {{
+                    charts[i].style.display = 'none';
+                }}
+                document.getElementById(chartId).style.display = 'block';
+            }}
+        </script>
     </head>
     <body>
         <div class="container">
-            <h2>資金輪動排行 (近5日表現)</h2>
-            {rotation_html}
-            <hr style="width:100%">
+            <h1>美股資金輪動儀表板 (更新時間: {datetime.now().strftime('%Y-%m-%d')})</h1>
+            
+            {fig_treemap.to_html(full_html=False, include_plotlyjs=False)}
+            
+            <hr style="margin: 40px 0;">
+            
+            {sector_html}
+
+            <hr style="margin: 40px 0;">
+
+            <div class="dropdown-container">
+                <label for="sector-select" style="font-size: 18px; font-weight: bold;">🔍 選擇板塊以檢視內部個股輪動：</label>
+                <select id="sector-select" onchange="changeSector(this.value)">
+                    {dropdown_options}
+                </select>
+            </div>
+            {stock_charts_html}
+
         </div>
-        {fig.to_html(full_html=False, include_plotlyjs='cdn')}
     </body>
     </html>
     """
@@ -93,7 +140,7 @@ try:
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(html_template)
 
-    print("✅ 執行完畢！已生成 index.html")
+    print("✅ 執行完畢！已生成升級版 index.html")
 except Exception as e:
     print(f"❌ 發生致命錯誤: {e}")
     raise e
