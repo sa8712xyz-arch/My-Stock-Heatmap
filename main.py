@@ -6,7 +6,7 @@ import requests
 import io
 
 try:
-    # 取得台灣時間
+    # 1. 取得台灣時間 (解決 GitHub UTC 時差問題)
     tw_time = datetime.utcnow() + timedelta(hours=8)
     tw_time_str = tw_time.strftime('%Y-%m-%d %H:%M')
 
@@ -46,11 +46,13 @@ try:
 
     final_df = sp500.merge(performance_df, on='Symbol')
     final_df['Weight'] = 1 
+    # 加入根節點，確保所有 Plotly 版本都能順利畫出熱力圖
     final_df['Root'] = "S&P 500 (點擊可放大)" 
     final_df = final_df.dropna()
 
-    # --- 折線圖時間序列數據 ---
+    # --- 產業折線圖專用的時間序列數據 ---
     cum_returns = ((close_data / close_data.iloc[0]) - 1) * 100
+    # 強制保留完整年份 %Y，解決 Plotly 將 05-01 誤判為 2005 年的 Bug
     cum_returns.index = pd.to_datetime(cum_returns.index).tz_localize(None).strftime('%Y-%m-%d')
     
     cum_returns_reset = cum_returns.reset_index()
@@ -61,7 +63,7 @@ try:
 
     print("4. 繪製圖表與產生網頁...")
     
-    # 【還原 1】你最喜歡的原味熱力圖 (經典 RdYlGn 配色, 範圍 -3 到 3)
+    # 【裝備 1】原味經典熱力圖 (RdYlGn, 範圍 -3 到 3)
     fig_treemap = px.treemap(
         final_df,
         path=['Root', 'GICS Sector', 'GICS Sub-Industry', 'Symbol'],
@@ -72,34 +74,37 @@ try:
         color_continuous_midpoint=0,
         range_color=[-3, 3],
         title="1. 美股今日產業熱力圖快照",
-        height=750  
+        height=750  # 強制鎖定高度，避免被瀏覽器壓縮
     )
     fig_treemap.update_layout(margin=dict(t=40, l=10, r=10, b=10))
 
-    # 【還原 2】原汁原味的十大產業動能折線圖
+    # 【裝備 2】十大產業動能折線圖
     sector_trend = trend_df.groupby(['Date', 'GICS Sector'])['Return_%'].mean().reset_index()
     fig_sector = px.line(sector_trend, x='Date', y='Return_%', color='GICS Sector', markers=True, title='2. 十大產業 (Sector) 近 10 日資金動能趨勢')
     
+    # 關閉內建 JS 載入，統一由網頁 <head> 優先載入，防止熱力圖消失
     treemap_html = fig_treemap.to_html(full_html=False, include_plotlyjs=False)
     sector_html = fig_sector.to_html(full_html=False, include_plotlyjs=False) 
 
-    # 【保留 3】你截圖裡指定要的「S&P 500 個股總表」
+    # 【裝備 3】S&P 500 個股總排行表
     table_df = final_df[['Symbol', 'GICS Sector', 'GICS Sub-Industry', 'Daily_Change_%', 'Period_Change_%']].copy()
     table_df.columns = ['個股代號', '所屬產業', '子產業', '今日漲幅 (%)', '近10日總漲幅 (%)']
     table_df = table_df.sort_values(by='近10日總漲幅 (%)', ascending=False)
     stock_table_html = table_df.to_html(index=False, classes='table table-striped table-hover', float_format="%.2f")
 
+    # --- 組合最終網頁 ---
     html_template = f"""
     <!DOCTYPE html>
     <html>
     <head>
         <meta charset="UTF-8">
-        <title>美股進階資金輪動儀表板</title>
+        <title>美股資金輪動儀表板</title>
         <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
         <style>
             body {{ font-family: Arial, sans-serif; margin: 20px; background-color: #f8f9fa; }}
             .container {{ max-width: 1200px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }}
             h1 {{ text-align: center; color: #333; }}
+            
             /* 表格的專屬 CSS 美化 */
             .table-container {{ max-height: 800px; overflow-y: auto; margin-top: 20px; border: 1px solid #ddd; border-radius: 5px; }}
             table {{ width: 100%; border-collapse: collapse; }}
@@ -112,15 +117,21 @@ try:
     <body>
         <div class="container">
             <h1>美股資金輪動儀表板 (更新時間: {tw_time_str} 台灣時間)</h1>
+            
             {treemap_html}
+            
             <hr style="margin: 40px 0;">
+            
             {sector_html}
+            
             <hr style="margin: 40px 0;">
-            <h2 style="text-align: center; color: #333;">3. S&P 500 個股排行榜 (近10日漲跌幅)</h2>
-            <p style="text-align: center; color: #666;">※ 表格可上下滑動，已依照「近10日總漲幅」由高至低排序</p>
+            
+            <h2 style="text-align: center; color: #333;">3. S&P 500 個股排行榜 (近 10 日漲跌幅)</h2>
+            <p style="text-align: center; color: #666;">※ 表格可上下滑動，已依照「近 10 日總漲幅」由高至低排序</p>
             <div class="table-container">
                 {stock_table_html}
             </div>
+            
         </div>
     </body>
     </html>
@@ -129,7 +140,7 @@ try:
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(html_template)
 
-    print("✅ 執行完畢！已生成終極原味版 index.html")
+    print("✅ 執行完畢！已生成最終原味版 index.html")
 except Exception as e:
     print(f"❌ 發生致命錯誤: {e}")
     raise e
