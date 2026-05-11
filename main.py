@@ -48,7 +48,6 @@ try:
 
     # --- 產業折線圖專用的時間序列數據 ---
     cum_returns = ((close_data / close_data.iloc[0]) - 1) * 100
-    # 保留完整 datetime 格式，交給 Plotly 強制繪製
     cum_returns.index = pd.to_datetime(cum_returns.index).tz_localize(None)
     
     cum_returns_reset = cum_returns.reset_index()
@@ -59,11 +58,18 @@ try:
 
     print("4. 繪製圖表與產生網頁...")
 
-    # 【區塊 1】十大產業動能折線圖 (已砍掉熱力圖)
+    # 【區塊 1】十大產業動能折線圖
     sector_trend = trend_df.groupby(['Date', 'GICS Sector'])['Return_%'].mean().reset_index()
     fig_sector = px.line(sector_trend, x='Date', y='Return_%', color='GICS Sector', markers=True, title='1. 十大產業 (Sector) 近 10 日資金動能趨勢')
-    # 強制修正 2005 年錯誤：鎖定 X 軸標籤顯示格式為 年-月-日
     fig_sector.update_xaxes(tickformat="%Y-%m-%d")
+    
+    # ====== 核心修正：強制鎖定圖例，不允許任何線條被隱藏 ======
+    fig_sector.update_layout(
+        legend_itemclick=False,
+        legend_itemdoubleclick=False
+    )
+    # =======================================================
+    
     sector_html = fig_sector.to_html(full_html=False, include_plotlyjs=False) 
 
     # 【區塊 2】S&P 500 個股總排行表
@@ -116,7 +122,7 @@ try:
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(html_template)
 
-    print("✅ 執行完畢！已生成無熱力圖版 index.html")
+    print("✅ 執行完畢！已強制鎖定全部線條顯示")
 except Exception as e:
     print(f"❌ 發生致命錯誤: {e}")
     raise e
