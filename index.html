@@ -3,34 +3,24 @@
     <html>
     <head>
         <meta charset="UTF-8">
-        <title>美股資金輪動儀表板</title>
-        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <title>美股資金輪動監控</title>
         <style>
-            body { font-family: Arial, sans-serif; margin: 20px; background-color: #f8f9fa; }
-            .container { max-width: 1200px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-            h1 { text-align: center; color: #333; }
-            
-            /* 表格的專屬 CSS 美化 */
-            .table-container { max-height: 800px; overflow-y: auto; margin-top: 20px; border: 1px solid #ddd; border-radius: 5px; }
+            body { font-family: sans-serif; margin: 30px; background-color: #f4f7f6; }
+            .container { max-width: 1000px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+            h1, h2 { text-align: center; color: #2c3e50; }
+            .table-container { max-height: 800px; overflow-y: auto; border: 1px solid #eee; }
             table { width: 100%; border-collapse: collapse; }
-            th, td { padding: 12px; text-align: center; border-bottom: 1px solid #ddd; }
-            th { background-color: #343a40; color: white; position: sticky; top: 0; z-index: 1; }
-            tr:nth-child(even) { background-color: #f2f2f2; }
-            tr:hover { background-color: #e9ecef; }
+            th { background: #34495e; color: white; position: sticky; top: 0; padding: 12px; }
+            td { padding: 10px; text-align: center; border-bottom: 1px solid #eee; }
+            tr:hover { background: #f9f9f9; }
         </style>
     </head>
     <body>
         <div class="container">
-            <h1>美股資金輪動儀表板 (更新時間: 2026-05-11 15:53 台灣時間)</h1>
-            
-            <div>                            <div id="559f4d73-73e6-4a10-9630-ed7aa22aa484" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("559f4d73-73e6-4a10-9630-ed7aa22aa484")) {                    Plotly.newPlot(                        "559f4d73-73e6-4a10-9630-ed7aa22aa484",                        [{"hovertemplate":"GICS Sector=Communication Services\u003cbr\u003eDate=%{x}\u003cbr\u003eReturn_%=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Communication Services","line":{"color":"#636efa","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"Communication Services","orientation":"v","showlegend":true,"x":["2026-04-27T00:00:00.000000000","2026-04-28T00:00:00.000000000","2026-04-29T00:00:00.000000000","2026-04-30T00:00:00.000000000","2026-05-01T00:00:00.000000000","2026-05-04T00:00:00.000000000","2026-05-05T00:00:00.000000000","2026-05-06T00:00:00.000000000","2026-05-07T00:00:00.000000000","2026-05-08T00:00:00.000000000"],"xaxis":"x","y":{"dtype":"f8","bdata":"AAAAAAAAAAC1Q\u002fIuK32hvwexaBIF9tq\u002f+JrtIa0s6j\u002fxSdzXKH72P8El9i5abeU\u002fAJ8Ca5uDlL94uehf07H1P3+QT2jG9PQ\u002fahGAd78Q8j8="},"yaxis":"y","type":"scatter"},{"hovertemplate":"GICS Sector=Consumer Discretionary\u003cbr\u003eDate=%{x}\u003cbr\u003eReturn_%=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Consumer Discretionary","line":{"color":"#EF553B","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"Consumer Discretionary","orientation":"v","showlegend":true,"x":["2026-04-27T00:00:00.000000000","2026-04-28T00:00:00.000000000","2026-04-29T00:00:00.000000000","2026-04-30T00:00:00.000000000","2026-05-01T00:00:00.000000000","2026-05-04T00:00:00.000000000","2026-05-05T00:00:00.000000000","2026-05-06T00:00:00.000000000","2026-05-07T00:00:00.000000000","2026-05-08T00:00:00.000000000"],"xaxis":"x","y":{"dtype":"f8","bdata":"AAAAAAAAAAAzSDro0MLuv33vj9m79P+\u002f4\u002fKGRyTR478UNmvf3W34v4Qp\u002f36KNw7A6P3aDYMDDMBNHrH2gFL4v1HTqOSDcgHATG56GHf4B8A="},"yaxis":"y","type":"scatter"},{"hovertemplate":"GICS Sector=Consumer Staples\u003cbr\u003eDate=%{x}\u003cbr\u003eReturn_%=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Consumer Staples","line":{"color":"#00cc96","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"Consumer Staples","orientation":"v","showlegend":true,"x":["2026-04-27T00:00:00.000000000","2026-04-28T00:00:00.000000000","2026-04-29T00:00:00.000000000","2026-04-30T00:00:00.000000000","2026-05-01T00:00:00.000000000","2026-05-04T00:00:00.000000000","2026-05-05T00:00:00.000000000","2026-05-06T00:00:00.000000000","2026-05-07T00:00:00.000000000","2026-05-08T00:00:00.000000000"],"xaxis":"x","y":{"dtype":"f8","bdata":"AAAAAAAAAAB9UdGgbyPoP2wFUUQ8E6W\u002fg78h2IkJ+j9EiqEFHnntPyl86E\u002fPNMY\u002fd6eMcxuu8j+wegzP+378P\u002ftfc8gPBvw\u002fGeYhfoNd+z8="},"yaxis":"y","type":"scatter"},{"hovertemplate":"GICS Sector=Energy\u003cbr\u003eDate=%{x}\u003cbr\u003eReturn_%=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Energy","line":{"color":"#ab63fa","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"Energy","orientation":"v","showlegend":true,"x":["2026-04-27T00:00:00.000000000","2026-04-28T00:00:00.000000000","2026-04-29T00:00:00.000000000","2026-04-30T00:00:00.000000000","2026-05-01T00:00:00.000000000","2026-05-04T00:00:00.000000000","2026-05-05T00:00:00.000000000","2026-05-06T00:00:00.000000000","2026-05-07T00:00:00.000000000","2026-05-08T00:00:00.000000000"],"xaxis":"x","y":{"dtype":"f8","bdata":"AAAAAAAAAACZKzn6HI\u002f3P4AZ7l\u002fKcQ5AAnnJ0JxTFUBlIlnQ3DkOQMbuD49fPRRAuNS73qb7EkDVZP6YXPfPP96+Vepss\u002fy\u002f0tTBa6rTAMA="},"yaxis":"y","type":"scatter"},{"hovertemplate":"GICS Sector=Financials\u003cbr\u003eDate=%{x}\u003cbr\u003eReturn_%=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Financials","line":{"color":"#FFA15A","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"Financials","orientation":"v","showlegend":true,"x":["2026-04-27T00:00:00.000000000","2026-04-28T00:00:00.000000000","2026-04-29T00:00:00.000000000","2026-04-30T00:00:00.000000000","2026-05-01T00:00:00.000000000","2026-05-04T00:00:00.000000000","2026-05-05T00:00:00.000000000","2026-05-06T00:00:00.000000000","2026-05-07T00:00:00.000000000","2026-05-08T00:00:00.000000000"],"xaxis":"x","y":{"dtype":"f8","bdata":"AAAAAAAAAABDAwuxvszNP\u002fnqdaKcg9y\u002fyBF7zKek1j9KPP1p5Ri+PwOUrWEOUtm\u002fYPWtQOiGz78ge6I0f2S2v57D9dT0n+e\u002fbZ53tlny5r8="},"yaxis":"y","type":"scatter"},{"hovertemplate":"GICS Sector=Health Care\u003cbr\u003eDate=%{x}\u003cbr\u003eReturn_%=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Health Care","line":{"color":"#19d3f3","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"Health Care","orientation":"v","showlegend":true,"x":["2026-04-27T00:00:00.000000000","2026-04-28T00:00:00.000000000","2026-04-29T00:00:00.000000000","2026-04-30T00:00:00.000000000","2026-05-01T00:00:00.000000000","2026-05-04T00:00:00.000000000","2026-05-05T00:00:00.000000000","2026-05-06T00:00:00.000000000","2026-05-07T00:00:00.000000000","2026-05-08T00:00:00.000000000"],"xaxis":"x","y":{"dtype":"f8","bdata":"AAAAAAAAAACMdkVaCEjpvyWhA1DTVv6\u002fbwXRFBpy47\u002fQCaeAOSjyv4TINvU0oPe\u002fBA89Az7R4r+pLytwJOa8v1f25Xn2866\u002f\u002fCfDXHlQ278="},"yaxis":"y","type":"scatter"},{"hovertemplate":"GICS Sector=Industrials\u003cbr\u003eDate=%{x}\u003cbr\u003eReturn_%=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Industrials","line":{"color":"#FF6692","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"Industrials","orientation":"v","showlegend":true,"x":["2026-04-27T00:00:00.000000000","2026-04-28T00:00:00.000000000","2026-04-29T00:00:00.000000000","2026-04-30T00:00:00.000000000","2026-05-01T00:00:00.000000000","2026-05-04T00:00:00.000000000","2026-05-05T00:00:00.000000000","2026-05-06T00:00:00.000000000","2026-05-07T00:00:00.000000000","2026-05-08T00:00:00.000000000"],"xaxis":"x","y":{"dtype":"f8","bdata":"AAAAAAAAAACt8sk\u002f9eXuv61U7S3IJvK\u002fCfCF2Vut4T+6C8gtfxnVv52sJrRvqfu\u002fpHgswC4q8L9RMLvXa+DrPw+yDjjKcaO\u002fdclqDlnE4r8="},"yaxis":"y","type":"scatter"},{"hovertemplate":"GICS Sector=Information Technology\u003cbr\u003eDate=%{x}\u003cbr\u003eReturn_%=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Information Technology","line":{"color":"#B6E880","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"Information Technology","orientation":"v","showlegend":true,"x":["2026-04-27T00:00:00.000000000","2026-04-28T00:00:00.000000000","2026-04-29T00:00:00.000000000","2026-04-30T00:00:00.000000000","2026-05-01T00:00:00.000000000","2026-05-04T00:00:00.000000000","2026-05-05T00:00:00.000000000","2026-05-06T00:00:00.000000000","2026-05-07T00:00:00.000000000","2026-05-08T00:00:00.000000000"],"xaxis":"x","y":{"dtype":"f8","bdata":"AAAAAAAAAAAi0wB\u002fKdP7vx68M\u002fqrm9e\u002f3ButxAWY9T+9FuFI74AEQH+6nLjYhghAxK0nJDRbFEAkiiP5GrsYQNanjn+w4BlAgFbxWoDDIkA="},"yaxis":"y","type":"scatter"},{"hovertemplate":"GICS Sector=Materials\u003cbr\u003eDate=%{x}\u003cbr\u003eReturn_%=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Materials","line":{"color":"#FF97FF","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"Materials","orientation":"v","showlegend":true,"x":["2026-04-27T00:00:00.000000000","2026-04-28T00:00:00.000000000","2026-04-29T00:00:00.000000000","2026-04-30T00:00:00.000000000","2026-05-01T00:00:00.000000000","2026-05-04T00:00:00.000000000","2026-05-05T00:00:00.000000000","2026-05-06T00:00:00.000000000","2026-05-07T00:00:00.000000000","2026-05-08T00:00:00.000000000"],"xaxis":"x","y":{"dtype":"f8","bdata":"AAAAAAAAAACCc9ls9vHbv\u002f6dzJM0S\u002fS\u002fNGbjT9\u002fH3L\u002fhLLXzMznhvxVpTjG2Tfu\u002fGTAAgN6EkT+ZSe1clJb\u002fP+wl5qLoLoW\u002fagZRxUnLzT8="},"yaxis":"y","type":"scatter"},{"hovertemplate":"GICS Sector=Real Estate\u003cbr\u003eDate=%{x}\u003cbr\u003eReturn_%=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Real Estate","line":{"color":"#FECB52","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"Real Estate","orientation":"v","showlegend":true,"x":["2026-04-27T00:00:00.000000000","2026-04-28T00:00:00.000000000","2026-04-29T00:00:00.000000000","2026-04-30T00:00:00.000000000","2026-05-01T00:00:00.000000000","2026-05-04T00:00:00.000000000","2026-05-05T00:00:00.000000000","2026-05-06T00:00:00.000000000","2026-05-07T00:00:00.000000000","2026-05-08T00:00:00.000000000"],"xaxis":"x","y":{"dtype":"f8","bdata":"AAAAAAAAAAAET9K43aLwP8PaD2RUUNY\u002fPEQPftKf+j\u002f3p1diK0v6Px4\u002fHEAD+fI\u002fQiF+KvDB\u002fD\u002f7NVkHXF4LQE57URiElwZAvSEE+YZ8BUA="},"yaxis":"y","type":"scatter"},{"hovertemplate":"GICS Sector=Utilities\u003cbr\u003eDate=%{x}\u003cbr\u003eReturn_%=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Utilities","line":{"color":"#636efa","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"Utilities","orientation":"v","showlegend":true,"x":["2026-04-27T00:00:00.000000000","2026-04-28T00:00:00.000000000","2026-04-29T00:00:00.000000000","2026-04-30T00:00:00.000000000","2026-05-01T00:00:00.000000000","2026-05-04T00:00:00.000000000","2026-05-05T00:00:00.000000000","2026-05-06T00:00:00.000000000","2026-05-07T00:00:00.000000000","2026-05-08T00:00:00.000000000"],"xaxis":"x","y":{"dtype":"f8","bdata":"AAAAAAAAAAA25W8tp2GrPxYV9LmrRe2\u002f4BaFCEaa8D9XsJZ7pLvfPwCC4K6BVr0\u002fFNHbwpayu7+2m9VJhhX4v\u002f3d1G5jzgPA\u002fRqOpsFsCsA="},"yaxis":"y","type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"Date"},"tickformat":"%Y-%m-%d"},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"Return_%"}},"legend":{"title":{"text":"GICS Sector"},"tracegroupgap":0},"title":{"text":"1. \u5341\u5927\u7522\u696d (Sector) \u8fd1 10 \u65e5\u8cc7\u91d1\u52d5\u80fd\u8da8\u52e2"}},                        {"responsive": true}                    )                };            </script>        </div>
-            
-            <hr style="margin: 40px 0;">
-            
-            <h2 style="text-align: center; color: #333;">2. S&P 500 個股排行榜 (近 10 日漲跌幅)</h2>
-            <p style="text-align: center; color: #666;">※ 表格可上下滑動，已依照「近 10 日總漲幅」由高至低排序</p>
+            <h1>美股個股排行榜</h1>
+            <p style="text-align: center;">最後更新 (台灣): 2026-05-12 08:31</p>
             <div class="table-container">
-                <table border="1" class="dataframe table table-striped table-hover">
+                <table border="1" class="dataframe table table-striped">
   <thead>
     <tr style="text-align: right;">
       <th>個股代號</th>
@@ -45,3527 +35,3519 @@
       <td>AKAM</td>
       <td>Information Technology</td>
       <td>Internet Services &amp; Infrastructure</td>
-      <td>26.58</td>
-      <td>53.98</td>
-    </tr>
-    <tr>
-      <td>DDOG</td>
-      <td>Information Technology</td>
-      <td>Application Software</td>
-      <td>6.06</td>
-      <td>50.88</td>
-    </tr>
-    <tr>
-      <td>INTC</td>
-      <td>Information Technology</td>
-      <td>Semiconductors</td>
-      <td>13.96</td>
-      <td>46.98</td>
-    </tr>
-    <tr>
-      <td>SNDK</td>
-      <td>Information Technology</td>
-      <td>Technology Hardware, Storage &amp; Peripherals</td>
-      <td>16.60</td>
-      <td>45.99</td>
+      <td>3.59</td>
+      <td>60.34</td>
     </tr>
     <tr>
       <td>QCOM</td>
       <td>Information Technology</td>
       <td>Semiconductors</td>
-      <td>8.17</td>
-      <td>45.81</td>
+      <td>8.42</td>
+      <td>58.35</td>
     </tr>
     <tr>
       <td>MU</td>
       <td>Information Technology</td>
       <td>Semiconductors</td>
-      <td>15.49</td>
-      <td>42.37</td>
+      <td>6.50</td>
+      <td>57.71</td>
     </tr>
     <tr>
-      <td>AMD</td>
+      <td>SNDK</td>
+      <td>Information Technology</td>
+      <td>Technology Hardware, Storage &amp; Peripherals</td>
+      <td>-0.95</td>
+      <td>54.39</td>
+    </tr>
+    <tr>
+      <td>DDOG</td>
+      <td>Information Technology</td>
+      <td>Application Software</td>
+      <td>1.08</td>
+      <td>53.80</td>
+    </tr>
+    <tr>
+      <td>INTC</td>
       <td>Information Technology</td>
       <td>Semiconductors</td>
-      <td>11.44</td>
-      <td>36.03</td>
-    </tr>
-    <tr>
-      <td>FTNT</td>
-      <td>Information Technology</td>
-      <td>Systems Software</td>
-      <td>5.65</td>
-      <td>33.15</td>
-    </tr>
-    <tr>
-      <td>DVA</td>
-      <td>Health Care</td>
-      <td>Health Care Services</td>
-      <td>1.22</td>
-      <td>32.39</td>
+      <td>3.62</td>
+      <td>53.15</td>
     </tr>
     <tr>
       <td>STX</td>
       <td>Information Technology</td>
       <td>Technology Hardware, Storage &amp; Peripherals</td>
-      <td>2.11</td>
-      <td>31.35</td>
+      <td>6.56</td>
+      <td>44.04</td>
     </tr>
     <tr>
-      <td>CNC</td>
-      <td>Health Care</td>
-      <td>Managed Health Care</td>
-      <td>1.78</td>
-      <td>28.64</td>
-    </tr>
-    <tr>
-      <td>SMCI</td>
-      <td>Information Technology</td>
-      <td>Technology Hardware, Storage &amp; Peripherals</td>
-      <td>5.21</td>
-      <td>27.00</td>
-    </tr>
-    <tr>
-      <td>NXPI</td>
+      <td>AMD</td>
       <td>Information Technology</td>
       <td>Semiconductors</td>
-      <td>1.56</td>
-      <td>24.44</td>
-    </tr>
-    <tr>
-      <td>HUM</td>
-      <td>Health Care</td>
-      <td>Managed Health Care</td>
-      <td>11.27</td>
-      <td>22.96</td>
-    </tr>
-    <tr>
-      <td>GNRC</td>
-      <td>Industrials</td>
-      <td>Electrical Components &amp; Equipment</td>
-      <td>1.00</td>
-      <td>22.29</td>
-    </tr>
-    <tr>
-      <td>DOC</td>
-      <td>Real Estate</td>
-      <td>Health Care REITs</td>
-      <td>-0.10</td>
-      <td>21.23</td>
-    </tr>
-    <tr>
-      <td>DELL</td>
-      <td>Information Technology</td>
-      <td>Technology Hardware, Storage &amp; Peripherals</td>
-      <td>13.11</td>
-      <td>20.60</td>
-    </tr>
-    <tr>
-      <td>WDC</td>
-      <td>Information Technology</td>
-      <td>Technology Hardware, Storage &amp; Peripherals</td>
-      <td>3.47</td>
-      <td>19.78</td>
-    </tr>
-    <tr>
-      <td>GEN</td>
-      <td>Information Technology</td>
-      <td>Systems Software</td>
-      <td>12.33</td>
-      <td>19.24</td>
-    </tr>
-    <tr>
-      <td>FFIV</td>
-      <td>Information Technology</td>
-      <td>Communications Equipment</td>
-      <td>2.61</td>
-      <td>18.91</td>
-    </tr>
-    <tr>
-      <td>WAT</td>
-      <td>Health Care</td>
-      <td>Life Sciences Tools &amp; Services</td>
-      <td>1.32</td>
-      <td>18.46</td>
-    </tr>
-    <tr>
-      <td>PWR</td>
-      <td>Industrials</td>
-      <td>Construction &amp; Engineering</td>
-      <td>-0.76</td>
-      <td>16.90</td>
-    </tr>
-    <tr>
-      <td>CBOE</td>
-      <td>Financials</td>
-      <td>Financial Exchanges &amp; Data</td>
-      <td>2.93</td>
-      <td>16.79</td>
-    </tr>
-    <tr>
-      <td>RVTY</td>
-      <td>Health Care</td>
-      <td>Health Care Equipment</td>
-      <td>2.18</td>
-      <td>16.36</td>
-    </tr>
-    <tr>
-      <td>CRWD</td>
-      <td>Information Technology</td>
-      <td>Systems Software</td>
-      <td>4.36</td>
-      <td>16.09</td>
-    </tr>
-    <tr>
-      <td>VTRS</td>
-      <td>Health Care</td>
-      <td>Pharmaceuticals</td>
-      <td>-1.27</td>
-      <td>15.94</td>
-    </tr>
-    <tr>
-      <td>CVS</td>
-      <td>Health Care</td>
-      <td>Health Care Services</td>
-      <td>3.65</td>
-      <td>15.56</td>
-    </tr>
-    <tr>
-      <td>HPQ</td>
-      <td>Information Technology</td>
-      <td>Technology Hardware, Storage &amp; Peripherals</td>
-      <td>8.05</td>
-      <td>14.78</td>
-    </tr>
-    <tr>
-      <td>GOOGL</td>
-      <td>Communication Services</td>
-      <td>Interactive Media &amp; Services</td>
-      <td>0.71</td>
-      <td>14.40</td>
-    </tr>
-    <tr>
-      <td>IRM</td>
-      <td>Real Estate</td>
-      <td>Other Specialized REITs</td>
-      <td>1.60</td>
-      <td>14.27</td>
-    </tr>
-    <tr>
-      <td>IFF</td>
-      <td>Materials</td>
-      <td>Specialty Chemicals</td>
-      <td>3.57</td>
-      <td>14.17</td>
-    </tr>
-    <tr>
-      <td>MCHP</td>
-      <td>Information Technology</td>
-      <td>Semiconductors</td>
-      <td>-2.45</td>
-      <td>14.11</td>
-    </tr>
-    <tr>
-      <td>GOOG</td>
-      <td>Communication Services</td>
-      <td>Interactive Media &amp; Services</td>
-      <td>0.44</td>
-      <td>13.92</td>
-    </tr>
-    <tr>
-      <td>PANW</td>
-      <td>Information Technology</td>
-      <td>Systems Software</td>
-      <td>5.78</td>
-      <td>13.66</td>
-    </tr>
-    <tr>
-      <td>LRCX</td>
-      <td>Information Technology</td>
-      <td>Semiconductor Materials &amp; Equipment</td>
-      <td>2.63</td>
-      <td>13.33</td>
-    </tr>
-    <tr>
-      <td>ORCL</td>
-      <td>Information Technology</td>
-      <td>Application Software</td>
-      <td>0.70</td>
-      <td>13.29</td>
-    </tr>
-    <tr>
-      <td>TSLA</td>
-      <td>Consumer Discretionary</td>
-      <td>Automobile Manufacturers</td>
-      <td>4.02</td>
-      <td>13.12</td>
-    </tr>
-    <tr>
-      <td>BEN</td>
-      <td>Financials</td>
-      <td>Asset Management &amp; Custody Banks</td>
-      <td>1.74</td>
-      <td>12.62</td>
-    </tr>
-    <tr>
-      <td>ARES</td>
-      <td>Financials</td>
-      <td>Asset Management &amp; Custody Banks</td>
-      <td>2.52</td>
-      <td>12.54</td>
-    </tr>
-    <tr>
-      <td>MNST</td>
-      <td>Consumer Staples</td>
-      <td>Soft Drinks &amp; Non-alcoholic Beverages</td>
-      <td>13.58</td>
-      <td>12.27</td>
-    </tr>
-    <tr>
-      <td>HWM</td>
-      <td>Industrials</td>
-      <td>Aerospace &amp; Defense</td>
-      <td>-0.68</td>
-      <td>11.99</td>
-    </tr>
-    <tr>
-      <td>MRNA</td>
-      <td>Health Care</td>
-      <td>Biotechnology</td>
-      <td>11.97</td>
-      <td>11.60</td>
-    </tr>
-    <tr>
-      <td>ROK</td>
-      <td>Industrials</td>
-      <td>Electrical Components &amp; Equipment</td>
-      <td>1.19</td>
-      <td>11.54</td>
-    </tr>
-    <tr>
-      <td>EL</td>
-      <td>Consumer Staples</td>
-      <td>Personal Care Products</td>
-      <td>1.07</td>
-      <td>11.48</td>
-    </tr>
-    <tr>
-      <td>FSLR</td>
-      <td>Information Technology</td>
-      <td>Semiconductors</td>
-      <td>2.51</td>
-      <td>11.38</td>
+      <td>0.79</td>
+      <td>41.95</td>
     </tr>
     <tr>
       <td>GLW</td>
       <td>Information Technology</td>
       <td>Electronic Components</td>
-      <td>2.49</td>
-      <td>11.27</td>
+      <td>10.94</td>
+      <td>35.50</td>
     </tr>
     <tr>
-      <td>FICO</td>
+      <td>FTNT</td>
       <td>Information Technology</td>
-      <td>Application Software</td>
-      <td>-0.21</td>
-      <td>11.06</td>
-    </tr>
-    <tr>
-      <td>GD</td>
-      <td>Industrials</td>
-      <td>Aerospace &amp; Defense</td>
-      <td>-0.35</td>
-      <td>10.88</td>
-    </tr>
-    <tr>
-      <td>ADM</td>
-      <td>Consumer Staples</td>
-      <td>Agricultural Products &amp; Services</td>
-      <td>0.17</td>
-      <td>10.09</td>
-    </tr>
-    <tr>
-      <td>CPAY</td>
-      <td>Financials</td>
-      <td>Transaction &amp; Payment Processing Services</td>
-      <td>12.51</td>
-      <td>9.98</td>
-    </tr>
-    <tr>
-      <td>AAPL</td>
-      <td>Information Technology</td>
-      <td>Technology Hardware, Storage &amp; Peripherals</td>
-      <td>2.05</td>
-      <td>9.61</td>
-    </tr>
-    <tr>
-      <td>HPE</td>
-      <td>Information Technology</td>
-      <td>Technology Hardware, Storage &amp; Peripherals</td>
-      <td>5.56</td>
-      <td>9.54</td>
-    </tr>
-    <tr>
-      <td>CSCO</td>
-      <td>Information Technology</td>
-      <td>Communications Equipment</td>
-      <td>4.79</td>
-      <td>9.42</td>
-    </tr>
-    <tr>
-      <td>KHC</td>
-      <td>Consumer Staples</td>
-      <td>Packaged Foods &amp; Meats</td>
-      <td>1.35</td>
-      <td>9.31</td>
-    </tr>
-    <tr>
-      <td>LLY</td>
-      <td>Health Care</td>
-      <td>Pharmaceuticals</td>
-      <td>-2.72</td>
-      <td>9.23</td>
-    </tr>
-    <tr>
-      <td>IQV</td>
-      <td>Health Care</td>
-      <td>Life Sciences Tools &amp; Services</td>
-      <td>0.04</td>
-      <td>9.08</td>
-    </tr>
-    <tr>
-      <td>FIX</td>
-      <td>Industrials</td>
-      <td>Construction &amp; Engineering</td>
-      <td>0.53</td>
-      <td>8.83</td>
-    </tr>
-    <tr>
-      <td>NTAP</td>
-      <td>Information Technology</td>
-      <td>Technology Hardware, Storage &amp; Peripherals</td>
-      <td>4.42</td>
-      <td>8.82</td>
-    </tr>
-    <tr>
-      <td>IBKR</td>
-      <td>Financials</td>
-      <td>Investment Banking &amp; Brokerage</td>
-      <td>0.85</td>
-      <td>8.80</td>
-    </tr>
-    <tr>
-      <td>CCI</td>
-      <td>Real Estate</td>
-      <td>Telecom Tower REITs</td>
-      <td>-0.55</td>
-      <td>8.55</td>
-    </tr>
-    <tr>
-      <td>WDAY</td>
-      <td>Information Technology</td>
-      <td>Application Software</td>
-      <td>-2.33</td>
-      <td>8.49</td>
-    </tr>
-    <tr>
-      <td>UAL</td>
-      <td>Industrials</td>
-      <td>Passenger Airlines</td>
-      <td>-0.12</td>
-      <td>8.36</td>
-    </tr>
-    <tr>
-      <td>CARR</td>
-      <td>Industrials</td>
-      <td>Building Products</td>
-      <td>-0.58</td>
-      <td>8.33</td>
-    </tr>
-    <tr>
-      <td>CAT</td>
-      <td>Industrials</td>
-      <td>Construction Machinery &amp; Heavy Transportation Equipment</td>
-      <td>0.20</td>
-      <td>8.28</td>
-    </tr>
-    <tr>
-      <td>IVZ</td>
-      <td>Financials</td>
-      <td>Asset Management &amp; Custody Banks</td>
-      <td>2.83</td>
-      <td>8.28</td>
-    </tr>
-    <tr>
-      <td>CIEN</td>
-      <td>Information Technology</td>
-      <td>Communications Equipment</td>
-      <td>1.74</td>
-      <td>8.25</td>
-    </tr>
-    <tr>
-      <td>LUV</td>
-      <td>Industrials</td>
-      <td>Passenger Airlines</td>
-      <td>-0.19</td>
-      <td>8.14</td>
-    </tr>
-    <tr>
-      <td>APO</td>
-      <td>Financials</td>
-      <td>Asset Management &amp; Custody Banks</td>
-      <td>4.23</td>
-      <td>8.00</td>
-    </tr>
-    <tr>
-      <td>ADP</td>
-      <td>Industrials</td>
-      <td>Human Resource &amp; Employment Services</td>
-      <td>-0.51</td>
-      <td>8.00</td>
-    </tr>
-    <tr>
-      <td>WST</td>
-      <td>Health Care</td>
-      <td>Health Care Supplies</td>
-      <td>1.21</td>
-      <td>7.93</td>
-    </tr>
-    <tr>
-      <td>GDDY</td>
-      <td>Information Technology</td>
-      <td>Internet Services &amp; Infrastructure</td>
-      <td>1.42</td>
-      <td>7.89</td>
-    </tr>
-    <tr>
-      <td>CDNS</td>
-      <td>Information Technology</td>
-      <td>Application Software</td>
-      <td>1.63</td>
-      <td>7.77</td>
-    </tr>
-    <tr>
-      <td>MPC</td>
-      <td>Energy</td>
-      <td>Oil &amp; Gas Refining &amp; Marketing</td>
-      <td>1.08</td>
-      <td>7.77</td>
-    </tr>
-    <tr>
-      <td>VRSN</td>
-      <td>Information Technology</td>
-      <td>Internet Services &amp; Infrastructure</td>
-      <td>3.50</td>
-      <td>7.58</td>
-    </tr>
-    <tr>
-      <td>AMAT</td>
-      <td>Information Technology</td>
-      <td>Semiconductor Materials &amp; Equipment</td>
-      <td>6.04</td>
-      <td>7.55</td>
-    </tr>
-    <tr>
-      <td>DAL</td>
-      <td>Industrials</td>
-      <td>Passenger Airlines</td>
-      <td>0.30</td>
-      <td>7.52</td>
-    </tr>
-    <tr>
-      <td>PTC</td>
-      <td>Information Technology</td>
-      <td>Application Software</td>
-      <td>-0.68</td>
-      <td>7.51</td>
-    </tr>
-    <tr>
-      <td>SWKS</td>
-      <td>Information Technology</td>
-      <td>Semiconductors</td>
-      <td>2.68</td>
-      <td>7.50</td>
-    </tr>
-    <tr>
-      <td>TSN</td>
-      <td>Consumer Staples</td>
-      <td>Packaged Foods &amp; Meats</td>
-      <td>0.65</td>
-      <td>7.50</td>
-    </tr>
-    <tr>
-      <td>EBAY</td>
-      <td>Consumer Discretionary</td>
-      <td>Broadline Retail</td>
-      <td>1.19</td>
-      <td>7.38</td>
-    </tr>
-    <tr>
-      <td>TXN</td>
-      <td>Information Technology</td>
-      <td>Semiconductors</td>
-      <td>0.90</td>
-      <td>7.33</td>
-    </tr>
-    <tr>
-      <td>MDLZ</td>
-      <td>Consumer Staples</td>
-      <td>Packaged Foods &amp; Meats</td>
-      <td>0.39</td>
-      <td>7.19</td>
-    </tr>
-    <tr>
-      <td>SBUX</td>
-      <td>Consumer Discretionary</td>
-      <td>Restaurants</td>
-      <td>0.64</td>
-      <td>7.19</td>
-    </tr>
-    <tr>
-      <td>UNH</td>
-      <td>Health Care</td>
-      <td>Managed Health Care</td>
-      <td>2.77</td>
-      <td>7.13</td>
-    </tr>
-    <tr>
-      <td>BIIB</td>
-      <td>Health Care</td>
-      <td>Biotechnology</td>
-      <td>1.08</td>
-      <td>7.07</td>
-    </tr>
-    <tr>
-      <td>CASY</td>
-      <td>Consumer Staples</td>
-      <td>Food Retail</td>
-      <td>1.00</td>
-      <td>6.91</td>
-    </tr>
-    <tr>
-      <td>UDR</td>
-      <td>Real Estate</td>
-      <td>Multi-Family Residential REITs</td>
-      <td>-0.05</td>
-      <td>6.86</td>
-    </tr>
-    <tr>
-      <td>HST</td>
-      <td>Real Estate</td>
-      <td>Hotel &amp; Resort REITs</td>
-      <td>2.77</td>
-      <td>6.66</td>
-    </tr>
-    <tr>
-      <td>IT</td>
-      <td>Information Technology</td>
-      <td>IT Consulting &amp; Other Services</td>
-      <td>0.55</td>
-      <td>6.63</td>
-    </tr>
-    <tr>
-      <td>DD</td>
-      <td>Materials</td>
-      <td>Specialty Chemicals</td>
-      <td>2.89</td>
-      <td>6.58</td>
-    </tr>
-    <tr>
-      <td>GWW</td>
-      <td>Industrials</td>
-      <td>Industrial Machinery &amp; Supplies &amp; Components</td>
-      <td>-0.03</td>
-      <td>6.53</td>
-    </tr>
-    <tr>
-      <td>RCL</td>
-      <td>Consumer Discretionary</td>
-      <td>Hotels, Resorts &amp; Cruise Lines</td>
-      <td>-2.00</td>
-      <td>6.32</td>
-    </tr>
-    <tr>
-      <td>PM</td>
-      <td>Consumer Staples</td>
-      <td>Tobacco</td>
-      <td>-0.07</td>
-      <td>6.27</td>
-    </tr>
-    <tr>
-      <td>ELV</td>
-      <td>Health Care</td>
-      <td>Managed Health Care</td>
-      <td>1.38</td>
-      <td>6.16</td>
-    </tr>
-    <tr>
-      <td>ADI</td>
-      <td>Information Technology</td>
-      <td>Semiconductors</td>
-      <td>1.96</td>
-      <td>6.10</td>
-    </tr>
-    <tr>
-      <td>TMUS</td>
-      <td>Communication Services</td>
-      <td>Wireless Telecommunication Services</td>
-      <td>-0.29</td>
-      <td>5.95</td>
-    </tr>
-    <tr>
-      <td>NUE</td>
-      <td>Materials</td>
-      <td>Steel</td>
-      <td>0.35</td>
-      <td>5.81</td>
-    </tr>
-    <tr>
-      <td>EXPD</td>
-      <td>Industrials</td>
-      <td>Air Freight &amp; Logistics</td>
-      <td>3.18</td>
-      <td>5.80</td>
-    </tr>
-    <tr>
-      <td>KEYS</td>
-      <td>Information Technology</td>
-      <td>Electronic Equipment &amp; Instruments</td>
-      <td>1.48</td>
-      <td>5.77</td>
-    </tr>
-    <tr>
-      <td>ADBE</td>
-      <td>Information Technology</td>
-      <td>Application Software</td>
-      <td>-1.35</td>
-      <td>5.74</td>
-    </tr>
-    <tr>
-      <td>PKG</td>
-      <td>Materials</td>
-      <td>Paper &amp; Plastic Packaging Products &amp; Materials</td>
-      <td>0.52</td>
-      <td>5.67</td>
-    </tr>
-    <tr>
-      <td>AVB</td>
-      <td>Real Estate</td>
-      <td>Multi-Family Residential REITs</td>
-      <td>-0.92</td>
-      <td>5.62</td>
-    </tr>
-    <tr>
-      <td>DIS</td>
-      <td>Communication Services</td>
-      <td>Movies &amp; Entertainment</td>
-      <td>-0.59</td>
-      <td>5.54</td>
-    </tr>
-    <tr>
-      <td>INVH</td>
-      <td>Real Estate</td>
-      <td>Single-Family Residential REITs</td>
-      <td>-0.83</td>
-      <td>5.51</td>
-    </tr>
-    <tr>
-      <td>PRU</td>
-      <td>Financials</td>
-      <td>Life &amp; Health Insurance</td>
-      <td>1.38</td>
-      <td>5.46</td>
-    </tr>
-    <tr>
-      <td>VRT</td>
-      <td>Industrials</td>
-      <td>Electrical Components &amp; Equipment</td>
-      <td>-0.01</td>
-      <td>5.44</td>
-    </tr>
-    <tr>
-      <td>ON</td>
-      <td>Information Technology</td>
-      <td>Semiconductors</td>
-      <td>2.57</td>
-      <td>5.26</td>
-    </tr>
-    <tr>
-      <td>EQR</td>
-      <td>Real Estate</td>
-      <td>Multi-Family Residential REITs</td>
-      <td>-0.49</td>
-      <td>5.17</td>
-    </tr>
-    <tr>
-      <td>SOLV</td>
-      <td>Health Care</td>
-      <td>Health Care Technology</td>
-      <td>2.41</td>
-      <td>5.16</td>
+      <td>Systems Software</td>
+      <td>1.20</td>
+      <td>34.67</td>
     </tr>
     <tr>
       <td>LITE</td>
       <td>Information Technology</td>
       <td>Communications Equipment</td>
-      <td>1.26</td>
-      <td>5.13</td>
+      <td>16.52</td>
+      <td>33.07</td>
     </tr>
     <tr>
-      <td>XYZ</td>
-      <td>Financials</td>
-      <td>Transaction &amp; Payment Processing Services</td>
-      <td>6.72</td>
-      <td>5.01</td>
+      <td>NXPI</td>
+      <td>Information Technology</td>
+      <td>Semiconductors</td>
+      <td>3.81</td>
+      <td>32.81</td>
     </tr>
     <tr>
-      <td>TDG</td>
+      <td>DVA</td>
+      <td>Health Care</td>
+      <td>Health Care Services</td>
+      <td>0.14</td>
+      <td>32.56</td>
+    </tr>
+    <tr>
+      <td>WDC</td>
+      <td>Information Technology</td>
+      <td>Technology Hardware, Storage &amp; Peripherals</td>
+      <td>7.46</td>
+      <td>31.93</td>
+    </tr>
+    <tr>
+      <td>GNRC</td>
       <td>Industrials</td>
-      <td>Aerospace &amp; Defense</td>
-      <td>-2.17</td>
-      <td>4.90</td>
-    </tr>
-    <tr>
-      <td>PSKY</td>
-      <td>Communication Services</td>
-      <td>Movies &amp; Entertainment</td>
-      <td>3.07</td>
-      <td>4.72</td>
-    </tr>
-    <tr>
-      <td>IEX</td>
-      <td>Industrials</td>
-      <td>Industrial Machinery &amp; Supplies &amp; Components</td>
-      <td>0.95</td>
-      <td>4.60</td>
-    </tr>
-    <tr>
-      <td>PSX</td>
-      <td>Energy</td>
-      <td>Oil &amp; Gas Refining &amp; Marketing</td>
-      <td>1.93</td>
-      <td>4.55</td>
-    </tr>
-    <tr>
-      <td>SATS</td>
-      <td>Communication Services</td>
-      <td>Wireless Telecommunication Services</td>
-      <td>3.69</td>
-      <td>4.54</td>
-    </tr>
-    <tr>
-      <td>STLD</td>
-      <td>Materials</td>
-      <td>Steel</td>
-      <td>0.94</td>
-      <td>4.47</td>
-    </tr>
-    <tr>
-      <td>PAYX</td>
-      <td>Industrials</td>
-      <td>Human Resource &amp; Employment Services</td>
-      <td>-0.35</td>
-      <td>4.45</td>
-    </tr>
-    <tr>
-      <td>AMZN</td>
-      <td>Consumer Discretionary</td>
-      <td>Broadline Retail</td>
-      <td>0.56</td>
-      <td>4.43</td>
-    </tr>
-    <tr>
-      <td>GE</td>
-      <td>Industrials</td>
-      <td>Aerospace &amp; Defense</td>
-      <td>-1.81</td>
-      <td>4.42</td>
-    </tr>
-    <tr>
-      <td>LYV</td>
-      <td>Communication Services</td>
-      <td>Movies &amp; Entertainment</td>
-      <td>-1.49</td>
-      <td>4.34</td>
+      <td>Electrical Components &amp; Equipment</td>
+      <td>0.74</td>
+      <td>25.00</td>
     </tr>
     <tr>
       <td>COHR</td>
       <td>Information Technology</td>
       <td>Electronic Components</td>
-      <td>5.03</td>
-      <td>4.27</td>
+      <td>13.25</td>
+      <td>24.91</td>
     </tr>
     <tr>
-      <td>JBL</td>
-      <td>Information Technology</td>
-      <td>Electronic Manufacturing Services</td>
-      <td>1.59</td>
-      <td>4.21</td>
-    </tr>
-    <tr>
-      <td>SJM</td>
-      <td>Consumer Staples</td>
-      <td>Packaged Foods &amp; Meats</td>
-      <td>-0.19</td>
-      <td>4.11</td>
-    </tr>
-    <tr>
-      <td>EME</td>
+      <td>PWR</td>
       <td>Industrials</td>
       <td>Construction &amp; Engineering</td>
-      <td>-0.26</td>
-      <td>4.09</td>
+      <td>4.88</td>
+      <td>23.84</td>
     </tr>
     <tr>
-      <td>FRT</td>
-      <td>Real Estate</td>
-      <td>Retail REITs</td>
-      <td>0.01</td>
-      <td>4.06</td>
-    </tr>
-    <tr>
-      <td>ADSK</td>
-      <td>Information Technology</td>
-      <td>Application Software</td>
-      <td>-2.61</td>
-      <td>4.03</td>
-    </tr>
-    <tr>
-      <td>CL</td>
-      <td>Consumer Staples</td>
-      <td>Household Products</td>
-      <td>0.22</td>
-      <td>4.02</td>
-    </tr>
-    <tr>
-      <td>KO</td>
-      <td>Consumer Staples</td>
-      <td>Soft Drinks &amp; Non-alcoholic Beverages</td>
-      <td>-0.01</td>
-      <td>3.95</td>
-    </tr>
-    <tr>
-      <td>TROW</td>
-      <td>Financials</td>
-      <td>Asset Management &amp; Custody Banks</td>
-      <td>1.68</td>
-      <td>3.92</td>
-    </tr>
-    <tr>
-      <td>LII</td>
-      <td>Industrials</td>
-      <td>Building Products</td>
-      <td>-1.02</td>
-      <td>3.79</td>
-    </tr>
-    <tr>
-      <td>BX</td>
-      <td>Financials</td>
-      <td>Asset Management &amp; Custody Banks</td>
-      <td>1.18</td>
-      <td>3.78</td>
-    </tr>
-    <tr>
-      <td>SW</td>
-      <td>Materials</td>
-      <td>Paper &amp; Plastic Packaging Products &amp; Materials</td>
-      <td>-0.19</td>
-      <td>3.77</td>
-    </tr>
-    <tr>
-      <td>CRL</td>
-      <td>Health Care</td>
-      <td>Life Sciences Tools &amp; Services</td>
-      <td>-2.23</td>
-      <td>3.73</td>
-    </tr>
-    <tr>
-      <td>VEEV</td>
-      <td>Health Care</td>
-      <td>Health Care Technology</td>
-      <td>-1.14</td>
-      <td>3.67</td>
-    </tr>
-    <tr>
-      <td>SNPS</td>
-      <td>Information Technology</td>
-      <td>Application Software</td>
-      <td>2.23</td>
-      <td>3.60</td>
-    </tr>
-    <tr>
-      <td>TRGP</td>
-      <td>Energy</td>
-      <td>Oil &amp; Gas Storage &amp; Transportation</td>
-      <td>-1.71</td>
-      <td>3.35</td>
-    </tr>
-    <tr>
-      <td>HAS</td>
-      <td>Consumer Discretionary</td>
-      <td>Leisure Products</td>
-      <td>0.40</td>
-      <td>3.26</td>
-    </tr>
-    <tr>
-      <td>MO</td>
-      <td>Consumer Staples</td>
-      <td>Tobacco</td>
-      <td>-1.33</td>
-      <td>3.21</td>
-    </tr>
-    <tr>
-      <td>MAA</td>
-      <td>Real Estate</td>
-      <td>Multi-Family Residential REITs</td>
-      <td>-0.81</td>
-      <td>3.13</td>
-    </tr>
-    <tr>
-      <td>TTWO</td>
-      <td>Communication Services</td>
-      <td>Interactive Home Entertainment</td>
-      <td>-1.36</td>
-      <td>3.12</td>
-    </tr>
-    <tr>
-      <td>EFX</td>
-      <td>Industrials</td>
-      <td>Research &amp; Consulting Services</td>
-      <td>0.12</td>
-      <td>3.08</td>
-    </tr>
-    <tr>
-      <td>VTR</td>
+      <td>DOC</td>
       <td>Real Estate</td>
       <td>Health Care REITs</td>
-      <td>0.82</td>
-      <td>3.02</td>
+      <td>0.61</td>
+      <td>23.12</td>
     </tr>
     <tr>
-      <td>AIG</td>
-      <td>Financials</td>
-      <td>Multi-line Insurance</td>
-      <td>-0.09</td>
-      <td>3.01</td>
+      <td>SMCI</td>
+      <td>Information Technology</td>
+      <td>Technology Hardware, Storage &amp; Peripherals</td>
+      <td>-5.23</td>
+      <td>23.01</td>
     </tr>
     <tr>
-      <td>AIZ</td>
-      <td>Financials</td>
-      <td>Multi-line Insurance</td>
-      <td>2.51</td>
-      <td>2.99</td>
+      <td>CIEN</td>
+      <td>Information Technology</td>
+      <td>Communications Equipment</td>
+      <td>6.09</td>
+      <td>22.75</td>
     </tr>
     <tr>
-      <td>INCY</td>
+      <td>VRT</td>
+      <td>Industrials</td>
+      <td>Electrical Components &amp; Equipment</td>
+      <td>8.22</td>
+      <td>20.62</td>
+    </tr>
+    <tr>
+      <td>DELL</td>
+      <td>Information Technology</td>
+      <td>Technology Hardware, Storage &amp; Peripherals</td>
+      <td>-5.15</td>
+      <td>19.96</td>
+    </tr>
+    <tr>
+      <td>HUM</td>
       <td>Health Care</td>
-      <td>Biotechnology</td>
-      <td>0.81</td>
-      <td>2.97</td>
+      <td>Managed Health Care</td>
+      <td>-0.25</td>
+      <td>19.39</td>
     </tr>
     <tr>
-      <td>V</td>
-      <td>Financials</td>
-      <td>Transaction &amp; Payment Processing Services</td>
-      <td>-0.78</td>
-      <td>2.95</td>
+      <td>CRWD</td>
+      <td>Information Technology</td>
+      <td>Systems Software</td>
+      <td>2.75</td>
+      <td>19.18</td>
     </tr>
     <tr>
-      <td>PLD</td>
-      <td>Real Estate</td>
-      <td>Industrial REITs</td>
-      <td>1.27</td>
-      <td>2.91</td>
-    </tr>
-    <tr>
-      <td>TXT</td>
-      <td>Industrials</td>
-      <td>Aerospace &amp; Defense</td>
-      <td>-0.63</td>
-      <td>2.86</td>
-    </tr>
-    <tr>
-      <td>CMI</td>
-      <td>Industrials</td>
-      <td>Construction Machinery &amp; Heavy Transportation Equipment</td>
-      <td>-0.49</td>
-      <td>2.84</td>
-    </tr>
-    <tr>
-      <td>AVGO</td>
+      <td>FSLR</td>
       <td>Information Technology</td>
       <td>Semiconductors</td>
-      <td>4.23</td>
-      <td>2.82</td>
+      <td>6.06</td>
+      <td>19.10</td>
     </tr>
     <tr>
-      <td>GILD</td>
-      <td>Health Care</td>
-      <td>Biotechnology</td>
-      <td>-2.04</td>
-      <td>2.80</td>
+      <td>TSLA</td>
+      <td>Consumer Discretionary</td>
+      <td>Automobile Manufacturers</td>
+      <td>3.89</td>
+      <td>18.34</td>
     </tr>
     <tr>
-      <td>EXR</td>
-      <td>Real Estate</td>
-      <td>Self-Storage REITs</td>
-      <td>0.02</td>
-      <td>2.69</td>
-    </tr>
-    <tr>
-      <td>BLK</td>
-      <td>Financials</td>
-      <td>Asset Management &amp; Custody Banks</td>
-      <td>1.60</td>
-      <td>2.65</td>
-    </tr>
-    <tr>
-      <td>ESS</td>
-      <td>Real Estate</td>
-      <td>Multi-Family Residential REITs</td>
-      <td>-1.43</td>
-      <td>2.62</td>
-    </tr>
-    <tr>
-      <td>BA</td>
+      <td>FIX</td>
       <td>Industrials</td>
-      <td>Aerospace &amp; Defense</td>
-      <td>2.74</td>
-      <td>2.61</td>
+      <td>Construction &amp; Engineering</td>
+      <td>4.13</td>
+      <td>18.25</td>
     </tr>
     <tr>
-      <td>CAG</td>
-      <td>Consumer Staples</td>
-      <td>Packaged Foods &amp; Meats</td>
-      <td>-1.60</td>
-      <td>2.59</td>
+      <td>PANW</td>
+      <td>Information Technology</td>
+      <td>Systems Software</td>
+      <td>2.78</td>
+      <td>18.05</td>
     </tr>
     <tr>
-      <td>NWS</td>
-      <td>Communication Services</td>
-      <td>Publishing</td>
-      <td>1.49</td>
-      <td>2.49</td>
+      <td>FFIV</td>
+      <td>Information Technology</td>
+      <td>Communications Equipment</td>
+      <td>1.21</td>
+      <td>17.94</td>
     </tr>
     <tr>
-      <td>KMI</td>
-      <td>Energy</td>
-      <td>Oil &amp; Gas Storage &amp; Transportation</td>
-      <td>-0.35</td>
-      <td>2.42</td>
-    </tr>
-    <tr>
-      <td>WMT</td>
-      <td>Consumer Staples</td>
-      <td>Consumer Staples Merchandise Retail</td>
-      <td>0.37</td>
-      <td>2.42</td>
-    </tr>
-    <tr>
-      <td>Q</td>
+      <td>LRCX</td>
       <td>Information Technology</td>
       <td>Semiconductor Materials &amp; Equipment</td>
-      <td>2.60</td>
-      <td>2.42</td>
+      <td>0.68</td>
+      <td>17.84</td>
     </tr>
     <tr>
-      <td>KDP</td>
-      <td>Consumer Staples</td>
-      <td>Soft Drinks &amp; Non-alcoholic Beverages</td>
-      <td>1.09</td>
-      <td>2.42</td>
-    </tr>
-    <tr>
-      <td>BXP</td>
-      <td>Real Estate</td>
-      <td>Office REITs</td>
-      <td>-0.05</td>
-      <td>2.41</td>
-    </tr>
-    <tr>
-      <td>EG</td>
-      <td>Financials</td>
-      <td>Reinsurance</td>
+      <td>MCHP</td>
+      <td>Information Technology</td>
+      <td>Semiconductors</td>
       <td>-0.06</td>
-      <td>2.33</td>
+      <td>17.53</td>
     </tr>
     <tr>
-      <td>NWSA</td>
-      <td>Communication Services</td>
-      <td>Publishing</td>
-      <td>-0.07</td>
-      <td>2.31</td>
+      <td>ORCL</td>
+      <td>Information Technology</td>
+      <td>Application Software</td>
+      <td>-1.08</td>
+      <td>16.80</td>
     </tr>
     <tr>
-      <td>COIN</td>
+      <td>AMAT</td>
+      <td>Information Technology</td>
+      <td>Semiconductor Materials &amp; Equipment</td>
+      <td>1.88</td>
+      <td>16.40</td>
+    </tr>
+    <tr>
+      <td>GEN</td>
+      <td>Information Technology</td>
+      <td>Systems Software</td>
+      <td>-1.23</td>
+      <td>16.36</td>
+    </tr>
+    <tr>
+      <td>RVTY</td>
+      <td>Health Care</td>
+      <td>Health Care Equipment</td>
+      <td>-2.03</td>
+      <td>16.17</td>
+    </tr>
+    <tr>
+      <td>WAT</td>
+      <td>Health Care</td>
+      <td>Life Sciences Tools &amp; Services</td>
+      <td>-1.99</td>
+      <td>15.74</td>
+    </tr>
+    <tr>
+      <td>CBOE</td>
       <td>Financials</td>
       <td>Financial Exchanges &amp; Data</td>
-      <td>4.25</td>
-      <td>2.28</td>
+      <td>0.55</td>
+      <td>15.43</td>
     </tr>
     <tr>
-      <td>ZBRA</td>
+      <td>IRM</td>
+      <td>Real Estate</td>
+      <td>Other Specialized REITs</td>
+      <td>0.87</td>
+      <td>15.40</td>
+    </tr>
+    <tr>
+      <td>SWKS</td>
       <td>Information Technology</td>
-      <td>Electronic Equipment &amp; Instruments</td>
-      <td>-1.13</td>
-      <td>2.28</td>
+      <td>Semiconductors</td>
+      <td>5.02</td>
+      <td>15.00</td>
     </tr>
     <tr>
-      <td>CPRT</td>
-      <td>Industrials</td>
-      <td>Diversified Support Services</td>
-      <td>0.18</td>
-      <td>2.26</td>
+      <td>ON</td>
+      <td>Information Technology</td>
+      <td>Semiconductors</td>
+      <td>3.91</td>
+      <td>14.94</td>
     </tr>
     <tr>
-      <td>AMCR</td>
-      <td>Materials</td>
-      <td>Paper &amp; Plastic Packaging Products &amp; Materials</td>
-      <td>0.03</td>
-      <td>2.25</td>
-    </tr>
-    <tr>
-      <td>WELL</td>
-      <td>Real Estate</td>
-      <td>Health Care REITs</td>
-      <td>0.79</td>
-      <td>2.20</td>
-    </tr>
-    <tr>
-      <td>CTVA</td>
-      <td>Materials</td>
-      <td>Fertilizers &amp; Agricultural Chemicals</td>
-      <td>2.61</td>
-      <td>2.15</td>
-    </tr>
-    <tr>
-      <td>CPT</td>
-      <td>Real Estate</td>
-      <td>Multi-Family Residential REITs</td>
-      <td>-0.29</td>
-      <td>2.14</td>
-    </tr>
-    <tr>
-      <td>ABBV</td>
+      <td>VTRS</td>
       <td>Health Care</td>
-      <td>Biotechnology</td>
-      <td>-0.57</td>
-      <td>2.11</td>
+      <td>Pharmaceuticals</td>
+      <td>-1.46</td>
+      <td>14.17</td>
     </tr>
     <tr>
-      <td>MS</td>
-      <td>Financials</td>
-      <td>Investment Banking &amp; Brokerage</td>
-      <td>1.54</td>
-      <td>2.08</td>
-    </tr>
-    <tr>
-      <td>ALB</td>
-      <td>Materials</td>
-      <td>Specialty Chemicals</td>
-      <td>2.61</td>
-      <td>2.00</td>
-    </tr>
-    <tr>
-      <td>ACN</td>
-      <td>Information Technology</td>
-      <td>IT Consulting &amp; Other Services</td>
-      <td>0.13</td>
-      <td>1.95</td>
-    </tr>
-    <tr>
-      <td>CI</td>
+      <td>CVS</td>
       <td>Health Care</td>
       <td>Health Care Services</td>
-      <td>1.42</td>
-      <td>1.94</td>
+      <td>1.84</td>
+      <td>13.88</td>
     </tr>
     <tr>
-      <td>PSA</td>
-      <td>Real Estate</td>
-      <td>Self-Storage REITs</td>
-      <td>0.55</td>
-      <td>1.82</td>
-    </tr>
-    <tr>
-      <td>KKR</td>
-      <td>Financials</td>
-      <td>Asset Management &amp; Custody Banks</td>
-      <td>2.17</td>
-      <td>1.81</td>
-    </tr>
-    <tr>
-      <td>APP</td>
-      <td>Information Technology</td>
-      <td>Application Software</td>
-      <td>-6.08</td>
-      <td>1.79</td>
-    </tr>
-    <tr>
-      <td>FCX</td>
-      <td>Materials</td>
-      <td>Copper</td>
-      <td>1.72</td>
-      <td>1.78</td>
-    </tr>
-    <tr>
-      <td>INTU</td>
-      <td>Information Technology</td>
-      <td>Application Software</td>
-      <td>-2.57</td>
-      <td>1.64</td>
-    </tr>
-    <tr>
-      <td>RTX</td>
+      <td>HWM</td>
       <td>Industrials</td>
       <td>Aerospace &amp; Defense</td>
-      <td>-0.39</td>
-      <td>1.56</td>
+      <td>1.12</td>
+      <td>13.84</td>
     </tr>
     <tr>
       <td>ARE</td>
       <td>Real Estate</td>
       <td>Office REITs</td>
-      <td>1.49</td>
-      <td>1.54</td>
+      <td>-0.56</td>
+      <td>13.83</td>
     </tr>
     <tr>
-      <td>SWK</td>
+      <td>ROK</td>
       <td>Industrials</td>
-      <td>Industrial Machinery &amp; Supplies &amp; Components</td>
-      <td>1.08</td>
-      <td>1.52</td>
+      <td>Electrical Components &amp; Equipment</td>
+      <td>0.61</td>
+      <td>13.80</td>
     </tr>
     <tr>
-      <td>IBM</td>
-      <td>Information Technology</td>
-      <td>IT Consulting &amp; Other Services</td>
-      <td>0.06</td>
-      <td>1.49</td>
-    </tr>
-    <tr>
-      <td>SBAC</td>
-      <td>Real Estate</td>
-      <td>Telecom Tower REITs</td>
-      <td>-0.21</td>
-      <td>1.47</td>
-    </tr>
-    <tr>
-      <td>CPB</td>
-      <td>Consumer Staples</td>
-      <td>Packaged Foods &amp; Meats</td>
-      <td>-1.93</td>
-      <td>1.41</td>
-    </tr>
-    <tr>
-      <td>VICI</td>
-      <td>Real Estate</td>
-      <td>Hotel &amp; Resort REITs</td>
-      <td>0.17</td>
-      <td>1.41</td>
-    </tr>
-    <tr>
-      <td>OMC</td>
-      <td>Communication Services</td>
-      <td>Advertising</td>
-      <td>0.18</td>
-      <td>1.38</td>
-    </tr>
-    <tr>
-      <td>DE</td>
-      <td>Industrials</td>
-      <td>Agricultural &amp; Farm Machinery</td>
-      <td>-0.98</td>
-      <td>1.26</td>
-    </tr>
-    <tr>
-      <td>GPN</td>
-      <td>Financials</td>
-      <td>Transaction &amp; Payment Processing Services</td>
-      <td>-1.34</td>
-      <td>1.26</td>
-    </tr>
-    <tr>
-      <td>COST</td>
-      <td>Consumer Staples</td>
-      <td>Consumer Staples Merchandise Retail</td>
-      <td>-0.32</td>
-      <td>1.23</td>
-    </tr>
-    <tr>
-      <td>VLO</td>
-      <td>Energy</td>
-      <td>Oil &amp; Gas Refining &amp; Marketing</td>
-      <td>1.99</td>
-      <td>1.18</td>
-    </tr>
-    <tr>
-      <td>IP</td>
-      <td>Materials</td>
-      <td>Paper &amp; Plastic Packaging Products &amp; Materials</td>
-      <td>-0.15</td>
-      <td>1.16</td>
-    </tr>
-    <tr>
-      <td>WBD</td>
-      <td>Communication Services</td>
-      <td>Broadcasting</td>
-      <td>-0.04</td>
-      <td>1.08</td>
-    </tr>
-    <tr>
-      <td>GM</td>
-      <td>Consumer Discretionary</td>
-      <td>Automobile Manufacturers</td>
-      <td>0.50</td>
-      <td>1.08</td>
-    </tr>
-    <tr>
-      <td>ORLY</td>
-      <td>Consumer Discretionary</td>
-      <td>Automotive Retail</td>
-      <td>-1.71</td>
-      <td>1.08</td>
-    </tr>
-    <tr>
-      <td>MRK</td>
+      <td>CNC</td>
       <td>Health Care</td>
-      <td>Pharmaceuticals</td>
-      <td>-0.82</td>
-      <td>1.04</td>
+      <td>Managed Health Care</td>
+      <td>0.71</td>
+      <td>13.70</td>
     </tr>
     <tr>
-      <td>LYB</td>
+      <td>CSCO</td>
+      <td>Information Technology</td>
+      <td>Communications Equipment</td>
+      <td>2.23</td>
+      <td>13.65</td>
+    </tr>
+    <tr>
+      <td>CAT</td>
+      <td>Industrials</td>
+      <td>Construction Machinery &amp; Heavy Transportation Equipment</td>
+      <td>3.27</td>
+      <td>13.32</td>
+    </tr>
+    <tr>
+      <td>TXN</td>
+      <td>Information Technology</td>
+      <td>Semiconductors</td>
+      <td>3.46</td>
+      <td>12.93</td>
+    </tr>
+    <tr>
+      <td>ALB</td>
       <td>Materials</td>
       <td>Specialty Chemicals</td>
-      <td>0.35</td>
-      <td>1.04</td>
+      <td>3.18</td>
+      <td>12.35</td>
     </tr>
     <tr>
-      <td>CRM</td>
-      <td>Information Technology</td>
-      <td>Application Software</td>
-      <td>-2.43</td>
-      <td>0.91</td>
-    </tr>
-    <tr>
-      <td>VRTX</td>
+      <td>MRNA</td>
       <td>Health Care</td>
       <td>Biotechnology</td>
-      <td>1.13</td>
-      <td>0.89</td>
+      <td>-2.70</td>
+      <td>12.18</td>
+    </tr>
+    <tr>
+      <td>CDNS</td>
+      <td>Information Technology</td>
+      <td>Application Software</td>
+      <td>0.41</td>
+      <td>11.95</td>
+    </tr>
+    <tr>
+      <td>MNST</td>
+      <td>Consumer Staples</td>
+      <td>Soft Drinks &amp; Non-alcoholic Beverages</td>
+      <td>0.14</td>
+      <td>11.94</td>
+    </tr>
+    <tr>
+      <td>CASY</td>
+      <td>Consumer Staples</td>
+      <td>Food Retail</td>
+      <td>2.05</td>
+      <td>11.86</td>
+    </tr>
+    <tr>
+      <td>COIN</td>
+      <td>Financials</td>
+      <td>Financial Exchanges &amp; Data</td>
+      <td>7.68</td>
+      <td>11.59</td>
+    </tr>
+    <tr>
+      <td>DD</td>
+      <td>Materials</td>
+      <td>Specialty Chemicals</td>
+      <td>1.65</td>
+      <td>11.58</td>
+    </tr>
+    <tr>
+      <td>Q</td>
+      <td>Information Technology</td>
+      <td>Semiconductor Materials &amp; Equipment</td>
+      <td>4.01</td>
+      <td>11.37</td>
+    </tr>
+    <tr>
+      <td>GOOG</td>
+      <td>Communication Services</td>
+      <td>Interactive Media &amp; Services</td>
+      <td>-2.59</td>
+      <td>11.30</td>
+    </tr>
+    <tr>
+      <td>IFF</td>
+      <td>Materials</td>
+      <td>Specialty Chemicals</td>
+      <td>-2.84</td>
+      <td>11.28</td>
+    </tr>
+    <tr>
+      <td>GOOGL</td>
+      <td>Communication Services</td>
+      <td>Interactive Media &amp; Services</td>
+      <td>-3.03</td>
+      <td>11.11</td>
+    </tr>
+    <tr>
+      <td>LLY</td>
+      <td>Health Care</td>
+      <td>Pharmaceuticals</td>
+      <td>1.95</td>
+      <td>10.64</td>
+    </tr>
+    <tr>
+      <td>FCX</td>
+      <td>Materials</td>
+      <td>Copper</td>
+      <td>4.41</td>
+      <td>10.58</td>
+    </tr>
+    <tr>
+      <td>HPE</td>
+      <td>Information Technology</td>
+      <td>Technology Hardware, Storage &amp; Peripherals</td>
+      <td>-1.53</td>
+      <td>10.45</td>
     </tr>
     <tr>
       <td>MPWR</td>
       <td>Information Technology</td>
       <td>Semiconductors</td>
+      <td>3.76</td>
+      <td>10.44</td>
+    </tr>
+    <tr>
+      <td>WST</td>
+      <td>Health Care</td>
+      <td>Health Care Supplies</td>
+      <td>-1.11</td>
+      <td>10.41</td>
+    </tr>
+    <tr>
+      <td>JBL</td>
+      <td>Information Technology</td>
+      <td>Electronic Manufacturing Services</td>
+      <td>2.84</td>
+      <td>10.40</td>
+    </tr>
+    <tr>
+      <td>ADI</td>
+      <td>Information Technology</td>
+      <td>Semiconductors</td>
+      <td>1.49</td>
+      <td>10.30</td>
+    </tr>
+    <tr>
+      <td>ARES</td>
+      <td>Financials</td>
+      <td>Asset Management &amp; Custody Banks</td>
+      <td>-1.30</td>
+      <td>10.26</td>
+    </tr>
+    <tr>
+      <td>KEYS</td>
+      <td>Information Technology</td>
+      <td>Electronic Equipment &amp; Instruments</td>
+      <td>1.68</td>
+      <td>10.25</td>
+    </tr>
+    <tr>
+      <td>HPQ</td>
+      <td>Information Technology</td>
+      <td>Technology Hardware, Storage &amp; Peripherals</td>
+      <td>-4.45</td>
+      <td>9.83</td>
+    </tr>
+    <tr>
+      <td>NEM</td>
+      <td>Materials</td>
+      <td>Gold</td>
+      <td>3.57</td>
+      <td>9.80</td>
+    </tr>
+    <tr>
+      <td>SOLV</td>
+      <td>Health Care</td>
+      <td>Health Care Technology</td>
+      <td>1.01</td>
+      <td>9.79</td>
+    </tr>
+    <tr>
+      <td>PM</td>
+      <td>Consumer Staples</td>
+      <td>Tobacco</td>
+      <td>6.50</td>
+      <td>9.78</td>
+    </tr>
+    <tr>
+      <td>GD</td>
+      <td>Industrials</td>
+      <td>Aerospace &amp; Defense</td>
+      <td>-0.72</td>
+      <td>9.68</td>
+    </tr>
+    <tr>
+      <td>ADM</td>
+      <td>Consumer Staples</td>
+      <td>Agricultural Products &amp; Services</td>
+      <td>2.81</td>
+      <td>9.67</td>
+    </tr>
+    <tr>
+      <td>CPAY</td>
+      <td>Financials</td>
+      <td>Transaction &amp; Payment Processing Services</td>
+      <td>-0.70</td>
+      <td>9.63</td>
+    </tr>
+    <tr>
+      <td>IBKR</td>
+      <td>Financials</td>
+      <td>Investment Banking &amp; Brokerage</td>
+      <td>0.58</td>
+      <td>9.58</td>
+    </tr>
+    <tr>
+      <td>CMI</td>
+      <td>Industrials</td>
+      <td>Construction Machinery &amp; Heavy Transportation Equipment</td>
+      <td>3.40</td>
+      <td>9.37</td>
+    </tr>
+    <tr>
+      <td>IQV</td>
+      <td>Health Care</td>
+      <td>Life Sciences Tools &amp; Services</td>
+      <td>-2.89</td>
+      <td>9.16</td>
+    </tr>
+    <tr>
+      <td>NTAP</td>
+      <td>Information Technology</td>
+      <td>Technology Hardware, Storage &amp; Peripherals</td>
+      <td>-0.23</td>
+      <td>8.73</td>
+    </tr>
+    <tr>
+      <td>SBUX</td>
+      <td>Consumer Discretionary</td>
+      <td>Restaurants</td>
+      <td>0.77</td>
+      <td>8.70</td>
+    </tr>
+    <tr>
+      <td>MPC</td>
+      <td>Energy</td>
+      <td>Oil &amp; Gas Refining &amp; Marketing</td>
+      <td>3.11</td>
+      <td>8.55</td>
+    </tr>
+    <tr>
+      <td>IVZ</td>
+      <td>Financials</td>
+      <td>Asset Management &amp; Custody Banks</td>
+      <td>1.45</td>
+      <td>8.24</td>
+    </tr>
+    <tr>
+      <td>FOX</td>
+      <td>Communication Services</td>
+      <td>Broadcasting</td>
+      <td>8.09</td>
+      <td>8.13</td>
+    </tr>
+    <tr>
+      <td>AAPL</td>
+      <td>Information Technology</td>
+      <td>Technology Hardware, Storage &amp; Peripherals</td>
+      <td>-0.22</td>
+      <td>8.12</td>
+    </tr>
+    <tr>
+      <td>FICO</td>
+      <td>Information Technology</td>
+      <td>Application Software</td>
+      <td>-3.02</td>
+      <td>8.07</td>
+    </tr>
+    <tr>
+      <td>BIIB</td>
+      <td>Health Care</td>
+      <td>Biotechnology</td>
+      <td>2.33</td>
+      <td>7.95</td>
+    </tr>
+    <tr>
+      <td>EME</td>
+      <td>Industrials</td>
+      <td>Construction &amp; Engineering</td>
+      <td>1.07</td>
+      <td>7.84</td>
+    </tr>
+    <tr>
+      <td>EBAY</td>
+      <td>Consumer Discretionary</td>
+      <td>Broadline Retail</td>
+      <td>0.41</td>
+      <td>7.74</td>
+    </tr>
+    <tr>
+      <td>EL</td>
+      <td>Consumer Staples</td>
+      <td>Personal Care Products</td>
+      <td>-4.00</td>
+      <td>7.33</td>
+    </tr>
+    <tr>
+      <td>FOXA</td>
+      <td>Communication Services</td>
+      <td>Broadcasting</td>
+      <td>7.59</td>
+      <td>7.24</td>
+    </tr>
+    <tr>
+      <td>AVGO</td>
+      <td>Information Technology</td>
+      <td>Semiconductors</td>
+      <td>-0.37</td>
+      <td>7.15</td>
+    </tr>
+    <tr>
+      <td>BEN</td>
+      <td>Financials</td>
+      <td>Asset Management &amp; Custody Banks</td>
+      <td>1.61</td>
+      <td>7.09</td>
+    </tr>
+    <tr>
+      <td>UAL</td>
+      <td>Industrials</td>
+      <td>Passenger Airlines</td>
+      <td>-2.97</td>
+      <td>6.87</td>
+    </tr>
+    <tr>
+      <td>SNPS</td>
+      <td>Information Technology</td>
+      <td>Application Software</td>
+      <td>-0.06</td>
+      <td>6.68</td>
+    </tr>
+    <tr>
+      <td>CARR</td>
+      <td>Industrials</td>
+      <td>Building Products</td>
+      <td>-1.42</td>
+      <td>6.64</td>
+    </tr>
+    <tr>
+      <td>APP</td>
+      <td>Information Technology</td>
+      <td>Application Software</td>
+      <td>2.11</td>
+      <td>6.55</td>
+    </tr>
+    <tr>
+      <td>PTC</td>
+      <td>Information Technology</td>
+      <td>Application Software</td>
+      <td>-0.50</td>
+      <td>6.43</td>
+    </tr>
+    <tr>
+      <td>ADP</td>
+      <td>Industrials</td>
+      <td>Human Resource &amp; Employment Services</td>
+      <td>-0.62</td>
+      <td>6.28</td>
+    </tr>
+    <tr>
+      <td>PSX</td>
+      <td>Energy</td>
+      <td>Oil &amp; Gas Refining &amp; Marketing</td>
+      <td>2.21</td>
+      <td>6.20</td>
+    </tr>
+    <tr>
+      <td>DAL</td>
+      <td>Industrials</td>
+      <td>Passenger Airlines</td>
+      <td>-2.90</td>
+      <td>5.92</td>
+    </tr>
+    <tr>
+      <td>GWW</td>
+      <td>Industrials</td>
+      <td>Industrial Machinery &amp; Supplies &amp; Components</td>
+      <td>-0.62</td>
+      <td>5.68</td>
+    </tr>
+    <tr>
+      <td>APO</td>
+      <td>Financials</td>
+      <td>Asset Management &amp; Custody Banks</td>
+      <td>-2.06</td>
+      <td>5.58</td>
+    </tr>
+    <tr>
+      <td>EXPD</td>
+      <td>Industrials</td>
+      <td>Air Freight &amp; Logistics</td>
+      <td>-0.73</td>
+      <td>5.54</td>
+    </tr>
+    <tr>
+      <td>LYV</td>
+      <td>Communication Services</td>
+      <td>Movies &amp; Entertainment</td>
+      <td>-0.17</td>
+      <td>5.33</td>
+    </tr>
+    <tr>
+      <td>ELV</td>
+      <td>Health Care</td>
+      <td>Managed Health Care</td>
+      <td>0.97</td>
+      <td>5.24</td>
+    </tr>
+    <tr>
+      <td>LII</td>
+      <td>Industrials</td>
+      <td>Building Products</td>
+      <td>0.04</td>
+      <td>5.24</td>
+    </tr>
+    <tr>
+      <td>CCI</td>
+      <td>Real Estate</td>
+      <td>Telecom Tower REITs</td>
+      <td>0.11</td>
+      <td>5.22</td>
+    </tr>
+    <tr>
+      <td>XYZ</td>
+      <td>Financials</td>
+      <td>Transaction &amp; Payment Processing Services</td>
+      <td>-2.24</td>
+      <td>5.22</td>
+    </tr>
+    <tr>
+      <td>LUV</td>
+      <td>Industrials</td>
+      <td>Passenger Airlines</td>
+      <td>-3.20</td>
+      <td>5.21</td>
+    </tr>
+    <tr>
+      <td>CTVA</td>
+      <td>Materials</td>
+      <td>Fertilizers &amp; Agricultural Chemicals</td>
+      <td>2.10</td>
+      <td>4.93</td>
+    </tr>
+    <tr>
+      <td>MDLZ</td>
+      <td>Consumer Staples</td>
+      <td>Packaged Foods &amp; Meats</td>
+      <td>-0.23</td>
+      <td>4.90</td>
+    </tr>
+    <tr>
+      <td>PSA</td>
+      <td>Real Estate</td>
+      <td>Self-Storage REITs</td>
+      <td>0.16</td>
+      <td>4.85</td>
+    </tr>
+    <tr>
+      <td>UNH</td>
+      <td>Health Care</td>
+      <td>Managed Health Care</td>
+      <td>1.17</td>
+      <td>4.82</td>
+    </tr>
+    <tr>
+      <td>V</td>
+      <td>Financials</td>
+      <td>Transaction &amp; Payment Processing Services</td>
+      <td>1.59</td>
+      <td>4.71</td>
+    </tr>
+    <tr>
+      <td>TSN</td>
+      <td>Consumer Staples</td>
+      <td>Packaged Foods &amp; Meats</td>
+      <td>-1.90</td>
+      <td>4.63</td>
+    </tr>
+    <tr>
+      <td>DE</td>
+      <td>Industrials</td>
+      <td>Agricultural &amp; Farm Machinery</td>
+      <td>2.42</td>
+      <td>4.41</td>
+    </tr>
+    <tr>
+      <td>SATS</td>
+      <td>Communication Services</td>
+      <td>Wireless Telecommunication Services</td>
+      <td>1.57</td>
+      <td>4.40</td>
+    </tr>
+    <tr>
+      <td>PRU</td>
+      <td>Financials</td>
+      <td>Life &amp; Health Insurance</td>
+      <td>0.31</td>
+      <td>4.34</td>
+    </tr>
+    <tr>
+      <td>AMCR</td>
+      <td>Materials</td>
+      <td>Paper &amp; Plastic Packaging Products &amp; Materials</td>
+      <td>0.68</td>
+      <td>4.31</td>
+    </tr>
+    <tr>
+      <td>IEX</td>
+      <td>Industrials</td>
+      <td>Industrial Machinery &amp; Supplies &amp; Components</td>
+      <td>-1.34</td>
+      <td>4.21</td>
+    </tr>
+    <tr>
+      <td>HST</td>
+      <td>Real Estate</td>
+      <td>Hotel &amp; Resort REITs</td>
+      <td>-2.20</td>
+      <td>4.01</td>
+    </tr>
+    <tr>
+      <td>GE</td>
+      <td>Industrials</td>
+      <td>Aerospace &amp; Defense</td>
+      <td>1.22</td>
+      <td>4.00</td>
+    </tr>
+    <tr>
+      <td>TXT</td>
+      <td>Industrials</td>
+      <td>Aerospace &amp; Defense</td>
+      <td>0.71</td>
+      <td>3.99</td>
+    </tr>
+    <tr>
+      <td>TTWO</td>
+      <td>Communication Services</td>
+      <td>Interactive Home Entertainment</td>
+      <td>0.46</td>
+      <td>3.97</td>
+    </tr>
+    <tr>
+      <td>STLD</td>
+      <td>Materials</td>
+      <td>Steel</td>
+      <td>0.37</td>
+      <td>3.97</td>
+    </tr>
+    <tr>
+      <td>TROW</td>
+      <td>Financials</td>
+      <td>Asset Management &amp; Custody Banks</td>
+      <td>-0.55</td>
+      <td>3.95</td>
+    </tr>
+    <tr>
+      <td>EIX</td>
+      <td>Utilities</td>
+      <td>Electric Utilities</td>
+      <td>2.36</td>
+      <td>3.89</td>
+    </tr>
+    <tr>
+      <td>TDG</td>
+      <td>Industrials</td>
+      <td>Aerospace &amp; Defense</td>
+      <td>-1.35</td>
+      <td>3.87</td>
+    </tr>
+    <tr>
+      <td>AIZ</td>
+      <td>Financials</td>
+      <td>Multi-line Insurance</td>
+      <td>1.87</td>
+      <td>3.71</td>
+    </tr>
+    <tr>
+      <td>PSKY</td>
+      <td>Communication Services</td>
+      <td>Movies &amp; Entertainment</td>
+      <td>-1.71</td>
+      <td>3.61</td>
+    </tr>
+    <tr>
+      <td>AMZN</td>
+      <td>Consumer Discretionary</td>
+      <td>Broadline Retail</td>
+      <td>-1.35</td>
+      <td>3.58</td>
+    </tr>
+    <tr>
+      <td>KHC</td>
+      <td>Consumer Staples</td>
+      <td>Packaged Foods &amp; Meats</td>
+      <td>-2.92</td>
+      <td>3.52</td>
+    </tr>
+    <tr>
+      <td>UHS</td>
+      <td>Health Care</td>
+      <td>Health Care Facilities</td>
+      <td>-1.02</td>
+      <td>3.50</td>
+    </tr>
+    <tr>
+      <td>NWS</td>
+      <td>Communication Services</td>
+      <td>Publishing</td>
+      <td>-0.45</td>
+      <td>3.42</td>
+    </tr>
+    <tr>
+      <td>GILD</td>
+      <td>Health Care</td>
+      <td>Biotechnology</td>
+      <td>1.67</td>
+      <td>3.30</td>
+    </tr>
+    <tr>
+      <td>VLO</td>
+      <td>Energy</td>
+      <td>Oil &amp; Gas Refining &amp; Marketing</td>
+      <td>2.93</td>
+      <td>3.27</td>
+    </tr>
+    <tr>
+      <td>GDDY</td>
+      <td>Information Technology</td>
+      <td>Internet Services &amp; Infrastructure</td>
+      <td>-3.23</td>
+      <td>3.26</td>
+    </tr>
+    <tr>
+      <td>NWSA</td>
+      <td>Communication Services</td>
+      <td>Publishing</td>
+      <td>-0.04</td>
+      <td>3.25</td>
+    </tr>
+    <tr>
+      <td>BA</td>
+      <td>Industrials</td>
+      <td>Aerospace &amp; Defense</td>
+      <td>0.36</td>
+      <td>3.25</td>
+    </tr>
+    <tr>
+      <td>DIS</td>
+      <td>Communication Services</td>
+      <td>Movies &amp; Entertainment</td>
+      <td>-3.05</td>
+      <td>3.20</td>
+    </tr>
+    <tr>
+      <td>PAYX</td>
+      <td>Industrials</td>
+      <td>Human Resource &amp; Employment Services</td>
+      <td>-0.05</td>
+      <td>3.18</td>
+    </tr>
+    <tr>
+      <td>NUE</td>
+      <td>Materials</td>
+      <td>Steel</td>
+      <td>1.98</td>
+      <td>3.06</td>
+    </tr>
+    <tr>
+      <td>BLK</td>
+      <td>Financials</td>
+      <td>Asset Management &amp; Custody Banks</td>
+      <td>-0.32</td>
+      <td>3.01</td>
+    </tr>
+    <tr>
+      <td>RCL</td>
+      <td>Consumer Discretionary</td>
+      <td>Hotels, Resorts &amp; Cruise Lines</td>
+      <td>-4.28</td>
+      <td>2.96</td>
+    </tr>
+    <tr>
+      <td>NVDA</td>
+      <td>Information Technology</td>
+      <td>Semiconductors</td>
+      <td>1.97</td>
+      <td>2.94</td>
+    </tr>
+    <tr>
+      <td>HON</td>
+      <td>Industrials</td>
+      <td>Industrial Conglomerates</td>
+      <td>2.81</td>
+      <td>2.90</td>
+    </tr>
+    <tr>
+      <td>LYB</td>
+      <td>Materials</td>
+      <td>Specialty Chemicals</td>
+      <td>2.47</td>
+      <td>2.87</td>
+    </tr>
+    <tr>
+      <td>INVH</td>
+      <td>Real Estate</td>
+      <td>Single-Family Residential REITs</td>
+      <td>0.66</td>
+      <td>2.77</td>
+    </tr>
+    <tr>
+      <td>UBER</td>
+      <td>Industrials</td>
+      <td>Passenger Ground Transportation</td>
+      <td>0.93</td>
+      <td>2.75</td>
+    </tr>
+    <tr>
+      <td>FRT</td>
+      <td>Real Estate</td>
+      <td>Retail REITs</td>
+      <td>-0.22</td>
+      <td>2.70</td>
+    </tr>
+    <tr>
+      <td>INCY</td>
+      <td>Health Care</td>
+      <td>Biotechnology</td>
+      <td>1.79</td>
+      <td>2.64</td>
+    </tr>
+    <tr>
+      <td>UDR</td>
+      <td>Real Estate</td>
+      <td>Multi-Family Residential REITs</td>
+      <td>0.65</td>
+      <td>2.60</td>
+    </tr>
+    <tr>
+      <td>ABBV</td>
+      <td>Health Care</td>
+      <td>Biotechnology</td>
+      <td>0.61</td>
+      <td>2.57</td>
+    </tr>
+    <tr>
+      <td>AIG</td>
+      <td>Financials</td>
+      <td>Multi-line Insurance</td>
+      <td>-0.39</td>
+      <td>2.56</td>
+    </tr>
+    <tr>
+      <td>EXR</td>
+      <td>Real Estate</td>
+      <td>Self-Storage REITs</td>
+      <td>0.89</td>
+      <td>2.52</td>
+    </tr>
+    <tr>
+      <td>IT</td>
+      <td>Information Technology</td>
+      <td>IT Consulting &amp; Other Services</td>
+      <td>-3.06</td>
+      <td>2.45</td>
+    </tr>
+    <tr>
+      <td>TRGP</td>
+      <td>Energy</td>
+      <td>Oil &amp; Gas Storage &amp; Transportation</td>
+      <td>2.04</td>
+      <td>2.45</td>
+    </tr>
+    <tr>
+      <td>KMI</td>
+      <td>Energy</td>
+      <td>Oil &amp; Gas Storage &amp; Transportation</td>
+      <td>2.67</td>
+      <td>2.38</td>
+    </tr>
+    <tr>
+      <td>TMUS</td>
+      <td>Communication Services</td>
+      <td>Wireless Telecommunication Services</td>
+      <td>-1.44</td>
+      <td>2.21</td>
+    </tr>
+    <tr>
+      <td>AVB</td>
+      <td>Real Estate</td>
+      <td>Multi-Family Residential REITs</td>
+      <td>1.73</td>
+      <td>2.05</td>
+    </tr>
+    <tr>
+      <td>KLAC</td>
+      <td>Information Technology</td>
+      <td>Semiconductor Materials &amp; Equipment</td>
+      <td>-1.28</td>
+      <td>2.00</td>
+    </tr>
+    <tr>
+      <td>GS</td>
+      <td>Financials</td>
+      <td>Investment Banking &amp; Brokerage</td>
+      <td>0.89</td>
+      <td>1.98</td>
+    </tr>
+    <tr>
+      <td>DOW</td>
+      <td>Materials</td>
+      <td>Commodity Chemicals</td>
+      <td>5.13</td>
+      <td>1.97</td>
+    </tr>
+    <tr>
+      <td>WAB</td>
+      <td>Industrials</td>
+      <td>Construction Machinery &amp; Heavy Transportation Equipment</td>
+      <td>0.91</td>
+      <td>1.88</td>
+    </tr>
+    <tr>
+      <td>EVRG</td>
+      <td>Utilities</td>
+      <td>Electric Utilities</td>
+      <td>2.02</td>
+      <td>1.84</td>
+    </tr>
+    <tr>
+      <td>PLD</td>
+      <td>Real Estate</td>
+      <td>Industrial REITs</td>
+      <td>-0.01</td>
+      <td>1.79</td>
+    </tr>
+    <tr>
+      <td>CF</td>
+      <td>Materials</td>
+      <td>Fertilizers &amp; Agricultural Chemicals</td>
+      <td>8.22</td>
+      <td>1.77</td>
+    </tr>
+    <tr>
+      <td>ETN</td>
+      <td>Industrials</td>
+      <td>Electrical Components &amp; Equipment</td>
+      <td>4.36</td>
+      <td>1.72</td>
+    </tr>
+    <tr>
+      <td>RTX</td>
+      <td>Industrials</td>
+      <td>Aerospace &amp; Defense</td>
+      <td>1.43</td>
+      <td>1.67</td>
+    </tr>
+    <tr>
+      <td>EQR</td>
+      <td>Real Estate</td>
+      <td>Multi-Family Residential REITs</td>
+      <td>0.98</td>
       <td>1.58</td>
-      <td>0.84</td>
+    </tr>
+    <tr>
+      <td>WMB</td>
+      <td>Energy</td>
+      <td>Oil &amp; Gas Storage &amp; Transportation</td>
+      <td>3.09</td>
+      <td>1.56</td>
+    </tr>
+    <tr>
+      <td>CI</td>
+      <td>Health Care</td>
+      <td>Health Care Services</td>
+      <td>0.35</td>
+      <td>1.46</td>
+    </tr>
+    <tr>
+      <td>XEL</td>
+      <td>Utilities</td>
+      <td>Multi-Utilities</td>
+      <td>1.52</td>
+      <td>1.41</td>
+    </tr>
+    <tr>
+      <td>AME</td>
+      <td>Industrials</td>
+      <td>Electrical Components &amp; Equipment</td>
+      <td>-0.10</td>
+      <td>1.40</td>
+    </tr>
+    <tr>
+      <td>GPN</td>
+      <td>Financials</td>
+      <td>Transaction &amp; Payment Processing Services</td>
+      <td>-0.61</td>
+      <td>1.30</td>
+    </tr>
+    <tr>
+      <td>CL</td>
+      <td>Consumer Staples</td>
+      <td>Household Products</td>
+      <td>-0.93</td>
+      <td>1.25</td>
+    </tr>
+    <tr>
+      <td>ADBE</td>
+      <td>Information Technology</td>
+      <td>Application Software</td>
+      <td>-2.72</td>
+      <td>1.21</td>
+    </tr>
+    <tr>
+      <td>MO</td>
+      <td>Consumer Staples</td>
+      <td>Tobacco</td>
+      <td>0.72</td>
+      <td>1.19</td>
+    </tr>
+    <tr>
+      <td>SJM</td>
+      <td>Consumer Staples</td>
+      <td>Packaged Foods &amp; Meats</td>
+      <td>-0.03</td>
+      <td>1.19</td>
+    </tr>
+    <tr>
+      <td>VRTX</td>
+      <td>Health Care</td>
+      <td>Biotechnology</td>
+      <td>1.24</td>
+      <td>1.17</td>
+    </tr>
+    <tr>
+      <td>MRK</td>
+      <td>Health Care</td>
+      <td>Pharmaceuticals</td>
+      <td>-0.09</td>
+      <td>1.14</td>
+    </tr>
+    <tr>
+      <td>VLTO</td>
+      <td>Industrials</td>
+      <td>Environmental &amp; Facilities Services</td>
+      <td>-0.31</td>
+      <td>1.13</td>
     </tr>
     <tr>
       <td>NOW</td>
       <td>Information Technology</td>
       <td>Systems Software</td>
-      <td>-2.58</td>
-      <td>0.81</td>
+      <td>0.34</td>
+      <td>1.11</td>
+    </tr>
+    <tr>
+      <td>WBD</td>
+      <td>Communication Services</td>
+      <td>Broadcasting</td>
+      <td>0.48</td>
+      <td>1.08</td>
+    </tr>
+    <tr>
+      <td>EG</td>
+      <td>Financials</td>
+      <td>Reinsurance</td>
+      <td>-0.21</td>
+      <td>1.07</td>
+    </tr>
+    <tr>
+      <td>CRL</td>
+      <td>Health Care</td>
+      <td>Life Sciences Tools &amp; Services</td>
+      <td>-5.16</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <td>ICE</td>
+      <td>Financials</td>
+      <td>Financial Exchanges &amp; Data</td>
+      <td>1.28</td>
+      <td>0.97</td>
+    </tr>
+    <tr>
+      <td>SWK</td>
+      <td>Industrials</td>
+      <td>Industrial Machinery &amp; Supplies &amp; Components</td>
+      <td>-2.47</td>
+      <td>0.94</td>
+    </tr>
+    <tr>
+      <td>VICI</td>
+      <td>Real Estate</td>
+      <td>Hotel &amp; Resort REITs</td>
+      <td>0.28</td>
+      <td>0.94</td>
+    </tr>
+    <tr>
+      <td>MS</td>
+      <td>Financials</td>
+      <td>Investment Banking &amp; Brokerage</td>
+      <td>-1.03</td>
+      <td>0.93</td>
+    </tr>
+    <tr>
+      <td>EQIX</td>
+      <td>Real Estate</td>
+      <td>Data Center REITs</td>
+      <td>1.32</td>
+      <td>0.91</td>
+    </tr>
+    <tr>
+      <td>TEL</td>
+      <td>Information Technology</td>
+      <td>Electronic Manufacturing Services</td>
+      <td>-0.04</td>
+      <td>0.89</td>
+    </tr>
+    <tr>
+      <td>DLR</td>
+      <td>Real Estate</td>
+      <td>Data Center REITs</td>
+      <td>0.48</td>
+      <td>0.85</td>
+    </tr>
+    <tr>
+      <td>SW</td>
+      <td>Materials</td>
+      <td>Paper &amp; Plastic Packaging Products &amp; Materials</td>
+      <td>-1.56</td>
+      <td>0.84</td>
+    </tr>
+    <tr>
+      <td>BX</td>
+      <td>Financials</td>
+      <td>Asset Management &amp; Custody Banks</td>
+      <td>-1.91</td>
+      <td>0.83</td>
+    </tr>
+    <tr>
+      <td>GL</td>
+      <td>Financials</td>
+      <td>Life &amp; Health Insurance</td>
+      <td>1.84</td>
+      <td>0.78</td>
+    </tr>
+    <tr>
+      <td>LNT</td>
+      <td>Utilities</td>
+      <td>Electric Utilities</td>
+      <td>0.99</td>
+      <td>0.76</td>
+    </tr>
+    <tr>
+      <td>EMR</td>
+      <td>Industrials</td>
+      <td>Electrical Components &amp; Equipment</td>
+      <td>-1.33</td>
+      <td>0.73</td>
+    </tr>
+    <tr>
+      <td>HSY</td>
+      <td>Consumer Staples</td>
+      <td>Packaged Foods &amp; Meats</td>
+      <td>1.77</td>
+      <td>0.70</td>
+    </tr>
+    <tr>
+      <td>COST</td>
+      <td>Consumer Staples</td>
+      <td>Consumer Staples Merchandise Retail</td>
+      <td>-0.92</td>
+      <td>0.70</td>
+    </tr>
+    <tr>
+      <td>VEEV</td>
+      <td>Health Care</td>
+      <td>Health Care Technology</td>
+      <td>-4.21</td>
+      <td>0.53</td>
+    </tr>
+    <tr>
+      <td>ADSK</td>
+      <td>Information Technology</td>
+      <td>Application Software</td>
+      <td>-3.45</td>
+      <td>0.52</td>
+    </tr>
+    <tr>
+      <td>CPB</td>
+      <td>Consumer Staples</td>
+      <td>Packaged Foods &amp; Meats</td>
+      <td>-1.01</td>
+      <td>0.44</td>
+    </tr>
+    <tr>
+      <td>KO</td>
+      <td>Consumer Staples</td>
+      <td>Soft Drinks &amp; Non-alcoholic Beverages</td>
+      <td>0.31</td>
+      <td>0.40</td>
+    </tr>
+    <tr>
+      <td>APD</td>
+      <td>Materials</td>
+      <td>Industrial Gases</td>
+      <td>3.08</td>
+      <td>0.38</td>
+    </tr>
+    <tr>
+      <td>ETR</td>
+      <td>Utilities</td>
+      <td>Electric Utilities</td>
+      <td>1.24</td>
+      <td>0.38</td>
+    </tr>
+    <tr>
+      <td>ESS</td>
+      <td>Real Estate</td>
+      <td>Multi-Family Residential REITs</td>
+      <td>1.98</td>
+      <td>0.33</td>
+    </tr>
+    <tr>
+      <td>AES</td>
+      <td>Utilities</td>
+      <td>Independent Power Producers &amp; Energy Traders</td>
+      <td>0.14</td>
+      <td>0.32</td>
+    </tr>
+    <tr>
+      <td>BRK-B</td>
+      <td>Financials</td>
+      <td>Multi-Sector Holdings</td>
+      <td>0.76</td>
+      <td>0.29</td>
+    </tr>
+    <tr>
+      <td>WELL</td>
+      <td>Real Estate</td>
+      <td>Health Care REITs</td>
+      <td>0.10</td>
+      <td>0.28</td>
+    </tr>
+    <tr>
+      <td>PPG</td>
+      <td>Materials</td>
+      <td>Specialty Chemicals</td>
+      <td>-1.51</td>
+      <td>0.25</td>
+    </tr>
+    <tr>
+      <td>WDAY</td>
+      <td>Information Technology</td>
+      <td>Application Software</td>
+      <td>-5.01</td>
+      <td>0.20</td>
+    </tr>
+    <tr>
+      <td>WMT</td>
+      <td>Consumer Staples</td>
+      <td>Consumer Staples Merchandise Retail</td>
+      <td>-2.18</td>
+      <td>0.19</td>
+    </tr>
+    <tr>
+      <td>VTR</td>
+      <td>Real Estate</td>
+      <td>Health Care REITs</td>
+      <td>0.49</td>
+      <td>0.14</td>
+    </tr>
+    <tr>
+      <td>JCI</td>
+      <td>Industrials</td>
+      <td>Building Products</td>
+      <td>1.62</td>
+      <td>0.13</td>
     </tr>
     <tr>
       <td>PFG</td>
       <td>Financials</td>
       <td>Life &amp; Health Insurance</td>
-      <td>0.47</td>
-      <td>0.76</td>
+      <td>-0.31</td>
+      <td>0.13</td>
+    </tr>
+    <tr>
+      <td>CAG</td>
+      <td>Consumer Staples</td>
+      <td>Packaged Foods &amp; Meats</td>
+      <td>-1.42</td>
+      <td>0.08</td>
+    </tr>
+    <tr>
+      <td>NDSN</td>
+      <td>Industrials</td>
+      <td>Industrial Machinery &amp; Supplies &amp; Components</td>
+      <td>-0.59</td>
+      <td>0.02</td>
+    </tr>
+    <tr>
+      <td>DXCM</td>
+      <td>Health Care</td>
+      <td>Health Care Equipment</td>
+      <td>-2.11</td>
+      <td>0.02</td>
+    </tr>
+    <tr>
+      <td>LMT</td>
+      <td>Industrials</td>
+      <td>Aerospace &amp; Defense</td>
+      <td>1.13</td>
+      <td>-0.01</td>
+    </tr>
+    <tr>
+      <td>VZ</td>
+      <td>Communication Services</td>
+      <td>Integrated Telecommunication Services</td>
+      <td>0.02</td>
+      <td>-0.02</td>
+    </tr>
+    <tr>
+      <td>TKO</td>
+      <td>Communication Services</td>
+      <td>Movies &amp; Entertainment</td>
+      <td>-1.23</td>
+      <td>-0.04</td>
+    </tr>
+    <tr>
+      <td>SRE</td>
+      <td>Utilities</td>
+      <td>Multi-Utilities</td>
+      <td>1.42</td>
+      <td>-0.08</td>
+    </tr>
+    <tr>
+      <td>SBAC</td>
+      <td>Real Estate</td>
+      <td>Telecom Tower REITs</td>
+      <td>-0.42</td>
+      <td>-0.15</td>
     </tr>
     <tr>
       <td>BG</td>
       <td>Consumer Staples</td>
       <td>Agricultural Products &amp; Services</td>
       <td>0.96</td>
-      <td>0.73</td>
-    </tr>
-    <tr>
-      <td>AMT</td>
-      <td>Real Estate</td>
-      <td>Telecom Tower REITs</td>
-      <td>-1.80</td>
-      <td>0.70</td>
-    </tr>
-    <tr>
-      <td>BRK-B</td>
-      <td>Financials</td>
-      <td>Multi-Sector Holdings</td>
-      <td>0.18</td>
-      <td>0.66</td>
-    </tr>
-    <tr>
-      <td>EIX</td>
-      <td>Utilities</td>
-      <td>Electric Utilities</td>
-      <td>0.55</td>
-      <td>0.55</td>
-    </tr>
-    <tr>
-      <td>MET</td>
-      <td>Financials</td>
-      <td>Life &amp; Health Insurance</td>
-      <td>-0.94</td>
-      <td>0.53</td>
-    </tr>
-    <tr>
-      <td>HON</td>
-      <td>Industrials</td>
-      <td>Industrial Conglomerates</td>
-      <td>-1.37</td>
-      <td>0.50</td>
-    </tr>
-    <tr>
-      <td>WMB</td>
-      <td>Energy</td>
-      <td>Oil &amp; Gas Storage &amp; Transportation</td>
-      <td>-1.36</td>
-      <td>0.49</td>
-    </tr>
-    <tr>
-      <td>SPG</td>
-      <td>Real Estate</td>
-      <td>Retail REITs</td>
-      <td>0.36</td>
-      <td>0.41</td>
-    </tr>
-    <tr>
-      <td>NEM</td>
-      <td>Materials</td>
-      <td>Gold</td>
-      <td>2.66</td>
-      <td>0.37</td>
-    </tr>
-    <tr>
-      <td>KVUE</td>
-      <td>Consumer Staples</td>
-      <td>Personal Care Products</td>
-      <td>-0.73</td>
-      <td>0.34</td>
-    </tr>
-    <tr>
-      <td>PEP</td>
-      <td>Consumer Staples</td>
-      <td>Soft Drinks &amp; Non-alcoholic Beverages</td>
-      <td>-1.07</td>
-      <td>0.34</td>
-    </tr>
-    <tr>
-      <td>BF-B</td>
-      <td>Consumer Staples</td>
-      <td>Distillers &amp; Vintners</td>
-      <td>1.10</td>
-      <td>0.33</td>
-    </tr>
-    <tr>
-      <td>TKO</td>
-      <td>Communication Services</td>
-      <td>Movies &amp; Entertainment</td>
-      <td>-0.38</td>
-      <td>0.32</td>
-    </tr>
-    <tr>
-      <td>ABNB</td>
-      <td>Consumer Discretionary</td>
-      <td>Hotels, Resorts &amp; Cruise Lines</td>
-      <td>0.73</td>
-      <td>0.30</td>
-    </tr>
-    <tr>
-      <td>VZ</td>
-      <td>Communication Services</td>
-      <td>Integrated Telecommunication Services</td>
-      <td>0.28</td>
-      <td>0.25</td>
-    </tr>
-    <tr>
-      <td>AXON</td>
-      <td>Industrials</td>
-      <td>Aerospace &amp; Defense</td>
-      <td>-5.47</td>
-      <td>0.24</td>
-    </tr>
-    <tr>
-      <td>EVRG</td>
-      <td>Utilities</td>
-      <td>Electric Utilities</td>
-      <td>-1.15</td>
-      <td>0.23</td>
-    </tr>
-    <tr>
-      <td>BBY</td>
-      <td>Consumer Discretionary</td>
-      <td>Computer &amp; Electronics Retail</td>
-      <td>1.47</td>
-      <td>0.22</td>
-    </tr>
-    <tr>
-      <td>AES</td>
-      <td>Utilities</td>
-      <td>Independent Power Producers &amp; Energy Traders</td>
-      <td>0.28</td>
-      <td>0.12</td>
-    </tr>
-    <tr>
-      <td>CBRE</td>
-      <td>Real Estate</td>
-      <td>Real Estate Services</td>
-      <td>-0.25</td>
-      <td>0.08</td>
-    </tr>
-    <tr>
-      <td>KMB</td>
-      <td>Consumer Staples</td>
-      <td>Household Products</td>
-      <td>-1.26</td>
-      <td>0.06</td>
-    </tr>
-    <tr>
-      <td>NDSN</td>
-      <td>Industrials</td>
-      <td>Industrial Machinery &amp; Supplies &amp; Components</td>
-      <td>-0.21</td>
-      <td>0.04</td>
-    </tr>
-    <tr>
-      <td>RJF</td>
-      <td>Financials</td>
-      <td>Investment Banking &amp; Brokerage</td>
-      <td>0.52</td>
-      <td>0.02</td>
-    </tr>
-    <tr>
-      <td>A</td>
-      <td>Health Care</td>
-      <td>Life Sciences Tools &amp; Services</td>
-      <td>-2.55</td>
-      <td>0.00</td>
-    </tr>
-    <tr>
-      <td>XEL</td>
-      <td>Utilities</td>
-      <td>Multi-Utilities</td>
-      <td>-1.29</td>
-      <td>-0.03</td>
-    </tr>
-    <tr>
-      <td>EMR</td>
-      <td>Industrials</td>
-      <td>Electrical Components &amp; Equipment</td>
-      <td>0.16</td>
-      <td>-0.11</td>
-    </tr>
-    <tr>
-      <td>GIS</td>
-      <td>Consumer Staples</td>
-      <td>Packaged Foods &amp; Meats</td>
-      <td>-2.88</td>
-      <td>-0.12</td>
-    </tr>
-    <tr>
-      <td>GS</td>
-      <td>Financials</td>
-      <td>Investment Banking &amp; Brokerage</td>
-      <td>1.15</td>
-      <td>-0.14</td>
-    </tr>
-    <tr>
-      <td>ROST</td>
-      <td>Consumer Discretionary</td>
-      <td>Apparel Retail</td>
-      <td>0.59</td>
-      <td>-0.16</td>
-    </tr>
-    <tr>
-      <td>LNT</td>
-      <td>Utilities</td>
-      <td>Electric Utilities</td>
-      <td>0.10</td>
       <td>-0.17</td>
     </tr>
     <tr>
-      <td>AME</td>
+      <td>CPRT</td>
       <td>Industrials</td>
-      <td>Electrical Components &amp; Equipment</td>
-      <td>-0.99</td>
+      <td>Diversified Support Services</td>
+      <td>-1.97</td>
+      <td>-0.21</td>
+    </tr>
+    <tr>
+      <td>ORLY</td>
+      <td>Consumer Discretionary</td>
+      <td>Automotive Retail</td>
+      <td>-1.73</td>
       <td>-0.24</td>
-    </tr>
-    <tr>
-      <td>CME</td>
-      <td>Financials</td>
-      <td>Financial Exchanges &amp; Data</td>
-      <td>-1.95</td>
-      <td>-0.24</td>
-    </tr>
-    <tr>
-      <td>TTD</td>
-      <td>Communication Services</td>
-      <td>Advertising</td>
-      <td>-1.75</td>
-      <td>-0.26</td>
-    </tr>
-    <tr>
-      <td>HSY</td>
-      <td>Consumer Staples</td>
-      <td>Packaged Foods &amp; Meats</td>
-      <td>-0.60</td>
-      <td>-0.29</td>
-    </tr>
-    <tr>
-      <td>VLTO</td>
-      <td>Industrials</td>
-      <td>Environmental &amp; Facilities Services</td>
-      <td>-2.13</td>
-      <td>-0.36</td>
     </tr>
     <tr>
       <td>EXE</td>
       <td>Energy</td>
       <td>Oil &amp; Gas Exploration &amp; Production</td>
-      <td>-1.52</td>
-      <td>-0.37</td>
+      <td>0.79</td>
+      <td>-0.27</td>
     </tr>
     <tr>
-      <td>KR</td>
+      <td>KDP</td>
       <td>Consumer Staples</td>
-      <td>Food Retail</td>
-      <td>-1.16</td>
-      <td>-0.39</td>
-    </tr>
-    <tr>
-      <td>TAP</td>
-      <td>Consumer Staples</td>
-      <td>Brewers</td>
-      <td>-1.67</td>
+      <td>Soft Drinks &amp; Non-alcoholic Beverages</td>
       <td>-0.42</td>
-    </tr>
-    <tr>
-      <td>ALL</td>
-      <td>Financials</td>
-      <td>Property &amp; Casualty Insurance</td>
-      <td>-0.24</td>
-      <td>-0.49</td>
-    </tr>
-    <tr>
-      <td>DLR</td>
-      <td>Real Estate</td>
-      <td>Data Center REITs</td>
-      <td>0.27</td>
-      <td>-0.52</td>
-    </tr>
-    <tr>
-      <td>BDX</td>
-      <td>Health Care</td>
-      <td>Health Care Equipment</td>
-      <td>-2.50</td>
-      <td>-0.53</td>
-    </tr>
-    <tr>
-      <td>WAB</td>
-      <td>Industrials</td>
-      <td>Construction Machinery &amp; Heavy Transportation Equipment</td>
-      <td>0.05</td>
-      <td>-0.57</td>
-    </tr>
-    <tr>
-      <td>PPG</td>
-      <td>Materials</td>
-      <td>Specialty Chemicals</td>
-      <td>0.62</td>
-      <td>-0.63</td>
-    </tr>
-    <tr>
-      <td>TMO</td>
-      <td>Health Care</td>
-      <td>Life Sciences Tools &amp; Services</td>
-      <td>-1.99</td>
-      <td>-0.65</td>
-    </tr>
-    <tr>
-      <td>NVDA</td>
-      <td>Information Technology</td>
-      <td>Semiconductors</td>
-      <td>1.75</td>
-      <td>-0.65</td>
-    </tr>
-    <tr>
-      <td>GL</td>
-      <td>Financials</td>
-      <td>Life &amp; Health Insurance</td>
-      <td>-0.90</td>
-      <td>-0.65</td>
-    </tr>
-    <tr>
-      <td>ICE</td>
-      <td>Financials</td>
-      <td>Financial Exchanges &amp; Data</td>
-      <td>-0.19</td>
-      <td>-0.72</td>
-    </tr>
-    <tr>
-      <td>HAL</td>
-      <td>Energy</td>
-      <td>Oil &amp; Gas Equipment &amp; Services</td>
-      <td>1.81</td>
-      <td>-0.75</td>
-    </tr>
-    <tr>
-      <td>FDS</td>
-      <td>Financials</td>
-      <td>Financial Exchanges &amp; Data</td>
-      <td>-0.17</td>
-      <td>-0.76</td>
-    </tr>
-    <tr>
-      <td>WRB</td>
-      <td>Financials</td>
-      <td>Property &amp; Casualty Insurance</td>
-      <td>-1.28</td>
-      <td>-0.79</td>
-    </tr>
-    <tr>
-      <td>USB</td>
-      <td>Financials</td>
-      <td>Diversified Banks</td>
-      <td>0.40</td>
-      <td>-0.79</td>
-    </tr>
-    <tr>
-      <td>AXP</td>
-      <td>Financials</td>
-      <td>Consumer Finance</td>
-      <td>-0.83</td>
-      <td>-0.88</td>
-    </tr>
-    <tr>
-      <td>AVY</td>
-      <td>Materials</td>
-      <td>Paper &amp; Plastic Packaging Products &amp; Materials</td>
-      <td>-1.22</td>
-      <td>-0.89</td>
-    </tr>
-    <tr>
-      <td>O</td>
-      <td>Real Estate</td>
-      <td>Retail REITs</td>
-      <td>0.21</td>
-      <td>-0.90</td>
-    </tr>
-    <tr>
-      <td>FOX</td>
-      <td>Communication Services</td>
-      <td>Broadcasting</td>
-      <td>0.18</td>
-      <td>-0.91</td>
-    </tr>
-    <tr>
-      <td>CFG</td>
-      <td>Financials</td>
-      <td>Regional Banks</td>
-      <td>-0.76</td>
-      <td>-0.91</td>
-    </tr>
-    <tr>
-      <td>MSCI</td>
-      <td>Financials</td>
-      <td>Financial Exchanges &amp; Data</td>
-      <td>-0.50</td>
-      <td>-0.95</td>
-    </tr>
-    <tr>
-      <td>D</td>
-      <td>Utilities</td>
-      <td>Multi-Utilities</td>
-      <td>0.45</td>
-      <td>-0.98</td>
-    </tr>
-    <tr>
-      <td>EA</td>
-      <td>Communication Services</td>
-      <td>Interactive Home Entertainment</td>
-      <td>-0.20</td>
-      <td>-0.99</td>
-    </tr>
-    <tr>
-      <td>SRE</td>
-      <td>Utilities</td>
-      <td>Multi-Utilities</td>
-      <td>-0.04</td>
-      <td>-1.01</td>
-    </tr>
-    <tr>
-      <td>UBER</td>
-      <td>Industrials</td>
-      <td>Passenger Ground Transportation</td>
-      <td>-1.67</td>
-      <td>-1.08</td>
-    </tr>
-    <tr>
-      <td>ETR</td>
-      <td>Utilities</td>
-      <td>Electric Utilities</td>
-      <td>-0.38</td>
-      <td>-1.09</td>
-    </tr>
-    <tr>
-      <td>DRI</td>
-      <td>Consumer Discretionary</td>
-      <td>Restaurants</td>
-      <td>0.54</td>
-      <td>-1.24</td>
-    </tr>
-    <tr>
-      <td>DXCM</td>
-      <td>Health Care</td>
-      <td>Health Care Equipment</td>
-      <td>-0.49</td>
-      <td>-1.30</td>
-    </tr>
-    <tr>
-      <td>LMT</td>
-      <td>Industrials</td>
-      <td>Aerospace &amp; Defense</td>
-      <td>-1.15</td>
-      <td>-1.33</td>
-    </tr>
-    <tr>
-      <td>PG</td>
-      <td>Consumer Staples</td>
-      <td>Personal Care Products</td>
-      <td>0.25</td>
-      <td>-1.33</td>
-    </tr>
-    <tr>
-      <td>F</td>
-      <td>Consumer Discretionary</td>
-      <td>Automobile Manufacturers</td>
-      <td>1.15</td>
-      <td>-1.36</td>
-    </tr>
-    <tr>
-      <td>AFL</td>
-      <td>Financials</td>
-      <td>Life &amp; Health Insurance</td>
-      <td>-0.44</td>
-      <td>-1.38</td>
-    </tr>
-    <tr>
-      <td>CSX</td>
-      <td>Industrials</td>
-      <td>Rail Transportation</td>
-      <td>0.83</td>
-      <td>-1.39</td>
-    </tr>
-    <tr>
-      <td>T</td>
-      <td>Communication Services</td>
-      <td>Integrated Telecommunication Services</td>
-      <td>-0.40</td>
-      <td>-1.41</td>
-    </tr>
-    <tr>
-      <td>KEY</td>
-      <td>Financials</td>
-      <td>Regional Banks</td>
-      <td>-0.41</td>
-      <td>-1.41</td>
-    </tr>
-    <tr>
-      <td>FOXA</td>
-      <td>Communication Services</td>
-      <td>Broadcasting</td>
-      <td>0.40</td>
-      <td>-1.44</td>
-    </tr>
-    <tr>
-      <td>CCL</td>
-      <td>Consumer Discretionary</td>
-      <td>Hotels, Resorts &amp; Cruise Lines</td>
-      <td>-2.30</td>
-      <td>-1.46</td>
-    </tr>
-    <tr>
-      <td>CB</td>
-      <td>Financials</td>
-      <td>Property &amp; Casualty Insurance</td>
-      <td>-0.51</td>
-      <td>-1.53</td>
-    </tr>
-    <tr>
-      <td>UNP</td>
-      <td>Industrials</td>
-      <td>Rail Transportation</td>
-      <td>-0.09</td>
-      <td>-1.58</td>
-    </tr>
-    <tr>
-      <td>TEL</td>
-      <td>Information Technology</td>
-      <td>Electronic Manufacturing Services</td>
-      <td>-1.84</td>
-      <td>-1.58</td>
-    </tr>
-    <tr>
-      <td>KLAC</td>
-      <td>Information Technology</td>
-      <td>Semiconductor Materials &amp; Equipment</td>
-      <td>6.01</td>
-      <td>-1.62</td>
-    </tr>
-    <tr>
-      <td>EQIX</td>
-      <td>Real Estate</td>
-      <td>Data Center REITs</td>
-      <td>0.50</td>
-      <td>-1.63</td>
-    </tr>
-    <tr>
-      <td>KIM</td>
-      <td>Real Estate</td>
-      <td>Retail REITs</td>
-      <td>-0.21</td>
-      <td>-1.68</td>
-    </tr>
-    <tr>
-      <td>NDAQ</td>
-      <td>Financials</td>
-      <td>Financial Exchanges &amp; Data</td>
-      <td>-0.10</td>
-      <td>-1.68</td>
-    </tr>
-    <tr>
-      <td>MMM</td>
-      <td>Industrials</td>
-      <td>Industrial Conglomerates</td>
-      <td>-0.32</td>
-      <td>-1.70</td>
-    </tr>
-    <tr>
-      <td>CVX</td>
-      <td>Energy</td>
-      <td>Integrated Oil &amp; Gas</td>
-      <td>-0.48</td>
-      <td>-1.71</td>
-    </tr>
-    <tr>
-      <td>JBHT</td>
-      <td>Industrials</td>
-      <td>Cargo Ground Transportation</td>
-      <td>1.51</td>
-      <td>-1.72</td>
-    </tr>
-    <tr>
-      <td>GPC</td>
-      <td>Consumer Discretionary</td>
-      <td>Distributors</td>
-      <td>-0.50</td>
-      <td>-1.73</td>
-    </tr>
-    <tr>
-      <td>VRSK</td>
-      <td>Industrials</td>
-      <td>Research &amp; Consulting Services</td>
-      <td>-1.61</td>
-      <td>-1.73</td>
-    </tr>
-    <tr>
-      <td>NSC</td>
-      <td>Industrials</td>
-      <td>Rail Transportation</td>
-      <td>-0.01</td>
-      <td>-1.73</td>
-    </tr>
-    <tr>
-      <td>JNJ</td>
-      <td>Health Care</td>
-      <td>Pharmaceuticals</td>
-      <td>-0.53</td>
-      <td>-1.78</td>
-    </tr>
-    <tr>
-      <td>OKE</td>
-      <td>Energy</td>
-      <td>Oil &amp; Gas Storage &amp; Transportation</td>
-      <td>-0.83</td>
-      <td>-1.79</td>
-    </tr>
-    <tr>
-      <td>NEE</td>
-      <td>Utilities</td>
-      <td>Multi-Utilities</td>
-      <td>-0.24</td>
-      <td>-1.82</td>
-    </tr>
-    <tr>
-      <td>AZO</td>
-      <td>Consumer Discretionary</td>
-      <td>Automotive Retail</td>
-      <td>-1.65</td>
-      <td>-1.85</td>
-    </tr>
-    <tr>
-      <td>TRV</td>
-      <td>Financials</td>
-      <td>Property &amp; Casualty Insurance</td>
-      <td>-0.30</td>
-      <td>-1.88</td>
-    </tr>
-    <tr>
-      <td>LVS</td>
-      <td>Consumer Discretionary</td>
-      <td>Casinos &amp; Gaming</td>
-      <td>-1.25</td>
-      <td>-1.93</td>
-    </tr>
-    <tr>
-      <td>FAST</td>
-      <td>Industrials</td>
-      <td>Trading Companies &amp; Distributors</td>
-      <td>-0.43</td>
-      <td>-1.93</td>
+      <td>-0.28</td>
     </tr>
     <tr>
       <td>PCG</td>
       <td>Utilities</td>
       <td>Multi-Utilities</td>
-      <td>-0.74</td>
-      <td>-1.95</td>
+      <td>0.87</td>
+      <td>-0.31</td>
     </tr>
     <tr>
-      <td>FITB</td>
-      <td>Financials</td>
-      <td>Regional Banks</td>
-      <td>-0.68</td>
-      <td>-1.99</td>
-    </tr>
-    <tr>
-      <td>SCHW</td>
-      <td>Financials</td>
-      <td>Investment Banking &amp; Brokerage</td>
-      <td>-0.64</td>
-      <td>-2.02</td>
-    </tr>
-    <tr>
-      <td>PNC</td>
-      <td>Financials</td>
-      <td>Diversified Banks</td>
-      <td>-1.11</td>
-      <td>-2.02</td>
-    </tr>
-    <tr>
-      <td>MCO</td>
-      <td>Financials</td>
-      <td>Financial Exchanges &amp; Data</td>
-      <td>-1.26</td>
-      <td>-2.04</td>
-    </tr>
-    <tr>
-      <td>CHD</td>
-      <td>Consumer Staples</td>
-      <td>Household Products</td>
-      <td>-0.47</td>
-      <td>-2.05</td>
-    </tr>
-    <tr>
-      <td>YUM</td>
+      <td>DRI</td>
       <td>Consumer Discretionary</td>
       <td>Restaurants</td>
-      <td>-3.37</td>
-      <td>-2.08</td>
+      <td>-0.22</td>
+      <td>-0.36</td>
     </tr>
     <tr>
-      <td>MAR</td>
+      <td>HAS</td>
       <td>Consumer Discretionary</td>
-      <td>Hotels, Resorts &amp; Cruise Lines</td>
-      <td>0.32</td>
-      <td>-2.08</td>
+      <td>Leisure Products</td>
+      <td>-2.65</td>
+      <td>-0.37</td>
     </tr>
     <tr>
-      <td>SO</td>
-      <td>Utilities</td>
-      <td>Electric Utilities</td>
-      <td>-0.68</td>
-      <td>-2.10</td>
+      <td>BXP</td>
+      <td>Real Estate</td>
+      <td>Office REITs</td>
+      <td>-0.82</td>
+      <td>-0.37</td>
     </tr>
     <tr>
-      <td>MA</td>
+      <td>MET</td>
       <td>Financials</td>
-      <td>Transaction &amp; Payment Processing Services</td>
-      <td>-1.09</td>
-      <td>-2.16</td>
+      <td>Life &amp; Health Insurance</td>
+      <td>-0.13</td>
+      <td>-0.38</td>
     </tr>
     <tr>
-      <td>NKE</td>
-      <td>Consumer Discretionary</td>
-      <td>Apparel, Accessories &amp; Luxury Goods</td>
-      <td>-0.61</td>
-      <td>-2.22</td>
-    </tr>
-    <tr>
-      <td>PNW</td>
-      <td>Utilities</td>
-      <td>Multi-Utilities</td>
-      <td>-0.28</td>
-      <td>-2.22</td>
-    </tr>
-    <tr>
-      <td>AMP</td>
-      <td>Financials</td>
-      <td>Asset Management &amp; Custody Banks</td>
-      <td>1.46</td>
-      <td>-2.22</td>
-    </tr>
-    <tr>
-      <td>RF</td>
-      <td>Financials</td>
-      <td>Regional Banks</td>
-      <td>-1.14</td>
-      <td>-2.23</td>
-    </tr>
-    <tr>
-      <td>MSFT</td>
-      <td>Information Technology</td>
-      <td>Systems Software</td>
-      <td>-1.34</td>
-      <td>-2.28</td>
-    </tr>
-    <tr>
-      <td>DUK</td>
-      <td>Utilities</td>
-      <td>Electric Utilities</td>
-      <td>-0.56</td>
-      <td>-2.30</td>
-    </tr>
-    <tr>
-      <td>APD</td>
+      <td>PKG</td>
       <td>Materials</td>
-      <td>Industrial Gases</td>
-      <td>0.14</td>
-      <td>-2.31</td>
+      <td>Paper &amp; Plastic Packaging Products &amp; Materials</td>
+      <td>-1.37</td>
+      <td>-0.48</td>
     </tr>
     <tr>
-      <td>ED</td>
+      <td>MAA</td>
+      <td>Real Estate</td>
+      <td>Multi-Family Residential REITs</td>
+      <td>0.32</td>
+      <td>-0.51</td>
+    </tr>
+    <tr>
+      <td>AMT</td>
+      <td>Real Estate</td>
+      <td>Telecom Tower REITs</td>
+      <td>0.53</td>
+      <td>-0.52</td>
+    </tr>
+    <tr>
+      <td>D</td>
       <td>Utilities</td>
       <td>Multi-Utilities</td>
-      <td>-0.08</td>
-      <td>-2.32</td>
+      <td>1.08</td>
+      <td>-0.52</td>
     </tr>
     <tr>
-      <td>C</td>
-      <td>Financials</td>
-      <td>Diversified Banks</td>
-      <td>-2.74</td>
-      <td>-2.32</td>
-    </tr>
-    <tr>
-      <td>HCA</td>
-      <td>Health Care</td>
-      <td>Health Care Facilities</td>
-      <td>1.44</td>
-      <td>-2.37</td>
-    </tr>
-    <tr>
-      <td>URI</td>
-      <td>Industrials</td>
-      <td>Trading Companies &amp; Distributors</td>
-      <td>-0.75</td>
-      <td>-2.38</td>
-    </tr>
-    <tr>
-      <td>COF</td>
-      <td>Financials</td>
-      <td>Consumer Finance</td>
-      <td>-1.61</td>
-      <td>-2.39</td>
-    </tr>
-    <tr>
-      <td>EOG</td>
-      <td>Energy</td>
-      <td>Oil &amp; Gas Exploration &amp; Production</td>
-      <td>-0.66</td>
-      <td>-2.39</td>
-    </tr>
-    <tr>
-      <td>FDX</td>
-      <td>Industrials</td>
-      <td>Air Freight &amp; Logistics</td>
-      <td>0.70</td>
-      <td>-2.40</td>
+      <td>CBRE</td>
+      <td>Real Estate</td>
+      <td>Real Estate Services</td>
+      <td>-0.15</td>
+      <td>-0.56</td>
     </tr>
     <tr>
       <td>XOM</td>
       <td>Energy</td>
       <td>Integrated Oil &amp; Gas</td>
-      <td>-1.37</td>
-      <td>-2.44</td>
+      <td>3.53</td>
+      <td>-0.58</td>
     </tr>
     <tr>
-      <td>HBAN</td>
+      <td>CME</td>
       <td>Financials</td>
-      <td>Regional Banks</td>
-      <td>-0.43</td>
-      <td>-2.48</td>
+      <td>Financial Exchanges &amp; Data</td>
+      <td>0.47</td>
+      <td>-0.69</td>
     </tr>
     <tr>
-      <td>AMGN</td>
-      <td>Health Care</td>
-      <td>Biotechnology</td>
-      <td>0.79</td>
-      <td>-2.49</td>
-    </tr>
-    <tr>
-      <td>CRH</td>
-      <td>Materials</td>
-      <td>Construction Materials</td>
-      <td>1.00</td>
-      <td>-2.49</td>
-    </tr>
-    <tr>
-      <td>CINF</td>
+      <td>AFL</td>
       <td>Financials</td>
-      <td>Property &amp; Casualty Insurance</td>
-      <td>-0.34</td>
-      <td>-2.50</td>
-    </tr>
-    <tr>
-      <td>NI</td>
-      <td>Utilities</td>
-      <td>Multi-Utilities</td>
-      <td>-0.64</td>
-      <td>-2.50</td>
-    </tr>
-    <tr>
-      <td>BAC</td>
-      <td>Financials</td>
-      <td>Diversified Banks</td>
-      <td>-2.73</td>
-      <td>-2.51</td>
-    </tr>
-    <tr>
-      <td>AEE</td>
-      <td>Utilities</td>
-      <td>Multi-Utilities</td>
-      <td>0.28</td>
-      <td>-2.54</td>
-    </tr>
-    <tr>
-      <td>FTV</td>
-      <td>Industrials</td>
-      <td>Industrial Machinery &amp; Supplies &amp; Components</td>
-      <td>-0.77</td>
-      <td>-2.55</td>
-    </tr>
-    <tr>
-      <td>ATO</td>
-      <td>Utilities</td>
-      <td>Gas Utilities</td>
-      <td>-0.54</td>
-      <td>-2.56</td>
-    </tr>
-    <tr>
-      <td>PFE</td>
-      <td>Health Care</td>
-      <td>Pharmaceuticals</td>
-      <td>-1.42</td>
-      <td>-2.56</td>
-    </tr>
-    <tr>
-      <td>IDXX</td>
-      <td>Health Care</td>
-      <td>Health Care Equipment</td>
-      <td>-2.11</td>
-      <td>-2.58</td>
-    </tr>
-    <tr>
-      <td>ROP</td>
-      <td>Information Technology</td>
-      <td>Electronic Equipment &amp; Instruments</td>
-      <td>-2.59</td>
-      <td>-2.59</td>
-    </tr>
-    <tr>
-      <td>VMC</td>
-      <td>Materials</td>
-      <td>Construction Materials</td>
-      <td>-1.80</td>
-      <td>-2.61</td>
-    </tr>
-    <tr>
-      <td>TJX</td>
-      <td>Consumer Discretionary</td>
-      <td>Apparel Retail</td>
-      <td>-0.73</td>
-      <td>-2.62</td>
-    </tr>
-    <tr>
-      <td>ACGL</td>
-      <td>Financials</td>
-      <td>Property &amp; Casualty Insurance</td>
-      <td>-0.76</td>
-      <td>-2.65</td>
-    </tr>
-    <tr>
-      <td>MTB</td>
-      <td>Financials</td>
-      <td>Regional Banks</td>
-      <td>-0.41</td>
-      <td>-2.65</td>
-    </tr>
-    <tr>
-      <td>JCI</td>
-      <td>Industrials</td>
-      <td>Building Products</td>
-      <td>0.19</td>
-      <td>-2.69</td>
-    </tr>
-    <tr>
-      <td>BAX</td>
-      <td>Health Care</td>
-      <td>Health Care Equipment</td>
-      <td>2.86</td>
-      <td>-2.70</td>
-    </tr>
-    <tr>
-      <td>SNA</td>
-      <td>Industrials</td>
-      <td>Industrial Machinery &amp; Supplies &amp; Components</td>
-      <td>0.90</td>
-      <td>-2.72</td>
-    </tr>
-    <tr>
-      <td>CNP</td>
-      <td>Utilities</td>
-      <td>Multi-Utilities</td>
-      <td>-1.23</td>
-      <td>-2.73</td>
-    </tr>
-    <tr>
-      <td>BMY</td>
-      <td>Health Care</td>
-      <td>Pharmaceuticals</td>
-      <td>-0.16</td>
-      <td>-2.80</td>
-    </tr>
-    <tr>
-      <td>DOV</td>
-      <td>Industrials</td>
-      <td>Industrial Machinery &amp; Supplies &amp; Components</td>
-      <td>-0.48</td>
-      <td>-2.83</td>
-    </tr>
-    <tr>
-      <td>WYNN</td>
-      <td>Consumer Discretionary</td>
-      <td>Casinos &amp; Gaming</td>
-      <td>-4.15</td>
-      <td>-2.93</td>
-    </tr>
-    <tr>
-      <td>AEP</td>
-      <td>Utilities</td>
-      <td>Electric Utilities</td>
-      <td>-0.50</td>
-      <td>-2.94</td>
-    </tr>
-    <tr>
-      <td>STT</td>
-      <td>Financials</td>
-      <td>Asset Management &amp; Custody Banks</td>
-      <td>0.48</td>
-      <td>-2.94</td>
-    </tr>
-    <tr>
-      <td>REG</td>
-      <td>Real Estate</td>
-      <td>Retail REITs</td>
-      <td>-0.35</td>
-      <td>-2.95</td>
+      <td>Life &amp; Health Insurance</td>
+      <td>2.10</td>
+      <td>-0.70</td>
     </tr>
     <tr>
       <td>BK</td>
       <td>Financials</td>
       <td>Asset Management &amp; Custody Banks</td>
-      <td>-0.15</td>
-      <td>-2.95</td>
-    </tr>
-    <tr>
-      <td>RSG</td>
-      <td>Industrials</td>
-      <td>Environmental &amp; Facilities Services</td>
-      <td>-0.76</td>
-      <td>-2.95</td>
-    </tr>
-    <tr>
-      <td>WEC</td>
-      <td>Utilities</td>
-      <td>Electric Utilities</td>
-      <td>-0.99</td>
-      <td>-3.01</td>
-    </tr>
-    <tr>
-      <td>JPM</td>
-      <td>Financials</td>
-      <td>Diversified Banks</td>
-      <td>-1.36</td>
-      <td>-3.06</td>
-    </tr>
-    <tr>
-      <td>TFC</td>
-      <td>Financials</td>
-      <td>Diversified Banks</td>
-      <td>-0.22</td>
-      <td>-3.13</td>
-    </tr>
-    <tr>
-      <td>AON</td>
-      <td>Financials</td>
-      <td>Insurance Brokers</td>
-      <td>-0.26</td>
-      <td>-3.14</td>
-    </tr>
-    <tr>
-      <td>MLM</td>
-      <td>Materials</td>
-      <td>Construction Materials</td>
-      <td>-1.68</td>
-      <td>-3.18</td>
-    </tr>
-    <tr>
-      <td>ES</td>
-      <td>Utilities</td>
-      <td>Electric Utilities</td>
+      <td>1.52</td>
       <td>-0.79</td>
-      <td>-3.22</td>
     </tr>
     <tr>
-      <td>RL</td>
-      <td>Consumer Discretionary</td>
-      <td>Apparel, Accessories &amp; Luxury Goods</td>
-      <td>1.39</td>
-      <td>-3.22</td>
-    </tr>
-    <tr>
-      <td>DOW</td>
-      <td>Materials</td>
-      <td>Commodity Chemicals</td>
-      <td>-1.21</td>
-      <td>-3.23</td>
-    </tr>
-    <tr>
-      <td>ULTA</td>
-      <td>Consumer Discretionary</td>
-      <td>Other Specialty Retail</td>
-      <td>-0.94</td>
-      <td>-3.35</td>
-    </tr>
-    <tr>
-      <td>MAS</td>
-      <td>Industrials</td>
-      <td>Building Products</td>
-      <td>-0.26</td>
-      <td>-3.37</td>
-    </tr>
-    <tr>
-      <td>ETN</td>
-      <td>Industrials</td>
-      <td>Electrical Components &amp; Equipment</td>
-      <td>0.87</td>
-      <td>-3.40</td>
-    </tr>
-    <tr>
-      <td>CMG</td>
-      <td>Consumer Discretionary</td>
-      <td>Restaurants</td>
-      <td>-2.34</td>
-      <td>-3.42</td>
-    </tr>
-    <tr>
-      <td>JKHY</td>
-      <td>Financials</td>
-      <td>Transaction &amp; Payment Processing Services</td>
-      <td>-0.13</td>
-      <td>-3.42</td>
-    </tr>
-    <tr>
-      <td>HIG</td>
-      <td>Financials</td>
-      <td>Property &amp; Casualty Insurance</td>
-      <td>-0.49</td>
-      <td>-3.43</td>
-    </tr>
-    <tr>
-      <td>OTIS</td>
-      <td>Industrials</td>
-      <td>Industrial Machinery &amp; Supplies &amp; Components</td>
-      <td>-3.42</td>
-      <td>-3.43</td>
-    </tr>
-    <tr>
-      <td>LIN</td>
-      <td>Materials</td>
-      <td>Industrial Gases</td>
-      <td>-0.14</td>
-      <td>-3.44</td>
-    </tr>
-    <tr>
-      <td>TGT</td>
-      <td>Consumer Staples</td>
-      <td>Consumer Staples Merchandise Retail</td>
-      <td>-0.50</td>
-      <td>-3.45</td>
-    </tr>
-    <tr>
-      <td>DG</td>
-      <td>Consumer Staples</td>
-      <td>Consumer Staples Merchandise Retail</td>
-      <td>-2.73</td>
-      <td>-3.46</td>
-    </tr>
-    <tr>
-      <td>DPZ</td>
-      <td>Consumer Discretionary</td>
-      <td>Restaurants</td>
-      <td>-2.72</td>
-      <td>-3.53</td>
-    </tr>
-    <tr>
-      <td>LH</td>
-      <td>Health Care</td>
-      <td>Health Care Services</td>
-      <td>-1.52</td>
-      <td>-3.53</td>
-    </tr>
-    <tr>
-      <td>APTV</td>
-      <td>Consumer Discretionary</td>
-      <td>Automotive Parts &amp; Equipment</td>
-      <td>1.45</td>
-      <td>-3.55</td>
-    </tr>
-    <tr>
-      <td>SLB</td>
-      <td>Energy</td>
-      <td>Oil &amp; Gas Equipment &amp; Services</td>
-      <td>0.51</td>
-      <td>-3.55</td>
-    </tr>
-    <tr>
-      <td>CEG</td>
-      <td>Utilities</td>
-      <td>Electric Utilities</td>
-      <td>-2.46</td>
-      <td>-3.66</td>
-    </tr>
-    <tr>
-      <td>PLTR</td>
-      <td>Information Technology</td>
-      <td>Application Software</td>
-      <td>0.55</td>
-      <td>-3.70</td>
-    </tr>
-    <tr>
-      <td>CMS</td>
-      <td>Utilities</td>
-      <td>Multi-Utilities</td>
-      <td>-1.06</td>
-      <td>-3.78</td>
-    </tr>
-    <tr>
-      <td>STZ</td>
-      <td>Consumer Staples</td>
-      <td>Distillers &amp; Vintners</td>
-      <td>-1.36</td>
-      <td>-3.79</td>
-    </tr>
-    <tr>
-      <td>ROL</td>
-      <td>Industrials</td>
-      <td>Environmental &amp; Facilities Services</td>
-      <td>-1.03</td>
-      <td>-3.82</td>
-    </tr>
-    <tr>
-      <td>DLTR</td>
-      <td>Consumer Staples</td>
-      <td>Consumer Staples Merchandise Retail</td>
-      <td>-2.60</td>
-      <td>-3.84</td>
-    </tr>
-    <tr>
-      <td>PEG</td>
-      <td>Utilities</td>
-      <td>Electric Utilities</td>
-      <td>-0.90</td>
-      <td>-3.84</td>
-    </tr>
-    <tr>
-      <td>TYL</td>
-      <td>Information Technology</td>
-      <td>Application Software</td>
-      <td>-1.96</td>
-      <td>-3.85</td>
-    </tr>
-    <tr>
-      <td>SYY</td>
-      <td>Consumer Staples</td>
-      <td>Food Distributors</td>
-      <td>-0.60</td>
-      <td>-3.87</td>
-    </tr>
-    <tr>
-      <td>SPGI</td>
-      <td>Financials</td>
-      <td>Financial Exchanges &amp; Data</td>
-      <td>-2.00</td>
-      <td>-3.91</td>
-    </tr>
-    <tr>
-      <td>FANG</td>
-      <td>Energy</td>
-      <td>Oil &amp; Gas Exploration &amp; Production</td>
-      <td>-0.92</td>
-      <td>-3.93</td>
-    </tr>
-    <tr>
-      <td>PGR</td>
-      <td>Financials</td>
-      <td>Property &amp; Casualty Insurance</td>
-      <td>-0.89</td>
-      <td>-3.95</td>
-    </tr>
-    <tr>
-      <td>REGN</td>
-      <td>Health Care</td>
-      <td>Biotechnology</td>
-      <td>0.82</td>
-      <td>-3.97</td>
-    </tr>
-    <tr>
-      <td>DTE</td>
-      <td>Utilities</td>
-      <td>Multi-Utilities</td>
-      <td>-0.99</td>
-      <td>-4.03</td>
-    </tr>
-    <tr>
-      <td>MRSH</td>
-      <td>Financials</td>
-      <td>Insurance Brokers</td>
-      <td>-1.67</td>
-      <td>-4.06</td>
+      <td>SPG</td>
+      <td>Real Estate</td>
+      <td>Retail REITs</td>
+      <td>-0.55</td>
+      <td>-0.86</td>
     </tr>
     <tr>
       <td>TT</td>
       <td>Industrials</td>
       <td>Building Products</td>
-      <td>-0.77</td>
-      <td>-4.06</td>
+      <td>2.22</td>
+      <td>-0.88</td>
     </tr>
     <tr>
-      <td>CTAS</td>
-      <td>Industrials</td>
-      <td>Diversified Support Services</td>
-      <td>-1.81</td>
-      <td>-4.06</td>
-    </tr>
-    <tr>
-      <td>MKC</td>
-      <td>Consumer Staples</td>
-      <td>Packaged Foods &amp; Meats</td>
-      <td>0.88</td>
-      <td>-4.13</td>
-    </tr>
-    <tr>
-      <td>BALL</td>
-      <td>Materials</td>
-      <td>Metal, Glass &amp; Plastic Containers</td>
-      <td>0.19</td>
-      <td>-4.18</td>
-    </tr>
-    <tr>
-      <td>CVNA</td>
-      <td>Consumer Discretionary</td>
-      <td>Automotive Retail</td>
-      <td>-2.58</td>
-      <td>-4.19</td>
-    </tr>
-    <tr>
-      <td>EW</td>
+      <td>PFE</td>
       <td>Health Care</td>
-      <td>Health Care Equipment</td>
-      <td>-3.38</td>
-      <td>-4.19</td>
+      <td>Pharmaceuticals</td>
+      <td>0.51</td>
+      <td>-0.92</td>
     </tr>
     <tr>
-      <td>NFLX</td>
-      <td>Communication Services</td>
-      <td>Movies &amp; Entertainment</td>
-      <td>-0.86</td>
-      <td>-4.25</td>
+      <td>CPT</td>
+      <td>Real Estate</td>
+      <td>Multi-Family Residential REITs</td>
+      <td>1.11</td>
+      <td>-0.95</td>
     </tr>
     <tr>
-      <td>EQT</td>
+      <td>CINF</td>
+      <td>Financials</td>
+      <td>Property &amp; Casualty Insurance</td>
+      <td>1.13</td>
+      <td>-0.99</td>
+    </tr>
+    <tr>
+      <td>ZBRA</td>
+      <td>Information Technology</td>
+      <td>Electronic Equipment &amp; Instruments</td>
+      <td>-4.01</td>
+      <td>-1.04</td>
+    </tr>
+    <tr>
+      <td>OKE</td>
       <td>Energy</td>
-      <td>Oil &amp; Gas Exploration &amp; Production</td>
-      <td>-0.46</td>
-      <td>-4.30</td>
+      <td>Oil &amp; Gas Storage &amp; Transportation</td>
+      <td>3.09</td>
+      <td>-1.06</td>
     </tr>
     <tr>
-      <td>SYF</td>
+      <td>WRB</td>
+      <td>Financials</td>
+      <td>Property &amp; Casualty Insurance</td>
+      <td>1.11</td>
+      <td>-1.06</td>
+    </tr>
+    <tr>
+      <td>CSX</td>
+      <td>Industrials</td>
+      <td>Rail Transportation</td>
+      <td>-0.20</td>
+      <td>-1.08</td>
+    </tr>
+    <tr>
+      <td>SYY</td>
+      <td>Consumer Staples</td>
+      <td>Food Distributors</td>
+      <td>0.18</td>
+      <td>-1.09</td>
+    </tr>
+    <tr>
+      <td>AXP</td>
       <td>Financials</td>
       <td>Consumer Finance</td>
-      <td>-1.16</td>
-      <td>-4.32</td>
+      <td>-1.17</td>
+      <td>-1.13</td>
     </tr>
     <tr>
-      <td>MGM</td>
-      <td>Consumer Discretionary</td>
-      <td>Casinos &amp; Gaming</td>
-      <td>1.78</td>
-      <td>-4.34</td>
+      <td>EA</td>
+      <td>Communication Services</td>
+      <td>Interactive Home Entertainment</td>
+      <td>-0.11</td>
+      <td>-1.14</td>
     </tr>
     <tr>
-      <td>BR</td>
-      <td>Industrials</td>
-      <td>Data Processing &amp; Outsourced Services</td>
-      <td>-2.22</td>
-      <td>-4.39</td>
-    </tr>
-    <tr>
-      <td>NTRS</td>
-      <td>Financials</td>
-      <td>Asset Management &amp; Custody Banks</td>
-      <td>0.24</td>
-      <td>-4.41</td>
-    </tr>
-    <tr>
-      <td>MOS</td>
+      <td>LIN</td>
       <td>Materials</td>
-      <td>Fertilizers &amp; Agricultural Chemicals</td>
-      <td>-3.14</td>
-      <td>-4.44</td>
+      <td>Industrial Gases</td>
+      <td>2.28</td>
+      <td>-1.15</td>
     </tr>
     <tr>
-      <td>ISRG</td>
-      <td>Health Care</td>
-      <td>Health Care Equipment</td>
-      <td>-0.76</td>
-      <td>-4.44</td>
-    </tr>
-    <tr>
-      <td>HD</td>
-      <td>Consumer Discretionary</td>
-      <td>Home Improvement Retail</td>
-      <td>-1.61</td>
-      <td>-4.47</td>
-    </tr>
-    <tr>
-      <td>NOC</td>
-      <td>Industrials</td>
-      <td>Aerospace &amp; Defense</td>
-      <td>-0.50</td>
-      <td>-4.48</td>
-    </tr>
-    <tr>
-      <td>FIS</td>
+      <td>ALL</td>
       <td>Financials</td>
-      <td>Transaction &amp; Payment Processing Services</td>
-      <td>-7.96</td>
-      <td>-4.63</td>
+      <td>Property &amp; Casualty Insurance</td>
+      <td>0.30</td>
+      <td>-1.20</td>
     </tr>
     <tr>
-      <td>CLX</td>
-      <td>Consumer Staples</td>
-      <td>Household Products</td>
-      <td>0.05</td>
-      <td>-4.66</td>
-    </tr>
-    <tr>
-      <td>DGX</td>
+      <td>HCA</td>
       <td>Health Care</td>
-      <td>Health Care Services</td>
-      <td>-1.81</td>
-      <td>-4.70</td>
+      <td>Health Care Facilities</td>
+      <td>-2.03</td>
+      <td>-1.28</td>
     </tr>
     <tr>
-      <td>HLT</td>
+      <td>SLB</td>
+      <td>Energy</td>
+      <td>Oil &amp; Gas Equipment &amp; Services</td>
+      <td>3.12</td>
+      <td>-1.29</td>
+    </tr>
+    <tr>
+      <td>NSC</td>
+      <td>Industrials</td>
+      <td>Rail Transportation</td>
+      <td>-0.29</td>
+      <td>-1.34</td>
+    </tr>
+    <tr>
+      <td>HAL</td>
+      <td>Energy</td>
+      <td>Oil &amp; Gas Equipment &amp; Services</td>
+      <td>1.08</td>
+      <td>-1.35</td>
+    </tr>
+    <tr>
+      <td>KIM</td>
+      <td>Real Estate</td>
+      <td>Retail REITs</td>
+      <td>-0.04</td>
+      <td>-1.39</td>
+    </tr>
+    <tr>
+      <td>SO</td>
+      <td>Utilities</td>
+      <td>Electric Utilities</td>
+      <td>1.42</td>
+      <td>-1.39</td>
+    </tr>
+    <tr>
+      <td>MAR</td>
       <td>Consumer Discretionary</td>
       <td>Hotels, Resorts &amp; Cruise Lines</td>
-      <td>-1.10</td>
-      <td>-4.71</td>
+      <td>0.04</td>
+      <td>-1.40</td>
     </tr>
     <tr>
-      <td>WM</td>
-      <td>Industrials</td>
-      <td>Environmental &amp; Facilities Services</td>
-      <td>-2.75</td>
-      <td>-4.79</td>
-    </tr>
-    <tr>
-      <td>HRL</td>
-      <td>Consumer Staples</td>
-      <td>Packaged Foods &amp; Meats</td>
-      <td>-1.49</td>
-      <td>-4.80</td>
-    </tr>
-    <tr>
-      <td>MCD</td>
+      <td>ABNB</td>
       <td>Consumer Discretionary</td>
-      <td>Restaurants</td>
-      <td>-2.80</td>
-      <td>-4.98</td>
-    </tr>
-    <tr>
-      <td>ECL</td>
-      <td>Materials</td>
-      <td>Specialty Chemicals</td>
-      <td>-0.91</td>
-      <td>-5.10</td>
-    </tr>
-    <tr>
-      <td>WSM</td>
-      <td>Consumer Discretionary</td>
-      <td>Homefurnishing Retail</td>
-      <td>-0.72</td>
-      <td>-5.18</td>
+      <td>Hotels, Resorts &amp; Cruise Lines</td>
+      <td>-3.14</td>
+      <td>-1.43</td>
     </tr>
     <tr>
       <td>TDY</td>
       <td>Information Technology</td>
       <td>Electronic Equipment &amp; Instruments</td>
-      <td>-1.49</td>
-      <td>-5.20</td>
+      <td>1.80</td>
+      <td>-1.45</td>
     </tr>
     <tr>
-      <td>LEN</td>
-      <td>Consumer Discretionary</td>
-      <td>Homebuilding</td>
-      <td>0.73</td>
-      <td>-5.22</td>
+      <td>O</td>
+      <td>Real Estate</td>
+      <td>Retail REITs</td>
+      <td>0.71</td>
+      <td>-1.45</td>
     </tr>
     <tr>
-      <td>AWK</td>
-      <td>Utilities</td>
-      <td>Water Utilities</td>
-      <td>-0.91</td>
-      <td>-5.24</td>
-    </tr>
-    <tr>
-      <td>DHR</td>
-      <td>Health Care</td>
-      <td>Life Sciences Tools &amp; Services</td>
-      <td>-2.56</td>
-      <td>-5.24</td>
-    </tr>
-    <tr>
-      <td>UHS</td>
-      <td>Health Care</td>
-      <td>Health Care Facilities</td>
-      <td>-0.35</td>
-      <td>-5.32</td>
-    </tr>
-    <tr>
-      <td>DVN</td>
-      <td>Energy</td>
-      <td>Oil &amp; Gas Exploration &amp; Production</td>
-      <td>0.66</td>
-      <td>-5.37</td>
-    </tr>
-    <tr>
-      <td>CTSH</td>
-      <td>Information Technology</td>
-      <td>IT Consulting &amp; Other Services</td>
-      <td>-0.50</td>
-      <td>-5.40</td>
-    </tr>
-    <tr>
-      <td>LOW</td>
-      <td>Consumer Discretionary</td>
-      <td>Home Improvement Retail</td>
-      <td>-0.73</td>
-      <td>-5.50</td>
-    </tr>
-    <tr>
-      <td>ITW</td>
+      <td>GEV</td>
       <td>Industrials</td>
-      <td>Industrial Machinery &amp; Supplies &amp; Components</td>
-      <td>-0.30</td>
-      <td>-5.55</td>
+      <td>Heavy Electrical Equipment</td>
+      <td>3.17</td>
+      <td>-1.46</td>
     </tr>
     <tr>
-      <td>WFC</td>
+      <td>STT</td>
+      <td>Financials</td>
+      <td>Asset Management &amp; Custody Banks</td>
+      <td>0.45</td>
+      <td>-1.51</td>
+    </tr>
+    <tr>
+      <td>HOOD</td>
+      <td>Financials</td>
+      <td>Investment Banking &amp; Brokerage</td>
+      <td>4.87</td>
+      <td>-1.57</td>
+    </tr>
+    <tr>
+      <td>C</td>
       <td>Financials</td>
       <td>Diversified Banks</td>
-      <td>-3.90</td>
-      <td>-5.57</td>
+      <td>0.24</td>
+      <td>-1.62</td>
     </tr>
     <tr>
-      <td>SHW</td>
+      <td>CRH</td>
       <td>Materials</td>
-      <td>Specialty Chemicals</td>
-      <td>-1.06</td>
-      <td>-5.74</td>
+      <td>Construction Materials</td>
+      <td>-1.05</td>
+      <td>-1.63</td>
     </tr>
     <tr>
-      <td>EXC</td>
-      <td>Utilities</td>
-      <td>Electric Utilities</td>
-      <td>-1.13</td>
-      <td>-5.75</td>
-    </tr>
-    <tr>
-      <td>DASH</td>
-      <td>Consumer Discretionary</td>
-      <td>Specialized Consumer Services</td>
-      <td>-4.33</td>
-      <td>-5.82</td>
-    </tr>
-    <tr>
-      <td>J</td>
+      <td>UNP</td>
       <td>Industrials</td>
-      <td>Construction &amp; Engineering</td>
-      <td>-3.53</td>
-      <td>-5.87</td>
+      <td>Rail Transportation</td>
+      <td>-0.49</td>
+      <td>-1.64</td>
     </tr>
     <tr>
-      <td>DECK</td>
-      <td>Consumer Discretionary</td>
-      <td>Footwear</td>
-      <td>-2.24</td>
-      <td>-5.95</td>
-    </tr>
-    <tr>
-      <td>WY</td>
-      <td>Real Estate</td>
-      <td>Timber REITs</td>
-      <td>-0.72</td>
-      <td>-5.96</td>
-    </tr>
-    <tr>
-      <td>L</td>
+      <td>MSCI</td>
       <td>Financials</td>
-      <td>Multi-line Insurance</td>
-      <td>0.09</td>
-      <td>-6.00</td>
+      <td>Financial Exchanges &amp; Data</td>
+      <td>-0.13</td>
+      <td>-1.71</td>
     </tr>
     <tr>
-      <td>NCLH</td>
-      <td>Consumer Discretionary</td>
-      <td>Hotels, Resorts &amp; Cruise Lines</td>
-      <td>-0.81</td>
-      <td>-6.10</td>
+      <td>LH</td>
+      <td>Health Care</td>
+      <td>Health Care Services</td>
+      <td>0.38</td>
+      <td>-1.73</td>
     </tr>
     <tr>
-      <td>EXPE</td>
-      <td>Consumer Discretionary</td>
-      <td>Hotels, Resorts &amp; Cruise Lines</td>
-      <td>-9.02</td>
-      <td>-6.21</td>
+      <td>NEE</td>
+      <td>Utilities</td>
+      <td>Multi-Utilities</td>
+      <td>1.87</td>
+      <td>-1.73</td>
     </tr>
     <tr>
-      <td>BKR</td>
-      <td>Energy</td>
-      <td>Oil &amp; Gas Equipment &amp; Services</td>
-      <td>0.57</td>
-      <td>-6.25</td>
+      <td>INTU</td>
+      <td>Information Technology</td>
+      <td>Application Software</td>
+      <td>-0.76</td>
+      <td>-1.77</td>
     </tr>
     <tr>
-      <td>COP</td>
+      <td>EOG</td>
       <td>Energy</td>
       <td>Oil &amp; Gas Exploration &amp; Production</td>
-      <td>-0.88</td>
-      <td>-6.42</td>
+      <td>2.52</td>
+      <td>-1.82</td>
     </tr>
     <tr>
-      <td>LHX</td>
+      <td>MMM</td>
       <td>Industrials</td>
-      <td>Aerospace &amp; Defense</td>
-      <td>-0.51</td>
-      <td>-6.50</td>
+      <td>Industrial Conglomerates</td>
+      <td>0.03</td>
+      <td>-1.84</td>
     </tr>
     <tr>
-      <td>BKNG</td>
-      <td>Consumer Discretionary</td>
-      <td>Hotels, Resorts &amp; Cruise Lines</td>
-      <td>-3.12</td>
-      <td>-6.53</td>
+      <td>DOV</td>
+      <td>Industrials</td>
+      <td>Industrial Machinery &amp; Supplies &amp; Components</td>
+      <td>0.06</td>
+      <td>-1.86</td>
     </tr>
     <tr>
-      <td>ERIE</td>
+      <td>SNA</td>
+      <td>Industrials</td>
+      <td>Industrial Machinery &amp; Supplies &amp; Components</td>
+      <td>-0.95</td>
+      <td>-1.87</td>
+    </tr>
+    <tr>
+      <td>KKR</td>
       <td>Financials</td>
-      <td>Insurance Brokers</td>
-      <td>-0.39</td>
-      <td>-6.63</td>
+      <td>Asset Management &amp; Custody Banks</td>
+      <td>-2.98</td>
+      <td>-1.91</td>
     </tr>
     <tr>
-      <td>STE</td>
-      <td>Health Care</td>
-      <td>Health Care Equipment</td>
-      <td>-2.92</td>
-      <td>-6.63</td>
+      <td>CVX</td>
+      <td>Energy</td>
+      <td>Integrated Oil &amp; Gas</td>
+      <td>1.72</td>
+      <td>-1.92</td>
+    </tr>
+    <tr>
+      <td>MA</td>
+      <td>Financials</td>
+      <td>Transaction &amp; Payment Processing Services</td>
+      <td>0.47</td>
+      <td>-1.93</td>
+    </tr>
+    <tr>
+      <td>ES</td>
+      <td>Utilities</td>
+      <td>Electric Utilities</td>
+      <td>1.10</td>
+      <td>-1.95</td>
+    </tr>
+    <tr>
+      <td>FANG</td>
+      <td>Energy</td>
+      <td>Oil &amp; Gas Exploration &amp; Production</td>
+      <td>3.95</td>
+      <td>-1.95</td>
+    </tr>
+    <tr>
+      <td>CEG</td>
+      <td>Utilities</td>
+      <td>Electric Utilities</td>
+      <td>-1.30</td>
+      <td>-1.97</td>
+    </tr>
+    <tr>
+      <td>AEE</td>
+      <td>Utilities</td>
+      <td>Multi-Utilities</td>
+      <td>0.84</td>
+      <td>-1.97</td>
+    </tr>
+    <tr>
+      <td>CNP</td>
+      <td>Utilities</td>
+      <td>Multi-Utilities</td>
+      <td>1.32</td>
+      <td>-1.99</td>
+    </tr>
+    <tr>
+      <td>AMP</td>
+      <td>Financials</td>
+      <td>Asset Management &amp; Custody Banks</td>
+      <td>-0.40</td>
+      <td>-2.09</td>
+    </tr>
+    <tr>
+      <td>MCO</td>
+      <td>Financials</td>
+      <td>Financial Exchanges &amp; Data</td>
+      <td>-0.65</td>
+      <td>-2.10</td>
+    </tr>
+    <tr>
+      <td>KVUE</td>
+      <td>Consumer Staples</td>
+      <td>Personal Care Products</td>
+      <td>-2.39</td>
+      <td>-2.11</td>
+    </tr>
+    <tr>
+      <td>CRM</td>
+      <td>Information Technology</td>
+      <td>Application Software</td>
+      <td>-2.38</td>
+      <td>-2.11</td>
     </tr>
     <tr>
       <td>GRMN</td>
       <td>Consumer Discretionary</td>
       <td>Consumer Electronics</td>
-      <td>-0.75</td>
-      <td>-6.70</td>
+      <td>0.95</td>
+      <td>-2.19</td>
     </tr>
     <tr>
-      <td>COO</td>
-      <td>Health Care</td>
-      <td>Health Care Supplies</td>
-      <td>-1.82</td>
-      <td>-6.75</td>
+      <td>OMC</td>
+      <td>Communication Services</td>
+      <td>Advertising</td>
+      <td>-2.48</td>
+      <td>-2.25</td>
     </tr>
     <tr>
-      <td>RMD</td>
+      <td>EFX</td>
+      <td>Industrials</td>
+      <td>Research &amp; Consulting Services</td>
+      <td>-4.56</td>
+      <td>-2.27</td>
+    </tr>
+    <tr>
+      <td>DUK</td>
+      <td>Utilities</td>
+      <td>Electric Utilities</td>
+      <td>0.59</td>
+      <td>-2.27</td>
+    </tr>
+    <tr>
+      <td>BAX</td>
       <td>Health Care</td>
       <td>Health Care Equipment</td>
-      <td>-0.06</td>
-      <td>-6.87</td>
+      <td>-2.56</td>
+      <td>-2.29</td>
+    </tr>
+    <tr>
+      <td>FTV</td>
+      <td>Industrials</td>
+      <td>Industrial Machinery &amp; Supplies &amp; Components</td>
+      <td>-0.20</td>
+      <td>-2.36</td>
+    </tr>
+    <tr>
+      <td>HLT</td>
+      <td>Consumer Discretionary</td>
+      <td>Hotels, Resorts &amp; Cruise Lines</td>
+      <td>-0.39</td>
+      <td>-2.42</td>
+    </tr>
+    <tr>
+      <td>NI</td>
+      <td>Utilities</td>
+      <td>Multi-Utilities</td>
+      <td>0.66</td>
+      <td>-2.42</td>
+    </tr>
+    <tr>
+      <td>PNW</td>
+      <td>Utilities</td>
+      <td>Multi-Utilities</td>
+      <td>0.46</td>
+      <td>-2.45</td>
+    </tr>
+    <tr>
+      <td>BBY</td>
+      <td>Consumer Discretionary</td>
+      <td>Computer &amp; Electronics Retail</td>
+      <td>-3.00</td>
+      <td>-2.52</td>
+    </tr>
+    <tr>
+      <td>URI</td>
+      <td>Industrials</td>
+      <td>Trading Companies &amp; Distributors</td>
+      <td>0.12</td>
+      <td>-2.55</td>
+    </tr>
+    <tr>
+      <td>REGN</td>
+      <td>Health Care</td>
+      <td>Biotechnology</td>
+      <td>-0.30</td>
+      <td>-2.60</td>
+    </tr>
+    <tr>
+      <td>WEC</td>
+      <td>Utilities</td>
+      <td>Electric Utilities</td>
+      <td>0.99</td>
+      <td>-2.60</td>
+    </tr>
+    <tr>
+      <td>TAP</td>
+      <td>Consumer Staples</td>
+      <td>Brewers</td>
+      <td>-2.29</td>
+      <td>-2.63</td>
+    </tr>
+    <tr>
+      <td>ATO</td>
+      <td>Utilities</td>
+      <td>Gas Utilities</td>
+      <td>0.70</td>
+      <td>-2.67</td>
+    </tr>
+    <tr>
+      <td>AVY</td>
+      <td>Materials</td>
+      <td>Paper &amp; Plastic Packaging Products &amp; Materials</td>
+      <td>-0.91</td>
+      <td>-2.68</td>
+    </tr>
+    <tr>
+      <td>DGX</td>
+      <td>Health Care</td>
+      <td>Health Care Services</td>
+      <td>1.29</td>
+      <td>-2.69</td>
+    </tr>
+    <tr>
+      <td>AON</td>
+      <td>Financials</td>
+      <td>Insurance Brokers</td>
+      <td>-0.23</td>
+      <td>-2.73</td>
+    </tr>
+    <tr>
+      <td>KMB</td>
+      <td>Consumer Staples</td>
+      <td>Household Products</td>
+      <td>-2.60</td>
+      <td>-2.73</td>
+    </tr>
+    <tr>
+      <td>GIS</td>
+      <td>Consumer Staples</td>
+      <td>Packaged Foods &amp; Meats</td>
+      <td>-2.54</td>
+      <td>-2.73</td>
+    </tr>
+    <tr>
+      <td>JNJ</td>
+      <td>Health Care</td>
+      <td>Pharmaceuticals</td>
+      <td>0.05</td>
+      <td>-2.79</td>
+    </tr>
+    <tr>
+      <td>F</td>
+      <td>Consumer Discretionary</td>
+      <td>Automobile Manufacturers</td>
+      <td>-2.19</td>
+      <td>-2.82</td>
+    </tr>
+    <tr>
+      <td>CMS</td>
+      <td>Utilities</td>
+      <td>Multi-Utilities</td>
+      <td>0.80</td>
+      <td>-2.85</td>
+    </tr>
+    <tr>
+      <td>PNC</td>
+      <td>Financials</td>
+      <td>Diversified Banks</td>
+      <td>-1.04</td>
+      <td>-2.85</td>
+    </tr>
+    <tr>
+      <td>SPGI</td>
+      <td>Financials</td>
+      <td>Financial Exchanges &amp; Data</td>
+      <td>0.21</td>
+      <td>-2.88</td>
+    </tr>
+    <tr>
+      <td>CMG</td>
+      <td>Consumer Discretionary</td>
+      <td>Restaurants</td>
+      <td>-1.75</td>
+      <td>-2.89</td>
+    </tr>
+    <tr>
+      <td>FDX</td>
+      <td>Industrials</td>
+      <td>Air Freight &amp; Logistics</td>
+      <td>0.08</td>
+      <td>-2.90</td>
+    </tr>
+    <tr>
+      <td>AEP</td>
+      <td>Utilities</td>
+      <td>Electric Utilities</td>
+      <td>0.41</td>
+      <td>-2.91</td>
+    </tr>
+    <tr>
+      <td>AMGN</td>
+      <td>Health Care</td>
+      <td>Biotechnology</td>
+      <td>-0.64</td>
+      <td>-2.94</td>
+    </tr>
+    <tr>
+      <td>AXON</td>
+      <td>Industrials</td>
+      <td>Aerospace &amp; Defense</td>
+      <td>-2.27</td>
+      <td>-2.94</td>
+    </tr>
+    <tr>
+      <td>SCHW</td>
+      <td>Financials</td>
+      <td>Investment Banking &amp; Brokerage</td>
+      <td>-0.88</td>
+      <td>-2.96</td>
+    </tr>
+    <tr>
+      <td>KEY</td>
+      <td>Financials</td>
+      <td>Regional Banks</td>
+      <td>-1.34</td>
+      <td>-2.96</td>
+    </tr>
+    <tr>
+      <td>A</td>
+      <td>Health Care</td>
+      <td>Life Sciences Tools &amp; Services</td>
+      <td>-3.60</td>
+      <td>-2.97</td>
+    </tr>
+    <tr>
+      <td>RJF</td>
+      <td>Financials</td>
+      <td>Investment Banking &amp; Brokerage</td>
+      <td>-2.13</td>
+      <td>-2.99</td>
+    </tr>
+    <tr>
+      <td>VMC</td>
+      <td>Materials</td>
+      <td>Construction Materials</td>
+      <td>-0.36</td>
+      <td>-3.01</td>
+    </tr>
+    <tr>
+      <td>PGR</td>
+      <td>Financials</td>
+      <td>Property &amp; Casualty Insurance</td>
+      <td>1.50</td>
+      <td>-3.01</td>
+    </tr>
+    <tr>
+      <td>ACN</td>
+      <td>Information Technology</td>
+      <td>IT Consulting &amp; Other Services</td>
+      <td>-4.47</td>
+      <td>-3.04</td>
+    </tr>
+    <tr>
+      <td>PLTR</td>
+      <td>Information Technology</td>
+      <td>Application Software</td>
+      <td>-0.66</td>
+      <td>-3.04</td>
+    </tr>
+    <tr>
+      <td>CB</td>
+      <td>Financials</td>
+      <td>Property &amp; Casualty Insurance</td>
+      <td>0.19</td>
+      <td>-3.05</td>
+    </tr>
+    <tr>
+      <td>USB</td>
+      <td>Financials</td>
+      <td>Diversified Banks</td>
+      <td>-1.87</td>
+      <td>-3.06</td>
+    </tr>
+    <tr>
+      <td>FAST</td>
+      <td>Industrials</td>
+      <td>Trading Companies &amp; Distributors</td>
+      <td>-1.97</td>
+      <td>-3.09</td>
+    </tr>
+    <tr>
+      <td>NDAQ</td>
+      <td>Financials</td>
+      <td>Financial Exchanges &amp; Data</td>
+      <td>-0.48</td>
+      <td>-3.10</td>
+    </tr>
+    <tr>
+      <td>ED</td>
+      <td>Utilities</td>
+      <td>Multi-Utilities</td>
+      <td>-0.09</td>
+      <td>-3.11</td>
+    </tr>
+    <tr>
+      <td>KR</td>
+      <td>Consumer Staples</td>
+      <td>Food Retail</td>
+      <td>-1.28</td>
+      <td>-3.18</td>
+    </tr>
+    <tr>
+      <td>REG</td>
+      <td>Real Estate</td>
+      <td>Retail REITs</td>
+      <td>0.17</td>
+      <td>-3.22</td>
+    </tr>
+    <tr>
+      <td>BF-B</td>
+      <td>Consumer Staples</td>
+      <td>Distillers &amp; Vintners</td>
+      <td>-3.07</td>
+      <td>-3.25</td>
+    </tr>
+    <tr>
+      <td>CCL</td>
+      <td>Consumer Discretionary</td>
+      <td>Hotels, Resorts &amp; Cruise Lines</td>
+      <td>-3.56</td>
+      <td>-3.27</td>
+    </tr>
+    <tr>
+      <td>FITB</td>
+      <td>Financials</td>
+      <td>Regional Banks</td>
+      <td>-1.38</td>
+      <td>-3.30</td>
+    </tr>
+    <tr>
+      <td>ACGL</td>
+      <td>Financials</td>
+      <td>Property &amp; Casualty Insurance</td>
+      <td>0.03</td>
+      <td>-3.33</td>
+    </tr>
+    <tr>
+      <td>IBM</td>
+      <td>Information Technology</td>
+      <td>IT Consulting &amp; Other Services</td>
+      <td>-2.70</td>
+      <td>-3.37</td>
+    </tr>
+    <tr>
+      <td>LVS</td>
+      <td>Consumer Discretionary</td>
+      <td>Casinos &amp; Gaming</td>
+      <td>-1.96</td>
+      <td>-3.48</td>
+    </tr>
+    <tr>
+      <td>NTRS</td>
+      <td>Financials</td>
+      <td>Asset Management &amp; Custody Banks</td>
+      <td>0.37</td>
+      <td>-3.54</td>
+    </tr>
+    <tr>
+      <td>TER</td>
+      <td>Information Technology</td>
+      <td>Semiconductor Materials &amp; Equipment</td>
+      <td>1.91</td>
+      <td>-3.55</td>
+    </tr>
+    <tr>
+      <td>HBAN</td>
+      <td>Financials</td>
+      <td>Regional Banks</td>
+      <td>-0.99</td>
+      <td>-3.56</td>
+    </tr>
+    <tr>
+      <td>SHW</td>
+      <td>Materials</td>
+      <td>Specialty Chemicals</td>
+      <td>-1.30</td>
+      <td>-3.57</td>
+    </tr>
+    <tr>
+      <td>CFG</td>
+      <td>Financials</td>
+      <td>Regional Banks</td>
+      <td>-2.46</td>
+      <td>-3.67</td>
+    </tr>
+    <tr>
+      <td>JPM</td>
+      <td>Financials</td>
+      <td>Diversified Banks</td>
+      <td>-0.70</td>
+      <td>-3.68</td>
+    </tr>
+    <tr>
+      <td>PEG</td>
+      <td>Utilities</td>
+      <td>Electric Utilities</td>
+      <td>0.71</td>
+      <td>-3.69</td>
+    </tr>
+    <tr>
+      <td>TMO</td>
+      <td>Health Care</td>
+      <td>Life Sciences Tools &amp; Services</td>
+      <td>-2.67</td>
+      <td>-3.75</td>
+    </tr>
+    <tr>
+      <td>GPC</td>
+      <td>Consumer Discretionary</td>
+      <td>Distributors</td>
+      <td>-3.15</td>
+      <td>-3.79</td>
     </tr>
     <tr>
       <td>UPS</td>
       <td>Industrials</td>
       <td>Air Freight &amp; Logistics</td>
-      <td>0.68</td>
-      <td>-6.89</td>
+      <td>-0.77</td>
+      <td>-3.79</td>
     </tr>
     <tr>
-      <td>CF</td>
+      <td>AZO</td>
+      <td>Consumer Discretionary</td>
+      <td>Automotive Retail</td>
+      <td>-1.96</td>
+      <td>-3.80</td>
+    </tr>
+    <tr>
+      <td>MSFT</td>
+      <td>Information Technology</td>
+      <td>Systems Software</td>
+      <td>-0.59</td>
+      <td>-3.86</td>
+    </tr>
+    <tr>
+      <td>ZBH</td>
+      <td>Health Care</td>
+      <td>Health Care Equipment</td>
+      <td>-3.34</td>
+      <td>-3.89</td>
+    </tr>
+    <tr>
+      <td>PG</td>
+      <td>Consumer Staples</td>
+      <td>Personal Care Products</td>
+      <td>-2.09</td>
+      <td>-3.89</td>
+    </tr>
+    <tr>
+      <td>YUM</td>
+      <td>Consumer Discretionary</td>
+      <td>Restaurants</td>
+      <td>-1.09</td>
+      <td>-3.94</td>
+    </tr>
+    <tr>
+      <td>ALLE</td>
+      <td>Industrials</td>
+      <td>Building Products</td>
+      <td>-1.50</td>
+      <td>-4.00</td>
+    </tr>
+    <tr>
+      <td>BAC</td>
+      <td>Financials</td>
+      <td>Diversified Banks</td>
+      <td>-1.48</td>
+      <td>-4.01</td>
+    </tr>
+    <tr>
+      <td>JBHT</td>
+      <td>Industrials</td>
+      <td>Cargo Ground Transportation</td>
+      <td>-1.89</td>
+      <td>-4.02</td>
+    </tr>
+    <tr>
+      <td>DTE</td>
+      <td>Utilities</td>
+      <td>Multi-Utilities</td>
+      <td>1.30</td>
+      <td>-4.14</td>
+    </tr>
+    <tr>
+      <td>TRV</td>
+      <td>Financials</td>
+      <td>Property &amp; Casualty Insurance</td>
+      <td>-0.31</td>
+      <td>-4.16</td>
+    </tr>
+    <tr>
+      <td>BKR</td>
+      <td>Energy</td>
+      <td>Oil &amp; Gas Equipment &amp; Services</td>
+      <td>1.11</td>
+      <td>-4.22</td>
+    </tr>
+    <tr>
+      <td>COF</td>
+      <td>Financials</td>
+      <td>Consumer Finance</td>
+      <td>-2.93</td>
+      <td>-4.25</td>
+    </tr>
+    <tr>
+      <td>BDX</td>
+      <td>Health Care</td>
+      <td>Health Care Equipment</td>
+      <td>-4.20</td>
+      <td>-4.26</td>
+    </tr>
+    <tr>
+      <td>OTIS</td>
+      <td>Industrials</td>
+      <td>Industrial Machinery &amp; Supplies &amp; Components</td>
+      <td>-1.10</td>
+      <td>-4.34</td>
+    </tr>
+    <tr>
+      <td>MTB</td>
+      <td>Financials</td>
+      <td>Regional Banks</td>
+      <td>-1.96</td>
+      <td>-4.39</td>
+    </tr>
+    <tr>
+      <td>PEP</td>
+      <td>Consumer Staples</td>
+      <td>Soft Drinks &amp; Non-alcoholic Beverages</td>
+      <td>-3.37</td>
+      <td>-4.40</td>
+    </tr>
+    <tr>
+      <td>BMY</td>
+      <td>Health Care</td>
+      <td>Pharmaceuticals</td>
+      <td>-0.87</td>
+      <td>-4.45</td>
+    </tr>
+    <tr>
+      <td>FDS</td>
+      <td>Financials</td>
+      <td>Financial Exchanges &amp; Data</td>
+      <td>-1.98</td>
+      <td>-4.52</td>
+    </tr>
+    <tr>
+      <td>IP</td>
+      <td>Materials</td>
+      <td>Paper &amp; Plastic Packaging Products &amp; Materials</td>
+      <td>-1.70</td>
+      <td>-4.56</td>
+    </tr>
+    <tr>
+      <td>T</td>
+      <td>Communication Services</td>
+      <td>Integrated Telecommunication Services</td>
+      <td>-1.15</td>
+      <td>-4.57</td>
+    </tr>
+    <tr>
+      <td>MLM</td>
+      <td>Materials</td>
+      <td>Construction Materials</td>
+      <td>-0.75</td>
+      <td>-4.57</td>
+    </tr>
+    <tr>
+      <td>VRSK</td>
+      <td>Industrials</td>
+      <td>Research &amp; Consulting Services</td>
+      <td>-1.92</td>
+      <td>-4.58</td>
+    </tr>
+    <tr>
+      <td>GM</td>
+      <td>Consumer Discretionary</td>
+      <td>Automobile Manufacturers</td>
+      <td>-4.45</td>
+      <td>-4.64</td>
+    </tr>
+    <tr>
+      <td>EQT</td>
+      <td>Energy</td>
+      <td>Oil &amp; Gas Exploration &amp; Production</td>
+      <td>0.88</td>
+      <td>-4.73</td>
+    </tr>
+    <tr>
+      <td>HIG</td>
+      <td>Financials</td>
+      <td>Property &amp; Casualty Insurance</td>
+      <td>0.07</td>
+      <td>-4.81</td>
+    </tr>
+    <tr>
+      <td>ULTA</td>
+      <td>Consumer Discretionary</td>
+      <td>Other Specialty Retail</td>
+      <td>-1.84</td>
+      <td>-4.86</td>
+    </tr>
+    <tr>
+      <td>ROST</td>
+      <td>Consumer Discretionary</td>
+      <td>Apparel Retail</td>
+      <td>-4.99</td>
+      <td>-4.86</td>
+    </tr>
+    <tr>
+      <td>RSG</td>
+      <td>Industrials</td>
+      <td>Environmental &amp; Facilities Services</td>
+      <td>-1.14</td>
+      <td>-5.01</td>
+    </tr>
+    <tr>
+      <td>XYL</td>
+      <td>Industrials</td>
+      <td>Industrial Machinery &amp; Supplies &amp; Components</td>
+      <td>-1.52</td>
+      <td>-5.01</td>
+    </tr>
+    <tr>
+      <td>AWK</td>
+      <td>Utilities</td>
+      <td>Water Utilities</td>
+      <td>0.77</td>
+      <td>-5.02</td>
+    </tr>
+    <tr>
+      <td>MAS</td>
+      <td>Industrials</td>
+      <td>Building Products</td>
+      <td>-1.60</td>
+      <td>-5.04</td>
+    </tr>
+    <tr>
+      <td>APA</td>
+      <td>Energy</td>
+      <td>Oil &amp; Gas Exploration &amp; Production</td>
+      <td>3.21</td>
+      <td>-5.05</td>
+    </tr>
+    <tr>
+      <td>NOC</td>
+      <td>Industrials</td>
+      <td>Aerospace &amp; Defense</td>
+      <td>-0.24</td>
+      <td>-5.12</td>
+    </tr>
+    <tr>
+      <td>ROL</td>
+      <td>Industrials</td>
+      <td>Environmental &amp; Facilities Services</td>
+      <td>-1.76</td>
+      <td>-5.13</td>
+    </tr>
+    <tr>
+      <td>TFC</td>
+      <td>Financials</td>
+      <td>Diversified Banks</td>
+      <td>-2.32</td>
+      <td>-5.23</td>
+    </tr>
+    <tr>
+      <td>TJX</td>
+      <td>Consumer Discretionary</td>
+      <td>Apparel Retail</td>
+      <td>-2.90</td>
+      <td>-5.27</td>
+    </tr>
+    <tr>
+      <td>RF</td>
+      <td>Financials</td>
+      <td>Regional Banks</td>
+      <td>-2.90</td>
+      <td>-5.29</td>
+    </tr>
+    <tr>
+      <td>HD</td>
+      <td>Consumer Discretionary</td>
+      <td>Home Improvement Retail</td>
+      <td>-1.91</td>
+      <td>-5.37</td>
+    </tr>
+    <tr>
+      <td>HRL</td>
+      <td>Consumer Staples</td>
+      <td>Packaged Foods &amp; Meats</td>
+      <td>-1.37</td>
+      <td>-5.40</td>
+    </tr>
+    <tr>
+      <td>MRSH</td>
+      <td>Financials</td>
+      <td>Insurance Brokers</td>
+      <td>-1.02</td>
+      <td>-5.41</td>
+    </tr>
+    <tr>
+      <td>CTAS</td>
+      <td>Industrials</td>
+      <td>Diversified Support Services</td>
+      <td>-1.38</td>
+      <td>-5.48</td>
+    </tr>
+    <tr>
+      <td>DVN</td>
+      <td>Energy</td>
+      <td>Oil &amp; Gas Exploration &amp; Production</td>
+      <td>2.46</td>
+      <td>-5.56</td>
+    </tr>
+    <tr>
+      <td>PCAR</td>
+      <td>Industrials</td>
+      <td>Construction Machinery &amp; Heavy Transportation Equipment</td>
+      <td>-1.18</td>
+      <td>-5.56</td>
+    </tr>
+    <tr>
+      <td>ERIE</td>
+      <td>Financials</td>
+      <td>Insurance Brokers</td>
+      <td>0.55</td>
+      <td>-5.59</td>
+    </tr>
+    <tr>
+      <td>VST</td>
+      <td>Utilities</td>
+      <td>Electric Utilities</td>
+      <td>2.93</td>
+      <td>-5.63</td>
+    </tr>
+    <tr>
+      <td>WY</td>
+      <td>Real Estate</td>
+      <td>Timber REITs</td>
+      <td>-0.47</td>
+      <td>-5.64</td>
+    </tr>
+    <tr>
+      <td>LEN</td>
+      <td>Consumer Discretionary</td>
+      <td>Homebuilding</td>
+      <td>-1.46</td>
+      <td>-5.67</td>
+    </tr>
+    <tr>
+      <td>WM</td>
+      <td>Industrials</td>
+      <td>Environmental &amp; Facilities Services</td>
+      <td>-0.59</td>
+      <td>-5.82</td>
+    </tr>
+    <tr>
+      <td>NKE</td>
+      <td>Consumer Discretionary</td>
+      <td>Apparel, Accessories &amp; Luxury Goods</td>
+      <td>-3.96</td>
+      <td>-5.86</td>
+    </tr>
+    <tr>
+      <td>OXY</td>
+      <td>Energy</td>
+      <td>Oil &amp; Gas Exploration &amp; Production</td>
+      <td>3.98</td>
+      <td>-5.92</td>
+    </tr>
+    <tr>
+      <td>LOW</td>
+      <td>Consumer Discretionary</td>
+      <td>Home Improvement Retail</td>
+      <td>-1.37</td>
+      <td>-5.93</td>
+    </tr>
+    <tr>
+      <td>ECL</td>
+      <td>Materials</td>
+      <td>Specialty Chemicals</td>
+      <td>-1.23</td>
+      <td>-5.94</td>
+    </tr>
+    <tr>
+      <td>JKHY</td>
+      <td>Financials</td>
+      <td>Transaction &amp; Payment Processing Services</td>
+      <td>-1.50</td>
+      <td>-5.99</td>
+    </tr>
+    <tr>
+      <td>WSM</td>
+      <td>Consumer Discretionary</td>
+      <td>Homefurnishing Retail</td>
+      <td>-3.29</td>
+      <td>-6.03</td>
+    </tr>
+    <tr>
+      <td>MOS</td>
       <td>Materials</td>
       <td>Fertilizers &amp; Agricultural Chemicals</td>
-      <td>-3.08</td>
+      <td>-1.80</td>
+      <td>-6.04</td>
+    </tr>
+    <tr>
+      <td>BALL</td>
+      <td>Materials</td>
+      <td>Metal, Glass &amp; Plastic Containers</td>
+      <td>-1.37</td>
+      <td>-6.04</td>
+    </tr>
+    <tr>
+      <td>EXC</td>
+      <td>Utilities</td>
+      <td>Electric Utilities</td>
+      <td>0.64</td>
+      <td>-6.06</td>
+    </tr>
+    <tr>
+      <td>MCD</td>
+      <td>Consumer Discretionary</td>
+      <td>Restaurants</td>
+      <td>-0.42</td>
+      <td>-6.08</td>
+    </tr>
+    <tr>
+      <td>ITW</td>
+      <td>Industrials</td>
+      <td>Industrial Machinery &amp; Supplies &amp; Components</td>
+      <td>-1.05</td>
+      <td>-6.10</td>
+    </tr>
+    <tr>
+      <td>BR</td>
+      <td>Industrials</td>
+      <td>Data Processing &amp; Outsourced Services</td>
+      <td>-0.25</td>
+      <td>-6.11</td>
+    </tr>
+    <tr>
+      <td>MGM</td>
+      <td>Consumer Discretionary</td>
+      <td>Casinos &amp; Gaming</td>
+      <td>-3.84</td>
+      <td>-6.14</td>
+    </tr>
+    <tr>
+      <td>EW</td>
+      <td>Health Care</td>
+      <td>Health Care Equipment</td>
+      <td>-3.49</td>
+      <td>-6.21</td>
+    </tr>
+    <tr>
+      <td>CVNA</td>
+      <td>Consumer Discretionary</td>
+      <td>Automotive Retail</td>
+      <td>-2.19</td>
+      <td>-6.22</td>
+    </tr>
+    <tr>
+      <td>APTV</td>
+      <td>Consumer Discretionary</td>
+      <td>Automotive Parts &amp; Equipment</td>
+      <td>-4.37</td>
+      <td>-6.28</td>
+    </tr>
+    <tr>
+      <td>IDXX</td>
+      <td>Health Care</td>
+      <td>Health Care Equipment</td>
+      <td>-5.02</td>
+      <td>-6.39</td>
+    </tr>
+    <tr>
+      <td>WYNN</td>
+      <td>Consumer Discretionary</td>
+      <td>Casinos &amp; Gaming</td>
+      <td>-2.98</td>
+      <td>-6.43</td>
+    </tr>
+    <tr>
+      <td>RL</td>
+      <td>Consumer Discretionary</td>
+      <td>Apparel, Accessories &amp; Luxury Goods</td>
+      <td>-4.28</td>
+      <td>-6.48</td>
+    </tr>
+    <tr>
+      <td>COO</td>
+      <td>Health Care</td>
+      <td>Health Care Supplies</td>
+      <td>-1.70</td>
+      <td>-6.51</td>
+    </tr>
+    <tr>
+      <td>CHD</td>
+      <td>Consumer Staples</td>
+      <td>Household Products</td>
+      <td>-2.91</td>
+      <td>-6.55</td>
+    </tr>
+    <tr>
+      <td>TPL</td>
+      <td>Energy</td>
+      <td>Oil &amp; Gas Exploration &amp; Production</td>
+      <td>2.14</td>
+      <td>-6.56</td>
+    </tr>
+    <tr>
+      <td>NCLH</td>
+      <td>Consumer Discretionary</td>
+      <td>Hotels, Resorts &amp; Cruise Lines</td>
+      <td>-2.93</td>
+      <td>-6.80</td>
+    </tr>
+    <tr>
+      <td>TGT</td>
+      <td>Consumer Staples</td>
+      <td>Consumer Staples Merchandise Retail</td>
+      <td>-5.44</td>
+      <td>-6.84</td>
+    </tr>
+    <tr>
+      <td>LHX</td>
+      <td>Industrials</td>
+      <td>Aerospace &amp; Defense</td>
+      <td>0.90</td>
+      <td>-6.93</td>
+    </tr>
+    <tr>
+      <td>AJG</td>
+      <td>Financials</td>
+      <td>Insurance Brokers</td>
+      <td>-0.15</td>
+      <td>-6.96</td>
+    </tr>
+    <tr>
+      <td>DHR</td>
+      <td>Health Care</td>
+      <td>Life Sciences Tools &amp; Services</td>
+      <td>-2.71</td>
       <td>-6.96</td>
     </tr>
     <tr>
       <td>DHI</td>
       <td>Consumer Discretionary</td>
       <td>Homebuilding</td>
-      <td>1.14</td>
-      <td>-7.06</td>
-    </tr>
-    <tr>
-      <td>GEV</td>
-      <td>Industrials</td>
-      <td>Heavy Electrical Equipment</td>
-      <td>-0.52</td>
-      <td>-7.15</td>
+      <td>-1.81</td>
+      <td>-7.04</td>
     </tr>
     <tr>
       <td>PPL</td>
       <td>Utilities</td>
       <td>Electric Utilities</td>
-      <td>-2.34</td>
-      <td>-7.31</td>
+      <td>0.92</td>
+      <td>-7.05</td>
     </tr>
     <tr>
-      <td>OXY</td>
+      <td>COP</td>
       <td>Energy</td>
       <td>Oil &amp; Gas Exploration &amp; Production</td>
-      <td>-1.69</td>
-      <td>-7.40</td>
-    </tr>
-    <tr>
-      <td>APA</td>
-      <td>Energy</td>
-      <td>Oil &amp; Gas Exploration &amp; Production</td>
-      <td>-1.88</td>
-      <td>-7.47</td>
-    </tr>
-    <tr>
-      <td>AJG</td>
-      <td>Financials</td>
-      <td>Insurance Brokers</td>
-      <td>-1.52</td>
-      <td>-7.53</td>
-    </tr>
-    <tr>
-      <td>CMCSA</td>
-      <td>Communication Services</td>
-      <td>Cable &amp; Satellite</td>
-      <td>-3.20</td>
-      <td>-7.67</td>
-    </tr>
-    <tr>
-      <td>NVR</td>
-      <td>Consumer Discretionary</td>
-      <td>Homebuilding</td>
-      <td>-0.58</td>
-      <td>-7.84</td>
-    </tr>
-    <tr>
-      <td>XYL</td>
-      <td>Industrials</td>
-      <td>Industrial Machinery &amp; Supplies &amp; Components</td>
-      <td>-1.65</td>
-      <td>-7.92</td>
-    </tr>
-    <tr>
-      <td>MDT</td>
-      <td>Health Care</td>
-      <td>Health Care Equipment</td>
-      <td>-2.32</td>
-      <td>-8.16</td>
-    </tr>
-    <tr>
-      <td>HOOD</td>
-      <td>Financials</td>
-      <td>Investment Banking &amp; Brokerage</td>
-      <td>0.98</td>
-      <td>-8.24</td>
-    </tr>
-    <tr>
-      <td>HSIC</td>
-      <td>Health Care</td>
-      <td>Health Care Distributors</td>
-      <td>0.45</td>
-      <td>-8.26</td>
-    </tr>
-    <tr>
-      <td>PHM</td>
-      <td>Consumer Discretionary</td>
-      <td>Homebuilding</td>
-      <td>0.62</td>
-      <td>-8.36</td>
+      <td>1.48</td>
+      <td>-7.05</td>
     </tr>
     <tr>
       <td>ALGN</td>
       <td>Health Care</td>
       <td>Health Care Supplies</td>
-      <td>0.23</td>
-      <td>-8.62</td>
+      <td>-2.47</td>
+      <td>-7.15</td>
     </tr>
     <tr>
-      <td>PYPL</td>
-      <td>Financials</td>
-      <td>Transaction &amp; Payment Processing Services</td>
-      <td>-1.84</td>
-      <td>-8.84</td>
+      <td>ROP</td>
+      <td>Information Technology</td>
+      <td>Electronic Equipment &amp; Instruments</td>
+      <td>-4.23</td>
+      <td>-7.15</td>
     </tr>
     <tr>
       <td>TPR</td>
       <td>Consumer Discretionary</td>
       <td>Apparel, Accessories &amp; Luxury Goods</td>
-      <td>2.27</td>
-      <td>-8.87</td>
+      <td>-0.10</td>
+      <td>-7.30</td>
+    </tr>
+    <tr>
+      <td>TTD</td>
+      <td>Communication Services</td>
+      <td>Advertising</td>
+      <td>-6.76</td>
+      <td>-7.36</td>
+    </tr>
+    <tr>
+      <td>NFLX</td>
+      <td>Communication Services</td>
+      <td>Movies &amp; Entertainment</td>
+      <td>-2.33</td>
+      <td>-7.39</td>
+    </tr>
+    <tr>
+      <td>SYF</td>
+      <td>Financials</td>
+      <td>Consumer Finance</td>
+      <td>-3.91</td>
+      <td>-7.46</td>
+    </tr>
+    <tr>
+      <td>J</td>
+      <td>Industrials</td>
+      <td>Construction &amp; Engineering</td>
+      <td>-1.19</td>
+      <td>-7.46</td>
+    </tr>
+    <tr>
+      <td>PHM</td>
+      <td>Consumer Discretionary</td>
+      <td>Homebuilding</td>
+      <td>-1.79</td>
+      <td>-7.59</td>
+    </tr>
+    <tr>
+      <td>L</td>
+      <td>Financials</td>
+      <td>Multi-line Insurance</td>
+      <td>-0.75</td>
+      <td>-7.70</td>
+    </tr>
+    <tr>
+      <td>STZ</td>
+      <td>Consumer Staples</td>
+      <td>Distillers &amp; Vintners</td>
+      <td>-3.91</td>
+      <td>-7.74</td>
     </tr>
     <tr>
       <td>AOS</td>
       <td>Industrials</td>
       <td>Building Products</td>
-      <td>-2.71</td>
-      <td>-8.89</td>
+      <td>-0.14</td>
+      <td>-7.91</td>
     </tr>
     <tr>
-      <td>CHRW</td>
-      <td>Industrials</td>
-      <td>Air Freight &amp; Logistics</td>
-      <td>0.01</td>
-      <td>-9.04</td>
+      <td>MKC</td>
+      <td>Consumer Staples</td>
+      <td>Packaged Foods &amp; Meats</td>
+      <td>-2.59</td>
+      <td>-7.96</td>
     </tr>
     <tr>
-      <td>ABT</td>
-      <td>Health Care</td>
-      <td>Health Care Equipment</td>
-      <td>-3.09</td>
-      <td>-9.14</td>
-    </tr>
-    <tr>
-      <td>CAH</td>
-      <td>Health Care</td>
-      <td>Health Care Distributors</td>
-      <td>-0.88</td>
-      <td>-9.24</td>
-    </tr>
-    <tr>
-      <td>FE</td>
-      <td>Utilities</td>
-      <td>Electric Utilities</td>
-      <td>-1.86</td>
-      <td>-9.41</td>
-    </tr>
-    <tr>
-      <td>FISV</td>
-      <td>Financials</td>
-      <td>Transaction &amp; Payment Processing Services</td>
-      <td>-2.34</td>
-      <td>-9.45</td>
-    </tr>
-    <tr>
-      <td>ALLE</td>
-      <td>Industrials</td>
-      <td>Building Products</td>
-      <td>-1.78</td>
-      <td>-9.45</td>
-    </tr>
-    <tr>
-      <td>TRMB</td>
-      <td>Information Technology</td>
-      <td>Application Software</td>
-      <td>-1.70</td>
-      <td>-9.48</td>
-    </tr>
-    <tr>
-      <td>CSGP</td>
-      <td>Real Estate</td>
-      <td>Real Estate Services</td>
-      <td>-6.32</td>
-      <td>-9.58</td>
-    </tr>
-    <tr>
-      <td>PH</td>
-      <td>Industrials</td>
-      <td>Industrial Machinery &amp; Supplies &amp; Components</td>
-      <td>-0.68</td>
-      <td>-9.60</td>
-    </tr>
-    <tr>
-      <td>TPL</td>
-      <td>Energy</td>
-      <td>Oil &amp; Gas Exploration &amp; Production</td>
-      <td>-1.22</td>
-      <td>-9.77</td>
-    </tr>
-    <tr>
-      <td>LDOS</td>
-      <td>Industrials</td>
-      <td>Diversified Support Services</td>
-      <td>-0.88</td>
-      <td>-9.80</td>
+      <td>CLX</td>
+      <td>Consumer Staples</td>
+      <td>Household Products</td>
+      <td>-3.54</td>
+      <td>-7.97</td>
     </tr>
     <tr>
       <td>IR</td>
       <td>Industrials</td>
       <td>Industrial Machinery &amp; Supplies &amp; Components</td>
-      <td>-2.26</td>
-      <td>-9.83</td>
+      <td>-1.39</td>
+      <td>-7.99</td>
     </tr>
     <tr>
-      <td>GEHC</td>
-      <td>Health Care</td>
-      <td>Health Care Equipment</td>
-      <td>3.47</td>
-      <td>-9.95</td>
-    </tr>
-    <tr>
-      <td>BSX</td>
-      <td>Health Care</td>
-      <td>Health Care Equipment</td>
-      <td>-4.67</td>
-      <td>-10.04</td>
-    </tr>
-    <tr>
-      <td>ODFL</td>
-      <td>Industrials</td>
-      <td>Cargo Ground Transportation</td>
-      <td>0.14</td>
-      <td>-10.07</td>
-    </tr>
-    <tr>
-      <td>PCAR</td>
-      <td>Industrials</td>
-      <td>Construction Machinery &amp; Heavy Transportation Equipment</td>
-      <td>0.23</td>
-      <td>-10.13</td>
-    </tr>
-    <tr>
-      <td>META</td>
-      <td>Communication Services</td>
-      <td>Interactive Media &amp; Services</td>
-      <td>-1.16</td>
-      <td>-10.17</td>
-    </tr>
-    <tr>
-      <td>TER</td>
-      <td>Information Technology</td>
-      <td>Semiconductor Materials &amp; Equipment</td>
-      <td>1.60</td>
-      <td>-10.50</td>
-    </tr>
-    <tr>
-      <td>LULU</td>
+      <td>DPZ</td>
       <td>Consumer Discretionary</td>
-      <td>Apparel, Accessories &amp; Luxury Goods</td>
-      <td>-1.80</td>
-      <td>-10.73</td>
+      <td>Restaurants</td>
+      <td>-3.17</td>
+      <td>-8.00</td>
     </tr>
     <tr>
-      <td>MSI</td>
-      <td>Information Technology</td>
-      <td>Communications Equipment</td>
-      <td>-11.36</td>
-      <td>-11.03</td>
-    </tr>
-    <tr>
-      <td>ZBH</td>
+      <td>STE</td>
       <td>Health Care</td>
       <td>Health Care Equipment</td>
-      <td>-1.25</td>
-      <td>-11.08</td>
+      <td>-2.70</td>
+      <td>-8.15</td>
     </tr>
     <tr>
-      <td>MCK</td>
-      <td>Health Care</td>
-      <td>Health Care Distributors</td>
-      <td>-2.47</td>
-      <td>-11.13</td>
+      <td>NVR</td>
+      <td>Consumer Discretionary</td>
+      <td>Homebuilding</td>
+      <td>-1.06</td>
+      <td>-8.25</td>
     </tr>
     <tr>
-      <td>HUBB</td>
-      <td>Industrials</td>
-      <td>Industrial Machinery &amp; Supplies &amp; Components</td>
-      <td>-0.09</td>
-      <td>-11.30</td>
+      <td>TYL</td>
+      <td>Information Technology</td>
+      <td>Application Software</td>
+      <td>-3.79</td>
+      <td>-8.28</td>
     </tr>
     <tr>
-      <td>CHTR</td>
-      <td>Communication Services</td>
-      <td>Cable &amp; Satellite</td>
-      <td>-3.36</td>
-      <td>-11.31</td>
+      <td>DLTR</td>
+      <td>Consumer Staples</td>
+      <td>Consumer Staples Merchandise Retail</td>
+      <td>-4.48</td>
+      <td>-8.35</td>
     </tr>
     <tr>
-      <td>VST</td>
-      <td>Utilities</td>
-      <td>Electric Utilities</td>
-      <td>-4.05</td>
-      <td>-11.32</td>
+      <td>CSGP</td>
+      <td>Real Estate</td>
+      <td>Real Estate Services</td>
+      <td>0.46</td>
+      <td>-8.45</td>
     </tr>
     <tr>
-      <td>WTW</td>
-      <td>Financials</td>
-      <td>Insurance Brokers</td>
-      <td>-0.66</td>
-      <td>-11.40</td>
-    </tr>
-    <tr>
-      <td>HII</td>
-      <td>Industrials</td>
-      <td>Aerospace &amp; Defense</td>
-      <td>0.50</td>
-      <td>-11.75</td>
-    </tr>
-    <tr>
-      <td>MTD</td>
-      <td>Health Care</td>
-      <td>Life Sciences Tools &amp; Services</td>
-      <td>-14.77</td>
-      <td>-11.79</td>
-    </tr>
-    <tr>
-      <td>TECH</td>
-      <td>Health Care</td>
-      <td>Life Sciences Tools &amp; Services</td>
-      <td>-5.01</td>
-      <td>-12.25</td>
-    </tr>
-    <tr>
-      <td>SYK</td>
+      <td>RMD</td>
       <td>Health Care</td>
       <td>Health Care Equipment</td>
-      <td>-2.98</td>
-      <td>-13.23</td>
-    </tr>
-    <tr>
-      <td>NRG</td>
-      <td>Utilities</td>
-      <td>Independent Power Producers &amp; Energy Traders</td>
-      <td>-2.64</td>
-      <td>-13.50</td>
-    </tr>
-    <tr>
-      <td>APH</td>
-      <td>Information Technology</td>
-      <td>Electronic Components</td>
-      <td>-6.29</td>
-      <td>-13.87</td>
-    </tr>
-    <tr>
-      <td>BLDR</td>
-      <td>Industrials</td>
-      <td>Building Products</td>
-      <td>-2.53</td>
-      <td>-13.89</td>
-    </tr>
-    <tr>
-      <td>TSCO</td>
-      <td>Consumer Discretionary</td>
-      <td>Other Specialty Retail</td>
-      <td>-3.43</td>
-      <td>-14.07</td>
-    </tr>
-    <tr>
-      <td>BRO</td>
-      <td>Financials</td>
-      <td>Insurance Brokers</td>
-      <td>-2.76</td>
-      <td>-14.62</td>
-    </tr>
-    <tr>
-      <td>EPAM</td>
-      <td>Information Technology</td>
-      <td>IT Consulting &amp; Other Services</td>
-      <td>-4.81</td>
-      <td>-14.68</td>
-    </tr>
-    <tr>
-      <td>COR</td>
-      <td>Health Care</td>
-      <td>Health Care Distributors</td>
-      <td>2.12</td>
-      <td>-15.82</td>
-    </tr>
-    <tr>
-      <td>POOL</td>
-      <td>Consumer Discretionary</td>
-      <td>Distributors</td>
-      <td>-1.40</td>
-      <td>-16.65</td>
+      <td>-3.87</td>
+      <td>-8.46</td>
     </tr>
     <tr>
       <td>PNR</td>
       <td>Industrials</td>
       <td>Industrial Machinery &amp; Supplies &amp; Components</td>
-      <td>-2.71</td>
-      <td>-16.74</td>
+      <td>-1.29</td>
+      <td>-8.48</td>
     </tr>
     <tr>
-      <td>ANET</td>
+      <td>FIS</td>
+      <td>Financials</td>
+      <td>Transaction &amp; Payment Processing Services</td>
+      <td>-2.60</td>
+      <td>-8.51</td>
+    </tr>
+    <tr>
+      <td>DASH</td>
+      <td>Consumer Discretionary</td>
+      <td>Specialized Consumer Services</td>
+      <td>-4.03</td>
+      <td>-8.51</td>
+    </tr>
+    <tr>
+      <td>EXPE</td>
+      <td>Consumer Discretionary</td>
+      <td>Hotels, Resorts &amp; Cruise Lines</td>
+      <td>-3.70</td>
+      <td>-8.55</td>
+    </tr>
+    <tr>
+      <td>BSX</td>
+      <td>Health Care</td>
+      <td>Health Care Equipment</td>
+      <td>-1.04</td>
+      <td>-8.69</td>
+    </tr>
+    <tr>
+      <td>PH</td>
+      <td>Industrials</td>
+      <td>Industrial Machinery &amp; Supplies &amp; Components</td>
+      <td>-0.51</td>
+      <td>-8.93</td>
+    </tr>
+    <tr>
+      <td>DECK</td>
+      <td>Consumer Discretionary</td>
+      <td>Footwear</td>
+      <td>-3.75</td>
+      <td>-8.98</td>
+    </tr>
+    <tr>
+      <td>BKNG</td>
+      <td>Consumer Discretionary</td>
+      <td>Hotels, Resorts &amp; Cruise Lines</td>
+      <td>-4.90</td>
+      <td>-8.99</td>
+    </tr>
+    <tr>
+      <td>MDT</td>
+      <td>Health Care</td>
+      <td>Health Care Equipment</td>
+      <td>-2.11</td>
+      <td>-8.99</td>
+    </tr>
+    <tr>
+      <td>FE</td>
+      <td>Utilities</td>
+      <td>Electric Utilities</td>
+      <td>0.61</td>
+      <td>-9.12</td>
+    </tr>
+    <tr>
+      <td>WFC</td>
+      <td>Financials</td>
+      <td>Diversified Banks</td>
+      <td>-2.72</td>
+      <td>-9.20</td>
+    </tr>
+    <tr>
+      <td>PYPL</td>
+      <td>Financials</td>
+      <td>Transaction &amp; Payment Processing Services</td>
+      <td>-0.66</td>
+      <td>-9.21</td>
+    </tr>
+    <tr>
+      <td>HSIC</td>
+      <td>Health Care</td>
+      <td>Health Care Distributors</td>
+      <td>-2.58</td>
+      <td>-9.37</td>
+    </tr>
+    <tr>
+      <td>CMCSA</td>
+      <td>Communication Services</td>
+      <td>Cable &amp; Satellite</td>
+      <td>-1.46</td>
+      <td>-9.44</td>
+    </tr>
+    <tr>
+      <td>CHRW</td>
+      <td>Industrials</td>
+      <td>Air Freight &amp; Logistics</td>
+      <td>-0.82</td>
+      <td>-9.57</td>
+    </tr>
+    <tr>
+      <td>DG</td>
+      <td>Consumer Staples</td>
+      <td>Consumer Staples Merchandise Retail</td>
+      <td>-7.64</td>
+      <td>-9.66</td>
+    </tr>
+    <tr>
+      <td>MSI</td>
       <td>Information Technology</td>
       <td>Communications Equipment</td>
-      <td>0.01</td>
-      <td>-17.80</td>
+      <td>2.13</td>
+      <td>-9.79</td>
+    </tr>
+    <tr>
+      <td>GEHC</td>
+      <td>Health Care</td>
+      <td>Health Care Equipment</td>
+      <td>-2.79</td>
+      <td>-9.93</td>
+    </tr>
+    <tr>
+      <td>ISRG</td>
+      <td>Health Care</td>
+      <td>Health Care Equipment</td>
+      <td>-6.67</td>
+      <td>-9.98</td>
+    </tr>
+    <tr>
+      <td>HUBB</td>
+      <td>Industrials</td>
+      <td>Industrial Machinery &amp; Supplies &amp; Components</td>
+      <td>-0.49</td>
+      <td>-10.01</td>
+    </tr>
+    <tr>
+      <td>CTSH</td>
+      <td>Information Technology</td>
+      <td>IT Consulting &amp; Other Services</td>
+      <td>-4.70</td>
+      <td>-10.65</td>
+    </tr>
+    <tr>
+      <td>META</td>
+      <td>Communication Services</td>
+      <td>Interactive Media &amp; Services</td>
+      <td>-1.77</td>
+      <td>-10.80</td>
+    </tr>
+    <tr>
+      <td>NRG</td>
+      <td>Utilities</td>
+      <td>Independent Power Producers &amp; Energy Traders</td>
+      <td>-0.59</td>
+      <td>-11.04</td>
+    </tr>
+    <tr>
+      <td>CAH</td>
+      <td>Health Care</td>
+      <td>Health Care Distributors</td>
+      <td>-0.63</td>
+      <td>-11.24</td>
+    </tr>
+    <tr>
+      <td>LULU</td>
+      <td>Consumer Discretionary</td>
+      <td>Apparel, Accessories &amp; Luxury Goods</td>
+      <td>-3.69</td>
+      <td>-11.27</td>
+    </tr>
+    <tr>
+      <td>TECH</td>
+      <td>Health Care</td>
+      <td>Life Sciences Tools &amp; Services</td>
+      <td>-1.94</td>
+      <td>-11.38</td>
+    </tr>
+    <tr>
+      <td>FISV</td>
+      <td>Financials</td>
+      <td>Transaction &amp; Payment Processing Services</td>
+      <td>-1.96</td>
+      <td>-11.70</td>
+    </tr>
+    <tr>
+      <td>ODFL</td>
+      <td>Industrials</td>
+      <td>Cargo Ground Transportation</td>
+      <td>-1.62</td>
+      <td>-12.02</td>
+    </tr>
+    <tr>
+      <td>ABT</td>
+      <td>Health Care</td>
+      <td>Health Care Equipment</td>
+      <td>-2.09</td>
+      <td>-12.04</td>
+    </tr>
+    <tr>
+      <td>HII</td>
+      <td>Industrials</td>
+      <td>Aerospace &amp; Defense</td>
+      <td>0.46</td>
+      <td>-12.08</td>
+    </tr>
+    <tr>
+      <td>SYK</td>
+      <td>Health Care</td>
+      <td>Health Care Equipment</td>
+      <td>-1.01</td>
+      <td>-12.09</td>
+    </tr>
+    <tr>
+      <td>BRO</td>
+      <td>Financials</td>
+      <td>Insurance Brokers</td>
+      <td>-1.95</td>
+      <td>-12.34</td>
+    </tr>
+    <tr>
+      <td>LDOS</td>
+      <td>Industrials</td>
+      <td>Diversified Support Services</td>
+      <td>-1.87</td>
+      <td>-12.64</td>
+    </tr>
+    <tr>
+      <td>TRMB</td>
+      <td>Information Technology</td>
+      <td>Application Software</td>
+      <td>-4.54</td>
+      <td>-12.91</td>
+    </tr>
+    <tr>
+      <td>MCK</td>
+      <td>Health Care</td>
+      <td>Health Care Distributors</td>
+      <td>-1.48</td>
+      <td>-13.15</td>
+    </tr>
+    <tr>
+      <td>WTW</td>
+      <td>Financials</td>
+      <td>Insurance Brokers</td>
+      <td>-2.59</td>
+      <td>-14.15</td>
+    </tr>
+    <tr>
+      <td>POOL</td>
+      <td>Consumer Discretionary</td>
+      <td>Distributors</td>
+      <td>-1.60</td>
+      <td>-14.57</td>
+    </tr>
+    <tr>
+      <td>MTD</td>
+      <td>Health Care</td>
+      <td>Life Sciences Tools &amp; Services</td>
+      <td>-4.08</td>
+      <td>-14.57</td>
+    </tr>
+    <tr>
+      <td>CHTR</td>
+      <td>Communication Services</td>
+      <td>Cable &amp; Satellite</td>
+      <td>-4.57</td>
+      <td>-14.63</td>
+    </tr>
+    <tr>
+      <td>EPAM</td>
+      <td>Information Technology</td>
+      <td>IT Consulting &amp; Other Services</td>
+      <td>-1.89</td>
+      <td>-14.72</td>
+    </tr>
+    <tr>
+      <td>APH</td>
+      <td>Information Technology</td>
+      <td>Electronic Components</td>
+      <td>-4.34</td>
+      <td>-14.79</td>
+    </tr>
+    <tr>
+      <td>TSCO</td>
+      <td>Consumer Discretionary</td>
+      <td>Other Specialty Retail</td>
+      <td>-1.31</td>
+      <td>-15.00</td>
+    </tr>
+    <tr>
+      <td>BLDR</td>
+      <td>Industrials</td>
+      <td>Building Products</td>
+      <td>-3.26</td>
+      <td>-15.02</td>
     </tr>
     <tr>
       <td>PODD</td>
       <td>Health Care</td>
       <td>Health Care Equipment</td>
-      <td>-3.89</td>
-      <td>-18.13</td>
+      <td>0.01</td>
+      <td>-15.69</td>
+    </tr>
+    <tr>
+      <td>COR</td>
+      <td>Health Care</td>
+      <td>Health Care Distributors</td>
+      <td>-0.53</td>
+      <td>-16.76</td>
+    </tr>
+    <tr>
+      <td>ANET</td>
+      <td>Information Technology</td>
+      <td>Communications Equipment</td>
+      <td>-3.77</td>
+      <td>-17.46</td>
     </tr>
     <tr>
       <td>CDW</td>
       <td>Information Technology</td>
       <td>Technology Distributors</td>
-      <td>-4.91</td>
-      <td>-21.28</td>
+      <td>-2.15</td>
+      <td>-22.86</td>
     </tr>
     <tr>
       <td>ZTS</td>
       <td>Health Care</td>
       <td>Pharmaceuticals</td>
-      <td>-5.13</td>
-      <td>-29.73</td>
+      <td>-7.44</td>
+      <td>-34.27</td>
     </tr>
   </tbody>
 </table>
             </div>
-            
         </div>
     </body>
     </html>
