@@ -1,47 +1,78 @@
-import yfinance as yf
 import pandas as pd
+import yfinance as yf
+from datetime import datetime, timedelta
+import requests
+import io
 
-# 1. 定義 S&P 500 各產業代表性的 ETF 或使用你現有的 500 檔個股清單
-# 這裡以 11 個板塊 ETF 作為產業趨勢代表，並結合個股總表
-tickers = {
-    'XLK': '科技', 'XLV': '醫療', 'XLF': '金融', 'XLY': '非必需消費',
-    'XLP': '必需消費', 'XLI': '工業', 'XLE': '能源', 'XLU': '公用事業',
-    'XLB': '原物料', 'XLRE': '房地產', 'XLC': '通訊服務'
-}
+try:
+    # 取得台灣時間
+    tw_time = datetime.utcnow() + timedelta(hours=8)
+    tw_time_str = tw_time.strftime('%Y-%m-%d %H:%M')
 
-def get_industry_summary():
-    print("正在從 Yahoo Finance 抓取並清洗數據...")
+    print("1. 正在獲取 S&P 500 最新成分股...")
+    url = 'https://en.wikipedia.org/wiki/List_of_S%26P_500_companies'
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
+    response = requests.get(url, headers=headers)
+    tables = pd.read_html(io.StringIO(response.text))
+    sp500 = tables[0][['Symbol', 'GICS Sector', 'GICS Sub-Industry']]
+    sp500['Symbol'] = sp500['Symbol'].str.replace('.', '-', regex=False)
+    tickers = sp500['Symbol'].tolist()
+
+    print("2. 下載近 10 天數據並進行資料搶救...")
+    data = yf.download(tickers, period="10d")['Close']
     
-    # 抓取 S&P 500 板塊 ETF 數據 (近 10 日)
-    data = yf.download(list(tickers.keys()), period="10d")['Close']
-    
-    # 🛠️ 一刀斃命的解決方案：填充缺失值
-    # 確保不會因為開收盤時間差產生的 NaN 導致整列數據被刪除
+    # 【關鍵】填補空白資料，防止股票被誤刪
     data = data.ffill().bfill()
     
-    # 計算累積漲跌幅 (%)
-    # 公式：(最後一天價格 / 第一天價格 - 1) * 100
-    performance = ((data.iloc[-1] / data.iloc[0]) - 1) * 100
-    
-    # 建立總表
-    summary_df = pd.DataFrame({
-        '產業代碼': performance.index,
-        '產業名稱': [tickers[t] for t in performance.index],
-        '10日累積漲幅 (%)': performance.values
-    })
-    
-    # 按漲幅排序
-    summary_df = summary_df.sort_values(by='10日累積漲幅 (%)', ascending=False)
-    
-    return summary_df
+    print("3. 計算漲跌幅與排名...")
+    daily_return = ((data.iloc[-1] / data.iloc[-2]) - 1) * 100
+    period_return = ((data.iloc[-1] / data.iloc[0]) - 1) * 100
 
-# 執行並顯示總表
-if __name__ == "__main__":
-    result_table = get_industry_summary()
-    
-    print("\n" + "="*30)
-    print(" S&P 500 產業資金輪動總表 (近10日)")
-    print("="*30)
-    print(result_table.to_string(index=False))
-    print("="*30)
-    print("數據已完成清洗，無遺漏檔數。")
+    performance_df = pd.DataFrame({
+        'Symbol': daily_return.index,
+        'Daily_Change_%': daily_return.values,
+        'Period_Change_%': period_return.values
+    })
+
+    final_df = sp500.merge(performance_df, on='Symbol').dropna()
+    final_df.columns = ['個股代號', '所屬產業', '子產業', '今日漲幅 (%)', '近10日總漲幅 (%)']
+    final_df = final_df.sort_values(by='近10日總漲幅 (%)', ascending=False)
+
+    # 4. 產出純淨 HTML 表格
+    stock_table_html = final_df.to_html(index=False, classes='table table-striped', float_format="%.2f")
+
+    html_template = f"""
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>美股資金輪動監控</title>
+        <style>
+            body {{ font-family: sans-serif; margin: 30px; background-color: #f4f7f6; }}
+            .container {{ max-width: 1000px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }}
+            h1, h2 {{ text-align: center; color: #2c3e50; }}
+            .table-container {{ max-height: 800px; overflow-y: auto; border: 1px solid #eee; }}
+            table {{ width: 100%; border-collapse: collapse; }}
+            th {{ background: #34495e; color: white; position: sticky; top: 0; padding: 12px; }}
+            td {{ padding: 10px; text-align: center; border-bottom: 1px solid #eee; }}
+            tr:hover {{ background: #f9f9f9; }}
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>美股個股排行榜</h1>
+            <p style="text-align: center;">最後更新 (台灣): {tw_time_str}</p>
+            <div class="table-container">
+                {stock_table_html}
+            </div>
+        </div>
+    </body>
+    </html>
+    """
+
+    with open("index.html", "w", encoding="utf-8") as f:
+        f.write(html_template)
+    print("✅ 網頁更新成功")
+except Exception as e:
+    print(f"❌ 錯誤: {e}")
+    raise e
