@@ -1,35 +1,28 @@
-name: Daily Stock Heatmap Update
-
+name: Daily Stock Table Update
 on:
   schedule:
-    - cron: '0 22 * * *'
-  workflow_dispatch:
+    - cron: '0 22 * * *'  # 台北時間早上 6 點自動跑
+  workflow_dispatch:      # 允許手動點擊執行
 
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
-
+      contents: write     # 【重要】必須給予寫入權限，表格才能更新
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.10'
-
-    - name: Install dependencies
-      run: pip install -r requirements.txt
-
-    - name: Run main script
-      run: python main.py
-
-    - name: Commit and Push changes
-      run: |
-        git config --global user.name 'github-actions[bot]'
-        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git add index.html
-        git commit -m "Auto-update heatmap [skip ci]" || echo "No changes to commit"
-        git push
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run script
+        run: python main.py
+      - name: Commit and Push
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add index.html
+          git commit -m "Update table data" || exit 0
+          git push
